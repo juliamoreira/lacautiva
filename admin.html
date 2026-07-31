@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Fotos · La Cautiva</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f6f3ca;color:#43291f;min-height:100vh}
+
+  /* ── Header ── */
+  .adm-header{background:#43291f;color:#f4f0bb;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .adm-logo{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+  .adm-title{font-size:17px;font-weight:700;letter-spacing:.04em}
+  .adm-badge{font-size:10px;background:#da2c38;color:#fff;padding:3px 8px;border-radius:2px;font-weight:700;letter-spacing:.08em}
+
+  /* ── Intro ── */
+  #intro{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 64px);padding:40px 24px;text-align:center}
+  .intro-icon{font-size:48px;margin-bottom:20px}
+  .intro-h{font-size:24px;font-weight:700;margin-bottom:10px}
+  .intro-p{font-size:14px;color:#7b4b39;max-width:460px;line-height:1.7;margin-bottom:32px}
+  .intro-note{font-size:12px;color:#7b4b39;opacity:.7;max-width:380px;line-height:1.6}
+
+  /* ── Button ── */
+  .btn-open{background:#226f54;color:#f4f0bb;border:none;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s}
+  .btn-open:hover{opacity:.85}
+
+  /* ── Main content ── */
+  #main{display:none;padding:32px}
+
+  /* ── Section ── */
+  .section{background:#fff;border:1px solid rgba(67,41,31,.12);margin-bottom:28px;overflow:hidden}
+  .section-head{background:#43291f;color:#f4f0bb;padding:12px 20px;display:flex;align-items:center;gap:10px}
+  .section-name{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .section-count{font-size:10px;opacity:.5}
+  .section-body{padding:20px;display:flex;flex-wrap:wrap;gap:14px}
+
+  /* ── Slot ── */
+  .slot{position:relative;cursor:pointer;border:2px dashed rgba(67,41,31,.2);transition:border-color .15s}
+  .slot:hover{border-color:#226f54}
+  .slot-img{width:100%;height:100%;object-fit:cover;display:block}
+  .slot-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3d2e1e 0%,#6b4c2a 50%,#226f54 100%)}
+  .slot-ph.pool{background:linear-gradient(135deg,#0a2535 0%,#1a4a6a 55%,#2a6a96 100%)}
+  .slot-ph.nature{background:linear-gradient(135deg,#1a2a0a 0%,#2a4a1a 55%,#4a6a2a 100%)}
+  .slot-ph.event{background:linear-gradient(135deg,#1b100c 0%,#4a3426 55%,#6b4c2a 100%)}
+  .slot-ph.hero{background:linear-gradient(180deg,#0d0806 0%,#1b100c 35%,#2a1e12 70%,#3d2b18 100%)}
+  .slot-label{font-size:9px;color:rgba(244,240,187,.4);font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:6px}
+  .slot-overlay{position:absolute;inset:0;background:rgba(34,111,84,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transition:opacity .15s}
+  .slot:hover .slot-overlay{opacity:1}
+  .slot-ov-icon{font-size:22px}
+  .slot-ov-text{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+  .slot-loaded .slot-ph{display:none}
+  .slot-loaded{border-color:#226f54;border-style:solid}
+  .slot-loaded .slot-overlay .slot-ov-text::before{content:'ALTERAR '}
+
+  /* ── Toast ── */
+  #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#226f54;color:#f4f0bb;padding:12px 22px;font-size:12px;font-weight:600;letter-spacing:.06em;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:999;white-space:nowrap}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ── Top bar ── */
+  .top-bar{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+  .top-bar h2{font-size:18px;font-weight:700;flex:1}
+  .btn-reload{background:#43291f;color:#f4f0bb;border:none;padding:10px 20px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:opacity .15s}
+  .btn-reload:hover{opacity:.8}
+
+  /* ── Size variants ── */
+  .slot.sz-hero{width:320px;height:180px}
+  .slot.sz-large{width:200px;height:150px}
+  .slot.sz-medium{width:160px;height:120px}
+  .slot.sz-small{width:120px;height:100px}
+
+  /* ── Path label ── */
+  .slot-path{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);font-size:8px;color:rgba(255,255,255,.7);padding:3px 6px;font-family:monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  @media(max-width:600px){
+    #main{padding:16px}
+    .slot.sz-hero{width:240px;height:140px}
+    .slot.sz-large{width:140px;height:110px}
+    .slot.sz-medium{width:120px;height:90px}
+    .slot.sz-small{width:90px;height:80px}
+  }
+</style>
+</head>
+<body>
+
+<div class="adm-header">
+  <div class="adm-logo">La Cautiva Cabañas</div>
+  <div class="adm-title">Gerenciador de Fotos</div>
+  <div class="adm-badge">ADMIN LOCAL</div>
+</div>
+
+<div id="intro">
+  <div class="intro-icon">📂</div>
+  <h1 class="intro-h">Selecionar pasta do projeto</h1>
+  <p class="intro-p">Para fazer upload de fotos, primeiro selecione a pasta raiz do projeto <strong>lacautivacabanas</strong> no seu computador. As fotos serão salvas automaticamente nos lugares certos.</p>
+  <button class="btn-open" onclick="openDirectory()">Selecionar pasta do projeto</button>
+  <br>
+  <p class="intro-note">⚠️ Esta ferramenta só funciona localmente (localhost). Depois de fazer o upload das fotos, faça commit e push para o GitHub para publicar.</p>
+</div>
+
+<div id="main">
+  <div class="top-bar">
+    <h2>Fotos do site</h2>
+    <button class="btn-reload" onclick="reloadAll()">↻ Recarregar todas</button>
+  </div>
+  <div id="sections"></div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+let rootDir = null;
+
+/* ── Slot definitions ── */
+const SLOTS = [
+  // Hero
+  { section:'PORTADA (hero)', id:'hero', path:'imgs/hero.jpg', label:'Foto de portada', sz:'hero', ph:'hero' },
+
+  // About
+  { section:'SOBRE (home)', id:'about-int', path:'imgs/about/interior.jpg', label:'Interior', sz:'large', ph:'' },
+  { section:'SOBRE (home)', id:'about-ext', path:'imgs/about/exterior.jpg', label:'Exterior', sz:'large', ph:'' },
+
+  // Cabin thumbnails
+  ...Array.from({length:8},(_,i)=>({
+    section:'CABAÑAS — Miniaturas (home)', id:`cab-th-${i+1}`,
+    path:`imgs/cabins/${i+1}/1.jpg`, label:`Cabaña ${i+1}`, sz:'small', ph:''
+  })),
+
+  // Gallery preview (home)
+  { section:'GALERÍA — Vista previa (home)', id:'gp-1', path:'imgs/gallery/preview-1.jpg', label:'Foto 1', sz:'medium', ph:'' },
+  { section:'GALERÍA — Vista previa (home)', id:'gp-2', path:'imgs/gallery/preview-2.jpg', label:'Foto 2 (piscina)', sz:'medium', ph:'pool' },
+  { section:'GALERÍA — Vista previa (home)', id:'gp-3', path:'imgs/gallery/preview-3.jpg', label:'Foto 3 (natureza)', sz:'medium', ph:'nature' },
+  { section:'GALERÍA — Vista previa (home)', id:'gp-4', path:'imgs/gallery/preview-4.jpg', label:'Foto 4', sz:'medium', ph:'' },
+
+  // Common areas
+  { section:'ÁREAS COMUNES', id:'cm-main',  path:'imgs/common/main.jpg',           label:'Piscina (principal)', sz:'large', ph:'pool' },
+  { section:'ÁREAS COMUNES', id:'cm-pool',  path:'imgs/common/piscina.jpg',         label:'Piscina',             sz:'medium', ph:'pool' },
+  { section:'ÁREAS COMUNES', id:'cm-quin',  path:'imgs/common/quincho.jpg',         label:'Quincho',             sz:'medium', ph:'' },
+  { section:'ÁREAS COMUNES', id:'cm-parr',  path:'imgs/common/parrilla.jpg',        label:'Parrilla',            sz:'medium', ph:'' },
+  { section:'ÁREAS COMUNES', id:'cm-estac', path:'imgs/common/estacionamiento.jpg', label:'Estacionamiento',     sz:'medium', ph:'' },
+
+  // Cabin detail photos (8 cabins × 5 photos)
+  ...Array.from({length:8},(_,ci)=>
+    Array.from({length:5},(_,pi)=>({
+      section:`CABAÑA ${ci+1} — Detalhe`, id:`cab-${ci+1}-${pi+1}`,
+      path:`imgs/cabins/${ci+1}/${pi+1}.jpg`,
+      label: pi===0 ? 'Principal' : `Foto ${pi+1}`,
+      sz: pi===0 ? 'large' : 'medium', ph:''
+    }))
+  ).flat(),
+
+  // Events
+  { section:'EVENTOS', id:'evt-1', path:'imgs/events/1.jpg', label:'Cumpleaños / festas',  sz:'large', ph:'event' },
+  { section:'EVENTOS', id:'evt-2', path:'imgs/events/2.jpg', label:'Casamentos / bodas',   sz:'large', ph:'event' },
+  { section:'EVENTOS', id:'evt-3', path:'imgs/events/3.jpg', label:'Empresariais / corp.', sz:'large', ph:'event' },
+
+  // Gallery page (4 cats × 4 photos)
+  ...['cabins','pool','nature','groups'].flatMap((cat,ci)=>
+    Array.from({length:4},(_,pi)=>({
+      section:`GALERÍA — ${['Cabañas','Piscina y quincho','Entorno natural','Grupos y encuentros'][ci]}`,
+      id:`gal-${cat}-${pi+1}`, path:`imgs/gallery/${cat}-${pi+1}.jpg`,
+      label:`Foto ${pi+1}`, sz:'medium', ph:['','pool','nature',''][ci]
+    }))
+  ),
+
+  // Things to do
+  ...Array.from({length:4},(_,i)=>({
+    section:'QUÉ HACER', id:`th-${i+1}`,
+    path:`imgs/things/${i+1}.jpg`, label:`Lugar ${i+1}`, sz:'medium', ph:'nature'
+  })),
+
+  // Blog
+  ...Array.from({length:3},(_,i)=>({
+    section:'BLOG', id:`blog-${i+1}`,
+    path:`imgs/blog/${i+1}.jpg`, label:`Artículo ${i+1}`, sz:'medium', ph:''
+  })),
+
+  // Reviews with photos
+  ...[1,4,6,8,10,13,15].map(id=>({
+    section:'RESEÑAS — Fotos', id:`rv-${id}`,
+    path:`imgs/reviews/${id}.jpg`, label:`Reseña #${id}`, sz:'medium', ph:'nature'
+  }))
+];
+
+/* ── Directory access ── */
+async function openDirectory(){
+  if(!window.showDirectoryPicker){
+    alert('Este navegador não suporta o acesso a arquivos locais.\nUse Chrome ou Edge no computador.');
+    return;
+  }
+  try{
+    rootDir = await window.showDirectoryPicker({id:'lacautiva', mode:'readwrite'});
+    document.getElementById('intro').style.display='none';
+    document.getElementById('main').style.display='block';
+    buildSections();
+    await loadAllPreviews();
+  } catch(e){
+    if(e.name!=='AbortError') alert('Erro: '+e.message);
+  }
+}
+
+async function reloadAll(){
+  await loadAllPreviews();
+  showToast('Todas as fotos recarregadas');
+}
+
+/* ── Build section HTML ── */
+function buildSections(){
+  const groups={};
+  SLOTS.forEach(s=>{
+    if(!groups[s.section]) groups[s.section]=[];
+    groups[s.section].push(s);
+  });
+
+  const html=Object.entries(groups).map(([name,slots])=>`
+    <div class="section">
+      <div class="section-head">
+        <span class="section-name">${name}</span>
+        <span class="section-count">${slots.length} foto${slots.length>1?'s':''}</span>
+      </div>
+      <div class="section-body">
+        ${slots.map(s=>`
+          <div class="slot sz-${s.sz}" id="slot-${s.id}" onclick="uploadSlot('${s.id}')" title="${s.path}">
+            <div class="slot-ph ${s.ph}">
+              <span class="slot-label">${s.label}</span>
+            </div>
+            <img class="slot-img" id="img-${s.id}" alt="${s.label}" style="display:none">
+            <div class="slot-overlay">
+              <div class="slot-ov-icon">📷</div>
+              <div class="slot-ov-text">ALTERAR</div>
+            </div>
+            <div class="slot-path">${s.path}</div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('sections').innerHTML=html;
+}
+
+/* ── Load previews from filesystem ── */
+async function loadAllPreviews(){
+  const promises=SLOTS.map(s=>loadPreview(s));
+  await Promise.allSettled(promises);
+}
+
+async function loadPreview(slot){
+  try{
+    const parts=slot.path.split('/');
+    let dir=rootDir;
+    for(const part of parts.slice(0,-1)){
+      dir=await dir.getDirectoryHandle(part);
+    }
+    const fh=await dir.getFileHandle(parts.at(-1));
+    const file=await fh.getFile();
+    const url=URL.createObjectURL(file);
+    const imgEl=document.getElementById('img-'+slot.id);
+    const slotEl=document.getElementById('slot-'+slot.id);
+    if(imgEl && slotEl){
+      imgEl.src=url;
+      imgEl.style.display='block';
+      slotEl.classList.add('slot-loaded');
+    }
+  }catch{
+    /* file not found — keeps placeholder */
+  }
+}
+
+/* ── Upload ── */
+async function uploadSlot(slotId){
+  const slot=SLOTS.find(s=>s.id===slotId);
+  if(!slot) return;
+
+  let fileHandle;
+  try{
+    [fileHandle]=await window.showOpenFilePicker({
+      types:[{description:'Imagens',accept:{'image/*':['.jpg','.jpeg','.png','.webp','.avif']}}],
+      multiple:false
+    });
+  }catch(e){
+    if(e.name!=='AbortError') alert('Erro ao selecionar arquivo: '+e.message);
+    return;
+  }
+
+  try{
+    const file=await fileHandle.getFile();
+
+    /* navigate / create directories */
+    const parts=slot.path.split('/');
+    let dir=rootDir;
+    for(const part of parts.slice(0,-1)){
+      dir=await dir.getDirectoryHandle(part,{create:true});
+    }
+    const destHandle=await dir.getFileHandle(parts.at(-1),{create:true});
+    const writable=await destHandle.createWritable();
+    await writable.write(file);
+    await writable.close();
+
+    /* update preview */
+    const url=URL.createObjectURL(file);
+    const imgEl=document.getElementById('img-'+slot.id);
+    const slotEl=document.getElementById('slot-'+slot.id);
+    if(imgEl && slotEl){
+      imgEl.src=url;
+      imgEl.style.display='block';
+      slotEl.classList.add('slot-loaded');
+    }
+
+    showToast(`✓  ${slot.label} salva em ${slot.path}`);
+  }catch(e){
+    alert('Erro ao salvar: '+e.message);
+  }
+}
+
+/* ── Toast ── */
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
+}
+</script>
+</body>
+</html>
