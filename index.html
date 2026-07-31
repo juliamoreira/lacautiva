@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Cautiva Cabañas | Tanti, Córdoba</title>
+  <meta name="description" content="Cabañas equipadas para 2 a 7 personas en Tanti, Córdoba. A 2 minutos en auto del centro y 4 minutos en auto del río. Ideal para grupos, familias y eventos.">
+  <meta name="keywords" content="cabañas tanti, alojamiento tanti, cabañas córdoba, sierras córdoba, valle punilla">
+  <meta property="og:title" content="La Cautiva Cabañas Tanti">
+  <meta property="og:description" content="Cabañas en las sierras de Tanti, Córdoba. Para 2 a 7 personas.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Dancing+Script:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.15/index.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Work Sans',sans-serif;background:#f4f0bb;color:#43291f;-webkit-font-smoothing:antialiased;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    ::selection{background:#226f54;color:#fff}
+
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* ── Image placeholders ────────────────────────────── */
+    .ph{background:linear-gradient(135deg,#3d2e1e 0%,#6b4c2a 50%,#226f54 100%)}
+    .ph-hero{background:linear-gradient(180deg,#0d0806 0%,#1b100c 35%,#2a1e12 70%,#3d2b18 100%)}
+    .ph-pool{background:linear-gradient(135deg,#0a2535 0%,#1a4a6a 55%,#2a6a96 100%)}
+    .ph-nature{background:linear-gradient(135deg,#1a2a0a 0%,#2a4a1a 55%,#4a6a2a 100%)}
+    .ph-event{background:linear-gradient(135deg,#1b100c 0%,#4a3426 55%,#6b4c2a 100%)}
+
+    /* ── Layout ─────────────────────────────────────────── */
+    .wrap{max-width:1180px;margin:0 auto}
+    .serif{font-family:'Playfair Display',serif}
+    .script{font-family:'Dancing Script',cursive}
+    .eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#226f54;margin-bottom:12px}
+    .section-title{font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);color:#43291f;margin:0}
+    .page-sub{color:#7b4b39;font-size:15px;margin:0}
+    .divider{width:60px;height:2px;background:#43291f;margin:0 auto 18px}
+    .feature-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border-top:1px solid rgba(67,41,31,.15);max-width:800px}
+    .feature-item{padding:16px 18px 16px 0;border-bottom:1px solid rgba(67,41,31,.15);font-size:13.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#43291f}
+
+    /* ── Header ─────────────────────────────────────────── */
+    #hdr{position:sticky;top:0;z-index:50;background:#f4f0bb;border-bottom:1px solid rgba(67,41,31,.14);padding:18px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .hdr-logo{cursor:pointer;display:flex;align-items:center;gap:12px;font-family:'Playfair Display',serif;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+    #desk-nav{display:flex;align-items:center;gap:clamp(10px,2vw,26px);flex-wrap:wrap}
+    .nav-item{cursor:pointer;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding-bottom:3px;border-bottom:1.5px solid transparent;transition:color .15s,border-color .15s}
+    .nav-item.active{color:#43291f;border-bottom-color:#43291f}
+    .nav-item:not(.active){color:#7b4b39}
+    #hdr-right{display:flex;align-items:center;gap:16px}
+    .lang-sw{display:flex;gap:8px;font-size:11px;font-weight:600;letter-spacing:.06em}
+    .lang-btn{cursor:pointer;color:#7b4b39;transition:color .15s}
+    .lang-btn.active{color:#43291f}
+    .ig-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(67,41,31,.3);display:flex;align-items:center;justify-content:center;transition:border-color .15s}
+    .ig-btn:hover{border-color:#43291f}
+    .btn-wa-hdr{white-space:nowrap;border:1.5px solid #43291f;color:#43291f;padding:9px 18px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:opacity .15s}
+    .btn-wa-hdr:hover{opacity:.75}
+    #mob-hdr{display:none;align-items:center;gap:14px}
+    .events-banner-mob{display:none}
+    #hamburger{cursor:pointer;width:42px;height:36px;background:#43291f;border:none;padding:0;flex-shrink:0;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+    #hamburger span{display:block;width:18px;height:2px;background:#f4f0bb;border-radius:1px}
+    @media(max-width:759px){.hdr-logo svg{display:none}}
+
+    /* ── Mobile menu ─────────────────────────────────────── */
+    #mob-menu{display:none;position:sticky;top:59px;z-index:49;background:#f4f0bb;border-bottom:1px solid rgba(67,41,31,.14);padding:8px clamp(18px,4vw,48px) 20px;flex-direction:column;gap:2px}
+    #mob-menu.open{display:flex}
+    #mob-menu .mob-item{cursor:pointer;padding:12px 0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(67,41,31,.1)}
+    #mob-menu .mob-item:last-of-type{border-bottom:none}
+    #mob-menu .mob-item.active{color:#43291f}
+    #mob-menu .mob-item:not(.active){color:#7b4b39}
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero{position:relative;height:min(92vh,820px);min-height:560px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,9,.25) 0%,rgba(20,15,9,.35) 45%,rgba(20,15,9,.7) 100%);pointer-events:none}
+    .hero-left{position:absolute;left:clamp(20px,4vw,48px);bottom:clamp(20px,4vw,48px);color:#f4f0bb;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;writing-mode:vertical-rl;pointer-events:none}
+    .hero-right{position:absolute;right:clamp(20px,4vw,48px);top:clamp(20px,4vw,48px);color:#f4f0bb;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-align:right;pointer-events:none}
+    .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+    .hero-content h1{font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;letter-spacing:.01em;color:#f4f0bb;font-size:clamp(46px,9vw,120px);line-height:.95}
+    .hero-script{font-family:'Dancing Script',cursive;font-size:clamp(24px,3.4vw,42px);color:#f4f0bb;margin:6px 0 22px}
+    .hero-sub{color:#fff;font-size:clamp(14px,1.5vw,17px);max-width:560px;margin:0 auto 32px;line-height:1.6;text-shadow:0 2px 10px rgba(0,0,0,.65),0 1px 3px rgba(0,0,0,.8)}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .hero-btns a{padding:14px 28px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid #f4f0bb;color:#f4f0bb;transition:opacity .15s}
+    .hero-btns a:hover{opacity:.8}
+    .hero-btns a.fill{background:#f4f0bb;color:#43291f}
+    .hero-btns a.wa{background:#da2c38;border-color:#da2c38;color:#f4f0bb}
+
+    /* ── Events banner ───────────────────────────────────── */
+    .events-banner{background:#226f54;padding:clamp(40px,6vw,64px) clamp(20px,6vw,80px);text-align:center}
+    .events-banner .eyebrow{color:#87c38f}
+    .events-banner h2{font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(24px,3.2vw,38px);margin:0 0 14px;color:#f4f0bb}
+    .events-banner p{color:#c7eee0;font-size:15px;line-height:1.7;margin:0 0 26px}
+    .btn-outline-light{cursor:pointer;display:inline-block;border:1.5px solid #f4f0bb;color:#f4f0bb;padding:14px 28px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:opacity .15s}
+    .btn-outline-light:hover{opacity:.8}
+
+    /* ── Marquee ─────────────────────────────────────────── */
+    .marquee{background:#1b100c;overflow:hidden;white-space:nowrap;padding:13px 0}
+    .marquee-track{display:inline-block;animation:marquee 26s linear infinite}
+    .marquee-text{display:inline-block;padding-right:28px;color:#f4f0bb;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+
+    /* ── About section ───────────────────────────────────── */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:16px;align-items:stretch}
+    .about-links{border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+    .about-mobile-text{display:none}
+    .about-link-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#43291f;margin-bottom:10px}
+    .about-link-desc{font-size:14px;color:#7b4b39;line-height:1.6;margin-bottom:12px}
+    .about-link-cta{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54}
+    .about-cta{cursor:pointer;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#43291f;border-bottom:1.5px solid #43291f;display:inline-block;padding-bottom:3px}
+
+    /* ── Cabin grid (home preview) ───────────────────────── */
+    .cabin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15)}
+    .cabin-card{cursor:pointer;background:#f6f3ca;transition:opacity .15s}
+    .cabin-card:hover{opacity:.9}
+    .cabin-card-body{padding:16px}
+    .cabin-card-name{font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:#43291f}
+    .cabin-card-cap{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7b4b39;margin-top:5px}
+    .cabin-common{cursor:pointer;background:#1b100c;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;min-height:206px;transition:opacity .15s}
+    .cabin-common:hover{opacity:.85}
+
+    /* ── How to book ─────────────────────────────────────── */
+    .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .book-card{border:1.5px solid rgba(244,240,187,.35);padding:36px 24px;display:block;transition:opacity .15s}
+    .book-card:hover{opacity:.85}
+    .book-card-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f4f0bb;margin-bottom:10px}
+    .book-card-desc{font-size:13.5px;color:#c7eee0;line-height:1.6;margin-bottom:18px}
+    .book-card-cta{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f4f0bb;border-bottom:1.5px solid #f4f0bb;display:inline-block;padding-bottom:3px}
+
+    /* ── Groups ──────────────────────────────────────────── */
+    .groups-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .group-item{border-top:2px solid #43291f;padding:22px 24px 0 0}
+    .group-title{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;margin-bottom:10px;color:#43291f}
+    .group-desc{font-size:14px;color:#7b4b39;line-height:1.6}
+
+    /* ── Gallery home ────────────────────────────────────── */
+    .gal-home-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15);margin-bottom:30px}
+    .view-all{cursor:pointer;display:inline-block;border-bottom:1.5px solid #43291f;color:#43291f;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-bottom:3px}
+
+    /* ── Page banner ─────────────────────────────────────── */
+    .page-banner{padding:clamp(56px,8vw,84px) clamp(20px,6vw,80px) clamp(30px,4vw,44px);text-align:center}
+    .page-banner .eyebrow{color:#226f54;margin-bottom:14px}
+    .page-banner h1{font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(32px,5vw,58px);margin:0 0 18px;color:#43291f}
+
+    /* ── Cabin tabs ──────────────────────────────────────── */
+    .cabin-tabs{display:flex;gap:0;overflow-x:auto;padding-bottom:40px;flex-wrap:wrap;border-bottom:1px solid rgba(67,41,31,.15);max-width:1000px;margin:0 auto;justify-content:center}
+    .cabin-tab{cursor:pointer;white-space:nowrap;padding:0 16px 14px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7b4b39;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+    .cabin-tab.active{color:#43291f;border-bottom-color:#43291f}
+
+    /* ── Cabin detail ────────────────────────────────────── */
+    .detail-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15);margin-bottom:40px}
+    .detail-inner{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(67,41,31,.15)}
+    .btn-reserve{display:inline-block;margin-top:34px;border:1.5px solid #43291f;color:#43291f;padding:14px 28px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:opacity .15s}
+    .btn-reserve:hover{opacity:.75}
+
+    /* ── Events page ─────────────────────────────────────── */
+    .events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15);margin-bottom:56px}
+    .event-card{background:#f4f0bb}
+    .event-card-body{padding:22px}
+    .event-card-title{font-family:'Playfair Display',serif;font-weight:600;font-size:19px;color:#43291f;margin-bottom:10px}
+    .event-card-desc{font-size:14px;color:#7b4b39;line-height:1.6}
+    .events-features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;max-width:760px;margin:0 auto 34px;text-align:left}
+    .events-feature{font-size:13.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#f4f0bb;border-top:1.5px solid rgba(244,240,187,.35);padding-top:12px}
+    .btn-fill-light{display:inline-block;background:#f4f0bb;color:#43291f;padding:14px 28px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:opacity .15s}
+    .btn-fill-light:hover{opacity:.85}
+
+    /* ── Gallery page ────────────────────────────────────── */
+    .gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15)}
+    .gal-grid .img-slot{height:auto !important;aspect-ratio:3/4}
+    .cat-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+    .cat-title{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:#43291f;margin:0}
+    .cat-line{flex:1;height:1px;background:rgba(67,41,31,.15)}
+
+    /* ── Things / Blog ───────────────────────────────────── */
+    .things-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15)}
+    .thing-card,.blog-card{background:#f4f0bb}
+    .thing-body,.blog-body{padding:18px}
+    .thing-name{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#43291f;margin-bottom:6px}
+    .thing-desc,.blog-excerpt{font-size:13.5px;color:#7b4b39;line-height:1.5}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15)}
+    .blog-title{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;color:#43291f;margin-bottom:8px}
+    .coming-soon{display:inline-block;border:1.5px solid #226f54;color:#226f54;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px}
+
+    /* ── Contact ─────────────────────────────────────────── */
+    .contact-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(67,41,31,.15);border:1px solid rgba(67,41,31,.15);margin-bottom:60px}
+    .contact-opt{padding:30px 24px;text-align:center;display:block;transition:opacity .15s}
+    .contact-opt:hover{opacity:.85}
+    .contact-opt-dark{background:#1b100c;color:#f4f0bb}
+    .contact-opt-light{background:#f4f0bb;color:#43291f}
+    .contact-opt-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+    .contact-subtitle{font-size:20px}
+    .contact-subtitle{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:0 0 10px;color:#43291f}
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer{background:#1b100c;color:#c7eee0;padding:clamp(48px,6vw,72px) clamp(20px,6vw,80px) 28px}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;max-width:1200px;margin:0 auto 36px}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:22px;color:#f4f0bb;margin-bottom:12px}
+    .footer-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#7b4b39;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:9px;font-size:13.5px}
+    .footer-links span{cursor:pointer;transition:color .15s}
+    .footer-links span:hover{color:#f4f0bb}
+    .footer-copy{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;font-size:12px;color:#7b4b39}
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media(max-width:759px){
+      #desk-nav,#hdr-right{display:none}
+      #mob-hdr{display:flex}
+      .about-grid{grid-template-columns:1fr}
+      .about-links{display:none}
+      .about-grid>div:last-child{display:none !important}
+      .about-mobile-text{display:block;font-size:15px;line-height:1.75;color:#43291f;margin-bottom:24px}
+      .events-banner-top{display:none}
+      .events-banner-mob{display:block}
+      .detail-grid{grid-template-columns:1fr}
+      .gal-home-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media(min-width:760px){
+      #mob-menu{display:none !important}
+    }
+
+    /* ── Reservation modal ───────────────────────────────── */
+    .rv-overlay{position:fixed;inset:0;z-index:200;background:rgba(12,8,4,.82);display:none;align-items:flex-end;justify-content:center}
+    .rv-overlay.open{display:flex}
+    .rv-box{background:#f4f0bb;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative}
+    .rv-head{padding:28px 28px 20px;border-bottom:1px solid rgba(67,41,31,.12);position:relative}
+    .rv-title{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#43291f;margin:0}
+    .rv-eyebrow-sm{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#226f54;margin-bottom:8px}
+    .rv-close{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:24px;line-height:1;color:#7b4b39;padding:4px 8px;transition:color .15s}
+    .rv-close:hover{color:#43291f}
+    .rv-body{padding:24px 28px 32px}
+    .rv-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .rv-group{margin-bottom:18px}
+    .rv-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#226f54;margin-bottom:7px}
+    .rv-input{width:100%;border:1.5px solid rgba(67,41,31,.22);background:#fff;padding:11px 13px;font-family:'Work Sans',sans-serif;font-size:14px;color:#43291f;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .15s}
+    .rv-input:focus{border-color:#43291f}
+    .rv-input.err{border-color:#da2c38}
+    .rv-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23241d15'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
+    .rv-nights{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#226f54;margin:-6px 0 18px;min-height:18px}
+    .rv-error{font-size:13px;color:#da2c38;margin-bottom:14px;font-weight:600;padding:10px 14px;background:rgba(218,44,56,.08);border-left:3px solid #da2c38;display:none}
+    .rv-submit{width:100%;background:#43291f;color:#f4f0bb;border:none;padding:15px 24px;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;margin-top:8px}
+    .rv-submit:hover{opacity:.82}
+    .rv-note-sm{font-size:11.5px;color:#7b4b39;text-align:center;margin-top:11px;line-height:1.55}
+    /* ── Liquid Morph Menu ───────────────────────────────── */
+    .lmm-wrap{display:none}
+    @media(max-width:759px){.lmm-wrap{display:block;position:fixed;bottom:40px;left:50%;transform:translateX(-50%);z-index:98;pointer-events:auto}}
+    .lmm{position:relative;overflow:hidden;display:flex;flex-direction:column;width:150px;height:48px;border-radius:72px;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,.18)}
+    .lmm.open{width:280px;height:260px;border-radius:32px;cursor:default}
+    .lmm-bg{position:absolute;inset:0;background:#FFE862;border:1px solid #d1bb3b;border-radius:inherit;transition:border-color .3s}
+    .lmm.open .lmm-bg{border-color:#FFE862}
+    .lmm-dark{position:absolute;left:50%;width:200%;padding-top:200%;border-radius:50%;background:#242424;transform:translateX(-50%);bottom:-200%;transition:bottom .8s cubic-bezier(.22,1,.36,1)}
+    .lmm.open .lmm-dark{bottom:-20%;transition-delay:.1s}
+    .lmm-items{position:relative;z-index:10;display:flex;flex-direction:column;gap:24px;align-items:center;justify-content:center;flex:1;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .2s}
+    .lmm.open .lmm-items{opacity:1;pointer-events:auto}
+    .lmm-bar{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;width:100%;height:48px;padding:0 20px;flex-shrink:0;cursor:pointer}
+    .lmm.open .lmm-bar{padding:0 24px 24px}
+    .lmm-word{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:600;line-height:1;color:#242424;letter-spacing:.04em;text-transform:uppercase;transition:color .3s}
+    .lmm.open .lmm-word{color:#f7f1ed}
+    .lmm-hbg{position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+    .lmm-line{position:absolute;display:block;width:18px;height:2px;border-radius:999px;background:#242424;transition:transform .4s cubic-bezier(.22,1,.36,1),background-color .3s}
+    .lmm-l1{transform:translateY(-3px)}
+    .lmm-l2{transform:translateY(3px)}
+    .lmm.open .lmm-line{background:#f7f1ed}
+    .lmm.open .lmm-l1{transform:rotate(45deg)}
+    .lmm.open .lmm-l2{transform:rotate(-45deg)}
+    .lmm-btn{background:none;border:none;cursor:pointer;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;text-transform:uppercase;color:#f7f1ed;letter-spacing:-.02em;line-height:1;height:1em;overflow:hidden;padding:0;opacity:0;display:flex;justify-content:center;transition:opacity .4s}
+    .lmm.open .lmm-btn:nth-child(1){opacity:1;transition-delay:.48s}
+    .lmm.open .lmm-btn:nth-child(2){opacity:1;transition-delay:.54s}
+    .lmm.open .lmm-btn:nth-child(3){opacity:1;transition-delay:.60s}
+    .lmm.open .lmm-btn:nth-child(4){opacity:1;transition-delay:.66s}
+    .lmm-char{display:inline-block;overflow:hidden;height:1em}
+    .lmm-ci{display:flex;flex-direction:column;transition:transform 0ms linear}
+    .lmm-ci.ani{transition-timing-function:cubic-bezier(.22,1,.36,1);transform:translateY(-50%)}
+    .lmm-ct{display:block;height:1em;line-height:1em}
+
+    .btn-rv-float{position:fixed;bottom:22px;right:22px;z-index:99;background:#43291f;color:#f4f0bb;border:none;padding:14px 22px;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,.32);transition:opacity .15s}
+    .btn-rv-float:hover{opacity:.84}
+    .btn-wa-float{position:fixed;bottom:76px;right:22px;z-index:99;background:#25d366;color:#fff;border:none;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.28);transition:opacity .15s;text-decoration:none}
+    .btn-wa-float:hover{opacity:.84}
+    .btn-wa-float svg{width:28px;height:28px;fill:#fff}
+
+    /* ── Edição de fotos ──────────────────────────────────── */
+    .img-edit-ov{position:absolute;inset:0;background:rgba(34,111,84,.92);display:flex;align-items:center;justify-content:center;font-size:30px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:5}
+    body.edit-mode .img-slot{cursor:pointer;outline:2px dashed rgba(34,111,84,.55);outline-offset:-2px}
+    body.edit-mode .img-slot .img-edit-ov{opacity:.15;pointer-events:auto}
+    body.edit-mode .img-slot:hover .img-edit-ov{opacity:1}
+    body.edit-mode .hero-bg{outline:3px dashed rgba(34,111,84,.7);outline-offset:-4px}
+    body.edit-mode .hero-bg .img-edit-ov{opacity:.22;pointer-events:auto;cursor:pointer}
+    body.edit-mode .hero-bg .img-edit-ov:hover{opacity:.85}
+    .rv-tabs{display:flex;border-bottom:1px solid rgba(67,41,31,.12);margin:-24px -28px 20px;padding:0 28px}
+    .rv-tab{flex:1;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;padding:14px 4px;font-family:'Work Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;color:#7b4b39;transition:color .15s,border-color .15s;white-space:nowrap}
+    .rv-tab.active{color:#43291f;border-bottom-color:#43291f}
+    .rv-mode-note{font-size:12.5px;color:#43291f;line-height:1.6;padding:10px 14px;background:rgba(34,111,84,.12);border-left:3px solid #226f54;margin-bottom:18px;display:none}
+    .rv-no-dates-link{display:block;text-align:center;font-size:11px;color:#226f54;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-top:14px;padding-top:16px;border-top:1px solid rgba(67,41,31,.1);text-decoration:none;transition:color .15s}
+    .rv-no-dates-link:hover{color:#43291f}
+    .evt-form-box{background:#f4f0bb;padding:clamp(28px,4vw,48px);margin-top:40px;border-top:3px solid #226f54}
+    .evt-form-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(20px,2.4vw,26px);color:#43291f;margin:0 0 8px}
+    .evt-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .evt-btn-consult{background:#43291f;color:#f4f0bb;border:none;padding:14px 28px;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;margin-right:16px;margin-bottom:8px}
+    .evt-btn-consult:hover{opacity:.82}
+    .evt-no-dates{font-size:11px;color:#226f54;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-bottom:1.5px solid #226f54;padding-bottom:2px;vertical-align:middle;transition:color .15s,border-color .15s}
+    .evt-no-dates:hover{color:#43291f;border-color:#43291f}
+    @media(max-width:480px){.rv-tab{font-size:8px;padding:14px 2px}.evt-form-row{grid-template-columns:1fr}}
+    @media(min-width:540px){
+      .rv-overlay{align-items:center;padding:20px}
+    }
+
+    /* ── Reviews ─────────────────────────────────────────── */
+    .rv-star{color:#f4b942;font-size:13px;letter-spacing:.5px}
+    .rv-star-lg{color:#f4b942;font-size:22px;letter-spacing:1px}
+    .rv-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;letter-spacing:.04em}
+    .review-card{background:#fff;border:1px solid rgba(67,41,31,.1);padding:18px 20px}
+    .review-card-author{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .review-card-name{font-size:13px;font-weight:700;color:#43291f;margin:0}
+    .review-card-date{font-size:11px;color:#7b4b39;margin:2px 0 0}
+    .review-card-text{font-size:13.5px;color:#43291f;line-height:1.65;margin:0}
+    .review-card-footer{display:flex;align-items:center;gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(67,41,31,.08);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7b4b39}
+    .reviews-carousel-wrap{position:relative}
+    .reviews-carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 4px}
+    .reviews-carousel::-webkit-scrollbar{display:none}
+    .review-card-home{flex:0 0 280px;scroll-snap-align:start}
+    .rv-car-btn{position:absolute;top:50%;transform:translateY(-50%);background:#43291f;color:#f4f0bb;border:none;width:36px;height:36px;cursor:pointer;font-size:18px;z-index:2;display:flex;align-items:center;justify-content:center;transition:opacity .15s;line-height:1}
+    .rv-car-btn:hover{opacity:.8}
+    .rv-car-prev{left:0}
+    .rv-car-next{right:0}
+    .rating-summary{display:flex;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap;margin-bottom:32px;padding:28px 32px;background:#fff;border:1px solid rgba(67,41,31,.1)}
+    .rating-big-num{font-family:'Playfair Display',serif;font-weight:700;font-size:56px;color:#43291f;line-height:1;display:block}
+    .rating-bars{flex:1;min-width:160px}
+    .rating-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:11.5px;color:#7b4b39}
+    .rating-bar-track{flex:1;height:7px;background:rgba(67,41,31,.1)}
+    .rating-bar-fill{height:100%;background:#226f54}
+    .review-pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+    .review-pill{cursor:pointer;border:1.5px solid rgba(67,41,31,.2);padding:7px 16px;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#7b4b39;background:none;font-family:'Work Sans',sans-serif;transition:border-color .15s,color .15s,background .15s}
+    .review-pill.active,.review-pill:hover{border-color:#43291f;color:#43291f}
+    .review-pill.active{background:rgba(67,41,31,.06)}
+    .review-tabs{display:flex;border-bottom:1px solid rgba(67,41,31,.12);margin-bottom:24px}
+    .review-tab{cursor:pointer;padding:12px 18px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7b4b39;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;font-family:'Work Sans',sans-serif;transition:color .15s,border-color .15s}
+    .review-tab.active{color:#43291f;border-bottom-color:#43291f}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+    .review-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:2px}
+    .review-photo-item{position:relative;overflow:hidden}
+    .review-photo-author{position:absolute;bottom:0;left:0;right:0;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font-size:11px;font-weight:600}
+    .gmap-g{display:inline-flex;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#4285f4 25%,#34a853 50%,#fbbc05 75%,#ea4335 100%);flex-shrink:0}
+    @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}.review-card-home{flex:0 0 240px}}
+
+    /* ── Reservation page (booking.com style) ────────────── */
+    .resv-search-box{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:1px;max-width:960px;margin:24px auto 0;background:rgba(244,240,187,.18)}
+    .resv-field{padding:14px 18px;background:#f4f0bb}
+    .resv-field-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#226f54;margin-bottom:5px}
+    .resv-field-input{width:100%;border:none;background:transparent;font-family:'Work Sans',sans-serif;font-size:15px;color:#43291f;outline:none;-webkit-appearance:none;appearance:none}
+    .resv-search-btn{background:#226f54;color:#f4f0bb;border:none;padding:0 28px;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+    .resv-search-btn:hover{opacity:.85}
+    .resv-results{padding:clamp(28px,4vw,48px) clamp(20px,5vw,80px) clamp(56px,8vw,100px);max-width:1200px;margin:0 auto}
+    .resv-count-bar{font-size:13px;font-weight:600;color:#7b4b39;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(67,41,31,.12)}
+    .resv-card{background:#fff;border:1px solid rgba(67,41,31,.13);margin-bottom:18px;display:grid;grid-template-columns:2fr 1.5fr}
+    .resv-photos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,1fr);gap:2px;height:250px;background:rgba(67,41,31,.1)}
+    .resv-photos>:first-child{grid-row:1/3}
+    .resv-card-info{padding:20px 22px 18px;display:flex;flex-direction:column;border-left:1px solid rgba(67,41,31,.1)}
+    .resv-card-name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#43291f;margin:0 0 4px}
+    .resv-card-cap{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#226f54;margin-bottom:12px}
+    .resv-card-desc{font-size:13.5px;color:#43291f;line-height:1.6;margin-bottom:14px}
+    .resv-badge-avail{display:inline-flex;align-items:center;gap:4px;background:rgba(34,111,84,.1);color:#226f54;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px}
+    .resv-amens{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .resv-amen-tag{font-size:11px;color:#43291f;background:#f4f0bb;padding:4px 10px;border:1px solid rgba(67,41,31,.12)}
+    .resv-card-cta{margin-top:auto;border-top:1px solid rgba(67,41,31,.1);padding-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .btn-book-primary{background:#43291f;color:#f4f0bb;border:none;padding:12px 18px;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+    .btn-book-primary:hover{opacity:.82}
+    .btn-book-wa{border:1.5px solid rgba(67,41,31,.3);color:#43291f;padding:11px 14px;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-family:'Work Sans',sans-serif;background:none;transition:border-color .15s;white-space:nowrap;display:inline-block;text-align:center}
+    .btn-book-wa:hover{border-color:#43291f}
+    .resv-nights-badge{font-size:11.5px;font-weight:700;color:#226f54;letter-spacing:.06em;text-transform:uppercase;margin-right:auto}
+    .nav-reserva-btn{background:#43291f;color:#f4f0bb !important;border-bottom:none !important;padding:7px 14px !important;padding-bottom:7px !important}
+    @media(max-width:759px){
+      .resv-search-box{grid-template-columns:1fr 1fr}
+      .resv-search-btn{grid-column:1/-1;padding:14px}
+      .resv-card{grid-template-columns:1fr}
+      .resv-photos{height:180px}
+    }
+
+    /* ── Mobile V2 ─────────────────────────────────────────── */
+    @keyframes waPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+    #mob-v2{display:none}
+    @media(max-width:759px){
+      #hdr,#mob-menu,footer,.lmm-wrap,.btn-rv-float,.btn-wa-float{display:none!important}
+      #app{display:none}
+      #mob-v2{display:block;position:fixed;inset:0;background:#fdfcf2;z-index:10;overflow:hidden}
+    }
+    .m2-hdr{position:absolute;top:0;left:0;right:0;height:58px;background:#f4f0bb;border-bottom:1px solid rgba(67,41,31,.14);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:30;box-sizing:border-box}
+    .m2-brand{font-family:'Playfair Display',serif;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#43291f}
+    .m2-hdr-right{display:flex;align-items:center;gap:8px}
+    .m2-lang{display:flex;align-items:center;height:30px;overflow:hidden;border:1.5px solid rgba(67,41,31,.22);border-radius:2px}
+    .m2-lang-btn{cursor:pointer;padding:0 9px;height:100%;font-size:10px;font-weight:700;letter-spacing:.08em;border:none;background:transparent;color:#7b4b39;font-family:'Work Sans',sans-serif;transition:background .12s,color .12s}
+    .m2-lang-btn.active{background:#43291f;color:#f4f0bb}
+    .m2-hbg{cursor:pointer;width:36px;height:30px;background:#43291f;border:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+    .m2-hbg span{display:block;width:16px;height:2px;background:#f4f0bb;border-radius:1px}
+    .m2-menu{position:absolute;top:58px;left:0;right:0;bottom:56px;z-index:40;background:#f4f0bb;overflow-y:auto;display:none}
+    .m2-menu.open{display:block}
+    .m2-menu-item{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(67,41,31,.1);padding:16px 20px;font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#43291f;cursor:pointer}
+    .m2-scroll{position:absolute;top:58px;left:0;right:0;bottom:56px;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#fdfcf2}
+    .m2-bar{position:absolute;left:0;right:0;bottom:0;height:56px;background:#f4f0bb;border-top:1px solid rgba(67,41,31,.14);padding:8px 16px;box-sizing:border-box;z-index:30}
+    .m2-bar-btn{display:block;width:100%;background:#da2c38;color:#fff;border:none;padding:11px 0;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer}
+    .m2-wa-wrap{position:absolute;right:16px;bottom:68px;z-index:50;width:48px;height:48px}
+    .m2-wa-ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid #da2c38;animation:waPulse 2.4s ease-out infinite}
+    .m2-wa-link{position:relative;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#f4f0bb;border:1.5px solid #da2c38;box-shadow:0 3px 14px rgba(0,0,0,.22);text-decoration:none}
+    .m2-sec{padding:20px 16px}
+    .m2-sec-title{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#43291f;margin-bottom:14px}
+    .m2-hr{border:none;border-top:1px solid rgba(67,41,31,.15);margin:0 0 14px}
+    .m2-card{background:#fff;border:1px solid rgba(67,41,31,.1);overflow:hidden;margin-bottom:12px}
+    .m2-card-title{font-size:13.5px;font-weight:700;color:#43291f;margin-bottom:4px}
+    .m2-card-body{font-size:12.5px;color:#7b4b39;line-height:1.55}
+    .m2-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .m2-srv{background:#fff;border:1px solid rgba(67,41,31,.1);padding:14px 10px;text-align:center}
+    .m2-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:#226f54;text-align:center;line-height:1.5;padding:16px 0 4px;margin:0}
+    .m2-field{margin-bottom:12px}
+    .m2-label{display:block;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#226f54;margin-bottom:5px}
+    .m2-input{width:100%;border:1.5px solid rgba(67,41,31,.22);background:#fff;padding:10px 12px;font-family:'Work Sans',sans-serif;font-size:14px;color:#43291f;outline:none;-webkit-appearance:none;box-sizing:border-box;border-radius:0;transition:border-color .15s}
+    .m2-input:focus{border-color:#43291f}
+    .m2-input.err{border-color:#da2c38}
+    .m2-err{font-size:11.5px;color:#da2c38;margin-top:4px}
+    .m2-submit{width:100%;background:#43291f;color:#f4f0bb;border:none;padding:14px;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:opacity .15s;box-sizing:border-box;display:block;text-decoration:none;text-align:center}
+    .m2-success{background:rgba(34,111,84,.12);border-left:3px solid #226f54;padding:10px 14px;font-size:13px;color:#226f54;margin-top:12px}
+    .m2-meta{font-size:12px;color:#7b4b39;margin-top:4px}
+    .m2-slider-btn{background:#f4f0bb;border:1.5px solid rgba(67,41,31,.2);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;color:#43291f;position:absolute;top:50%;transform:translateY(-50%);padding:0}
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header id="hdr">
+  <div class="hdr-logo" onclick="go('home')">
+    <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true">
+      <rect width="20" height="1.6" fill="#43291f"/>
+      <rect y="6.2" width="20" height="1.6" fill="#43291f"/>
+      <rect y="12.4" width="20" height="1.6" fill="#43291f"/>
+    </svg>
+    <span>La Cautiva</span>
+  </div>
+
+  <nav id="desk-nav" aria-label="Navegación principal">
+    <span class="nav-item" id="n-home" onclick="go('home')"></span>
+    <span class="nav-item" id="n-cabins" onclick="go('cabins')"></span>
+    <span class="nav-item" id="n-events" onclick="go('events')"></span>
+    <span class="nav-item" id="n-gallery" onclick="go('gallery')"></span>
+    <span class="nav-item" id="n-things" onclick="go('things')"></span>
+    <span class="nav-item" id="n-blog" onclick="go('blog')"></span>
+    <span class="nav-item" id="n-contact" onclick="go('contact')"></span>
+    <span class="nav-item" id="n-reviews" onclick="go('reviews')"></span>
+  </nav>
+
+  <div id="hdr-right">
+    <div class="lang-sw" role="group" aria-label="Idioma">
+      <span class="lang-btn" id="l-es" onclick="setLang('es')">ES</span>
+      <span style="color:rgba(67,41,31,.25)">/</span>
+      <span class="lang-btn" id="l-en" onclick="setLang('en')">EN</span>
+      <span style="color:rgba(67,41,31,.25)">/</span>
+      <span class="lang-btn" id="l-pt" onclick="setLang('pt')">PT</span>
+    </div>
+    <a href="https://www.instagram.com/lacautivaok/" target="_blank" rel="noopener noreferrer" class="ig-btn" aria-label="Instagram">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#43291f" stroke-width="2" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.3" cy="6.7" r="1.1" fill="#43291f" stroke="none"/>
+      </svg>
+    </a>
+    <span id="n-reserva" onclick="go('reserva')" class="btn-wa-hdr" style="cursor:pointer;background:#43291f;color:#f4f0bb;border-color:#43291f"></span>
+  </div>
+
+  <div id="mob-hdr">
+    <button id="hamburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ MOBILE MENU ══════════════════════════════════════ -->
+<nav id="mob-menu" aria-label="Menú móvil">
+  <span class="mob-item" id="m-home" onclick="go('home')"></span>
+  <span class="mob-item" id="m-cabins" onclick="go('cabins')"></span>
+  <span class="mob-item" id="m-events" onclick="go('events')"></span>
+  <span class="mob-item" id="m-gallery" onclick="go('gallery')"></span>
+  <span class="mob-item" id="m-things" onclick="go('things')"></span>
+  <span class="mob-item" id="m-blog" onclick="go('blog')"></span>
+  <span class="mob-item" id="m-contact" onclick="go('contact')"></span>
+  <span class="mob-item" id="m-reviews" onclick="go('reviews')"></span>
+  <span class="mob-item" id="m-reserva" onclick="go('reserva')" style="color:#226f54;font-weight:700"></span>
+  <div style="display:flex;gap:14px;padding-top:14px;align-items:center">
+    <div class="lang-sw">
+      <span class="lang-btn" onclick="setLang('es')">ES</span>
+      <span class="lang-btn" onclick="setLang('en')">EN</span>
+      <span class="lang-btn" onclick="setLang('pt')">PT</span>
+    </div>
+    <a href="https://www.instagram.com/lacautivaok/" target="_blank" rel="noopener noreferrer" style="font-size:12px;font-weight:600;color:#43291f">Instagram</a>
+  </div>
+</nav>
+
+<!-- ═══ MAIN ══════════════════════════════════════════════ -->
+<main id="app" role="main"></main>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">La Cautiva</div>
+      <div style="font-size:13.5px;line-height:1.7">Tanti, Córdoba, Argentina</div>
+    </div>
+    <div>
+      <div class="footer-label" id="ft-links-lbl"></div>
+      <div class="footer-links" id="ft-links"></div>
+    </div>
+    <div>
+      <div class="footer-label" id="ft-phone-lbl"></div>
+      <a id="ft-phone" href="#" target="_blank" rel="noopener noreferrer" style="font-size:13.5px">+54 9 3541 57-8564</a>
+      <div class="footer-label" style="margin-top:20px" id="ft-follow-lbl"></div>
+      <a href="https://www.instagram.com/lacautivaok/" target="_blank" rel="noopener noreferrer" style="font-size:13.5px">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-copy" id="ft-copy"></div>
+</footer>
+
+<!-- ═══ MOBILE V2 ══════════════════════════════════════════ -->
+<div id="mob-v2"></div>
+
+<!-- ═══ RESERVATION MODAL ════════════════════════════════ -->
+<div id="rv-modal" class="rv-overlay" onclick="if(event.target===this)closeModal()" role="dialog" aria-modal="true" aria-labelledby="rv-title-text">
+  <div class="rv-box">
+    <div class="rv-head">
+      <div class="rv-eyebrow-sm">La Cautiva Cabañas Tanti</div>
+      <h2 class="rv-title" id="rv-title-text">Reservar</h2>
+      <button class="rv-close" id="rv-close-btn" onclick="closeModal()" aria-label="Cerrar">×</button>
+    </div>
+    <div class="rv-body">
+      <div class="rv-tabs" id="rv-tabs" role="tablist">
+        <button class="rv-tab active" id="rv-tab-reservar" onclick="setRvMode('reservar')" role="tab"></button>
+        <button class="rv-tab" id="rv-tab-consultar" onclick="setRvMode('consultar')" role="tab"></button>
+        <button class="rv-tab" id="rv-tab-grupo" onclick="setRvMode('grupo')" role="tab"></button>
+      </div>
+      <div class="rv-mode-note" id="rv-mode-note"></div>
+      <div class="rv-row" id="rv-dates-row">
+        <div class="rv-group">
+          <label class="rv-label" id="rv-lbl-in" for="rv-in">Fecha de entrada</label>
+          <input type="date" id="rv-in" class="rv-input" onchange="onDateChange()">
+        </div>
+        <div class="rv-group">
+          <label class="rv-label" id="rv-lbl-out" for="rv-out">Fecha de salida</label>
+          <input type="date" id="rv-out" class="rv-input" onchange="onDateChange()">
+        </div>
+      </div>
+      <div class="rv-nights" id="rv-nights"></div>
+      <div class="rv-group">
+        <label class="rv-label" id="rv-lbl-guests" for="rv-guests">Personas</label>
+        <select id="rv-guests" class="rv-input rv-select">
+          <option value="1">1 persona</option><option value="2">2 personas</option>
+          <option value="3">3 personas</option><option value="4">4 personas</option>
+          <option value="5">5 personas</option><option value="6">6 personas</option>
+          <option value="7">7 personas</option><option value="8">8 personas</option>
+          <option value="9">9 personas</option><option value="10">10 personas</option>
+          <option value="11">11 personas</option><option value="12">12 personas</option>
+          <option value="13">13 personas</option><option value="14">14 personas</option>
+        </select>
+      </div>
+      <div class="rv-group" id="rv-cabin-group">
+        <label class="rv-label" id="rv-lbl-cabin" for="rv-cabin">cabaña (opcional)</label>
+        <select id="rv-cabin" class="rv-input rv-select">
+          <option value="">Sin preferencia</option>
+          <option value="1">cabaña 1 — hasta 2 personas</option>
+          <option value="2">cabaña 2 — hasta 3 personas</option>
+          <option value="3">cabaña 3 — hasta 4 personas</option>
+          <option value="4">cabaña 4 — hasta 4 personas</option>
+          <option value="5">cabaña 5 — hasta 5 personas</option>
+          <option value="6">cabaña 6 — hasta 6 personas</option>
+          <option value="7">cabaña 7 — hasta 6 personas</option>
+          <option value="8">cabaña 8 — hasta 7 personas</option>
+        </select>
+      </div>
+      <div class="rv-error" id="rv-error"></div>
+      <button class="rv-submit" id="rv-submit-btn" onclick="sendReserva()">Enviar reserva por WhatsApp ▸</button>
+      <p class="rv-note-sm" id="rv-note-text">Se abrirá WhatsApp con los datos de tu consulta.</p>
+      <a class="rv-no-dates-link" id="rv-no-dates-link" onclick="sendWithoutDates()"></a>
+    </div>
+  </div>
+</div>
+
+<!-- Liquid Morph Floating Menu -->
+<div class="lmm-wrap" id="lmm-wrap">
+  <div class="lmm" id="lmm">
+    <div class="lmm-bg"></div>
+    <div class="lmm-dark"></div>
+    <div class="lmm-items" id="lmm-items"></div>
+    <div class="lmm-bar" id="lmm-bar">
+      <span class="lmm-word" id="lmm-word">Menu</span>
+      <div class="lmm-hbg"><span class="lmm-line lmm-l1"></span><span class="lmm-line lmm-l2"></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating reserve button -->
+<button class="btn-rv-float" id="btn-rv-float" onclick="openModal()">Reservar ▸</button>
+
+<!-- Floating WhatsApp button -->
+<!-- Edit mode button — remove when no longer needed -->
+<a class="btn-wa-float" id="wa-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* ─────────────────────────────────────────────────────────
+   STATE
+───────────────────────────────────────────────────────── */
+const S = { page: 'home', lang: 'es', cabin: 1, menu: false, rv: {cin:'',cout:'',guests:1}, rvMode: 'reservar', rFilter: 0, rTab: 'comments',
+  mobMenu: false, mobSlide: 0,
+  mobForm: {name:'',email:'',phone:'',checkin:'',checkout:'',message:''},
+  mobFormErrors: {}, mobFormSubmitted: false };
+
+const LOCATOR_CONFIG = {
+  locations: [{title:'Cabañas La Cautiva',address1:'Neuquen 99',address2:'Tanti, Córdoba, Argentina',coords:{lat:-31.3577662,lng:-64.5977465},placeId:'ChIJoVB5CkJuLZQRpQk10Ct2ucc'}],
+  mapOptions: {center:{lat:-31.3577662,lng:-64.5977465},fullscreenControl:true,mapTypeControl:false,streetViewControl:false,zoom:15,zoomControl:true,maxZoom:17,mapId:''},
+  mapsApiKey: 'YOUR_API_KEY_HERE',
+  capabilities: {input:false,autocomplete:false,directions:false,distanceMatrix:false,details:false,actions:false}
+};
+
+/* ── Edição de fotos — remover quando não for mais necessário ── */
+let EDIT_MODE = false;
+let ROOT_DIR   = null;
+
+function toggleEditMode(){
+  EDIT_MODE = !EDIT_MODE;
+  document.body.classList.toggle('edit-mode', EDIT_MODE);
+  const btn = document.getElementById('btn-edit');
+  if(btn){ btn.textContent = EDIT_MODE ? '✓ Sair da edição' : '✏ Editar fotos'; btn.classList.toggle('active', EDIT_MODE); }
+  showEditToast(EDIT_MODE ? 'Clique em qualquer foto para substituir' : 'Modo edição desativado');
+}
+
+async function uploadImg(src, el){
+  if(!ROOT_DIR){
+    if(!window.showDirectoryPicker){ alert('Use Chrome ou Edge no computador para editar fotos.'); return; }
+    try{ ROOT_DIR = await window.showDirectoryPicker({id:'lacautiva', mode:'readwrite'}); }
+    catch(e){ if(e.name!=='AbortError') alert('Erro: '+e.message); return; }
+  }
+  let fh;
+  try{ [fh] = await window.showOpenFilePicker({types:[{description:'Imagens',accept:{'image/*':['.jpg','.jpeg','.png','.webp','.avif']}}],multiple:false}); }
+  catch(e){ return; }
+  try{
+    const file = await fh.getFile();
+    const parts = src.split('/');
+    let dir = ROOT_DIR;
+    for(const p of parts.slice(0,-1)) dir = await dir.getDirectoryHandle(p,{create:true});
+    const dest = await dir.getFileHandle(parts.at(-1),{create:true});
+    const w = await dest.createWritable(); await w.write(file); await w.close();
+    const url = URL.createObjectURL(file);
+    if(el){
+      const imgTag = el.querySelector('img'); const phDiv = el.querySelector('.ph');
+      if(imgTag){ imgTag.src = url; imgTag.style.display = ''; }
+      if(phDiv) phDiv.style.display = 'none';
+    }
+    if(src === 'imgs/hero.jpg'){
+      const hb = document.querySelector('.hero-bg');
+      if(hb){ hb.classList.remove('ph-hero'); const hi = hb.querySelector('img'); if(hi) hi.src = url; }
+    }
+    showEditToast('✓ Salva: ' + src);
+  }catch(e){ alert('Erro ao salvar: '+e.message); }
+}
+
+let _etT;
+function showEditToast(msg){
+  const t = document.getElementById('edit-toast');
+  if(!t) return;
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(_etT); _etT = setTimeout(()=>t.classList.remove('show'), 3000);
+}
+/* ── fim edição de fotos ────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────
+   DATA
+───────────────────────────────────────────────────────── */
+const CABINS = [
+  {id:1,cap:2},{id:2,cap:3},{id:3,cap:4},{id:4,cap:4},
+  {id:5,cap:5},{id:6,cap:6},{id:7,cap:6},{id:8,cap:7}
+];
+const WA = '5493541578564';
+const AIRBNB = 'https://airbnb.com.ar/rooms/1710389485794953194';
+const IG = 'https://www.instagram.com/lacautivaok/';
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=La+Cautiva+Caba%C3%B1as+Tanti&hl=es#lrd=,1,';
+
+function wa(msg){ return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`; }
+
+function msgGeneral(l){
+  if(l==='en') return "Hi! I'd like to book at La Cautiva Cabañas Tanti.";
+  if(l==='pt') return "Olá! Quero reservar na La Cautiva Cabañas Tanti.";
+  return "¡Hola! Quiero reservar en La Cautiva Cabañas Tanti.";
+}
+function msgEvent(l){
+  if(l==='en') return "Hi! I'd like to ask about hosting an event at La Cautiva Cabañas Tanti.";
+  if(l==='pt') return "Olá! Quero saber sobre eventos na La Cautiva Cabañas Tanti.";
+  return "¡Hola! Quiero consultar por un evento en La Cautiva Cabañas Tanti.";
+}
+function msgCabin(id,l){
+  if(l==='en') return `Hi! I'd like to ask about Cabin ${id} at La Cautiva Cabañas Tanti.`;
+  if(l==='pt') return `Olá! Quero saber sobre a Cabana ${id} na La Cautiva Cabañas Tanti.`;
+  return `¡Hola! Quiero consultar por la Cabaña ${id} en La Cautiva Cabañas Tanti.`;
+}
+function capLabel(n,l){
+  if(l==='en') return `Up to ${n} people`;
+  if(l==='pt') return `Até ${n} pessoas`;
+  return `Hasta ${n} personas`;
+}
+function cabinLabel(id,l){
+  if(l==='en') return `cabin ${id}`;
+  if(l==='pt') return `cabana ${id}`;
+  return `cabaña ${id}`;
+}
+function personsWord(l){
+  if(l==='en') return 'people';
+  if(l==='pt') return 'pessoas';
+  return 'personas';
+}
+function cabinsWord(l){
+  if(l==='en') return 'cabins';
+  if(l==='pt') return 'cabanas';
+  return 'cabañas';
+}
+
+const REVIEWS = [
+  {id:1,name:'María Eugenia Torres',initials:'MT',stars:5,date:'2026-07-01',text:'Un lugar espectacular. Las cabañas son cómodas y súper bien equipadas. La piscina es increíble. Volvimos con toda la familia y fue mejor que la primera vez. Totalmente recomendable.',hasPhoto:true,photoHint:'pool'},
+  {id:2,name:'Lucas Pérez',initials:'LP',stars:5,date:'2026-06-15',text:'Organizamos un cumpleaños de 15 personas y salió perfecto. El quincho es amplio, la piscina una maravilla y los dueños muy atentos. La ubicación es ideal, cerca de todo pero tranquilo.',hasPhoto:false,photoHint:''},
+  {id:3,name:'Ana Belén Romero',initials:'AR',stars:4,date:'2026-06-02',text:'Muy buena relación calidad-precio. Las cabañas están limpias y bien mantenidas. El entorno natural es precioso. Solo le agregaría más plantas alrededor de la piscina, pero en general excelente.',hasPhoto:false,photoHint:''},
+  {id:4,name:'Rodrigo Fernández',initials:'RF',stars:5,date:'2026-05-20',text:'Fuimos 12 personas para un retiro espiritual y encontramos exactamente lo que buscábamos: silencio, naturaleza y espacio. Los anfitriones son muy amables. 100% recomendado.',hasPhoto:true,photoHint:'nature'},
+  {id:5,name:'Carolina Díaz',initials:'CD',stars:5,date:'2026-05-05',text:'La mejor opción en Tanti. Las cabañas tienen todo lo necesario, la piscina está impecable y el trato de los dueños es excepcional. Ya estamos planificando la próxima visita.',hasPhoto:false,photoHint:''},
+  {id:6,name:'Martín López',initials:'ML',stars:4,date:'2026-04-18',text:'Muy recomendable para grupos. Cabaña cómoda, bien ubicada y la atención muy buena. El quincho y la piscina son lo más. Volveríamos sin dudarlo.',hasPhoto:true,photoHint:'pool'},
+  {id:7,name:'Valentina Ruiz',initials:'VR',stars:5,date:'2026-04-02',text:'Hicimos un viaje de egresados y fue increíble. Lugar tranquilo, seguro y con todo lo que necesitábamos. La cabaña perfecta para grupos jóvenes. Nos encantó la piscina y el quincho.',hasPhoto:false,photoHint:''},
+  {id:8,name:'Santiago Moreno',initials:'SM',stars:5,date:'2026-03-15',text:'Excelente lugar para descansar. Las cabañas son amplias y están muy bien equipadas. A 2 minutos del centro de Tanti y muy cerca del río. Muy buena relación calidad-precio.',hasPhoto:true,photoHint:'nature'},
+  {id:9,name:'Florencia García',initials:'FG',stars:4,date:'2026-03-01',text:'Muy lindo complejo. Fuimos 8 personas y cupo todo el mundo cómodo. La piscina está muy bien mantenida y el quincho ideal para asados. Los dueños muy amables y atentos.',hasPhoto:false,photoHint:''},
+  {id:10,name:'Agustín Ramírez',initials:'AR',stars:5,date:'2026-02-14',text:'El mejor lugar para pasar unas vacaciones en las sierras. Cabañas limpias, piscina genial y los anfitriones son increíbles. Ya fuimos dos veces y siempre queremos volver.',hasPhoto:true,photoHint:'pool'},
+  {id:11,name:'Lucía Gómez',initials:'LG',stars:5,date:'2026-01-28',text:'Pasamos el Año Nuevo acá y fue espectacular. Las cabañas tienen todo lo necesario, el quincho enorme para que cupiera toda la familia y la piscina fresca para el calor del verano.',hasPhoto:false,photoHint:''},
+  {id:12,name:'Diego Hernández',initials:'DH',stars:4,date:'2026-01-10',text:'Muy buena experiencia. Las cabañas están bien equipadas y el lugar es tranquilo. La piscina es el punto fuerte. Cerca del centro y del río, perfecta ubicación.',hasPhoto:false,photoHint:''},
+  {id:13,name:'Camila Vera',initials:'CV',stars:5,date:'2025-12-20',text:'Organizamos una despedida de soltera y fue perfecto. El lugar es muy lindo, las cabañas cómodas y la atención excelente. La piscina y el quincho hicieron la diferencia.',hasPhoto:true,photoHint:'event'},
+  {id:14,name:'Pablo Suárez',initials:'PS',stars:5,date:'2025-11-30',text:'Lugar increíble. Lo recomendamos a todo el mundo. Las sierras de fondo, la pileta, el quincho y las cabañas bien equipadas hacen de este lugar el destino ideal para grupos.',hasPhoto:false,photoHint:''},
+  {id:15,name:'Natalia Castro',initials:'NC',stars:4,date:'2025-10-15',text:'Muy buena estadía. Las cabañas son cómodas y limpias, el paisaje hermoso y los dueños muy amigables. Volvería sin dudar. Ideal para familias con chicos.',hasPhoto:true,photoHint:'nature'}
+];
+
+function renderStars(n){
+  return '★'.repeat(n)+'☆'.repeat(5-n);
+}
+function relDate(dateStr,lang){
+  const d=new Date(dateStr), now=new Date('2026-07-24');
+  const diff=Math.round((now-d)/86400000);
+  if(lang==='en'){
+    if(diff<7) return `${diff} day${diff!==1?'s':''} ago`;
+    if(diff<30) return `${Math.round(diff/7)} week${Math.round(diff/7)!==1?'s':''} ago`;
+    if(diff<365) return `${Math.round(diff/30)} month${Math.round(diff/30)!==1?'s':''} ago`;
+    return `${Math.round(diff/365)} year${Math.round(diff/365)!==1?'s':''} ago`;
+  }
+  if(lang==='pt'){
+    if(diff<7) return `há ${diff} dia${diff!==1?'s':''}`;
+    if(diff<30) return `há ${Math.round(diff/7)} semana${Math.round(diff/7)!==1?'s':''}`;
+    if(diff<365) return `há ${Math.round(diff/30)} mês${Math.round(diff/30)!==1?'es':''}`;
+    return `há ${Math.round(diff/365)} ano${Math.round(diff/365)!==1?'s':''}`;
+  }
+  if(diff<7) return `hace ${diff} día${diff!==1?'s':''}`;
+  if(diff<30) return `hace ${Math.round(diff/7)} semana${Math.round(diff/7)!==1?'s':''}`;
+  if(diff<365) return `hace ${Math.round(diff/30)} mes${Math.round(diff/30)!==1?'es':''}`;
+  return `hace ${Math.round(diff/365)} año${Math.round(diff/365)!==1?'s':''}`;
+}
+function avatarColor(initials){
+  const colors=['#226f54','#6b8a4a','#4a6b8a','#8a4a6b','#6b4a8a','#4a8a6b'];
+  let h=0; for(let c of initials) h=(h*31+c.charCodeAt(0))%colors.length;
+  return colors[h];
+}
+function carouselScroll(dir){
+  const el=document.getElementById('rv-car');
+  if(el) el.scrollBy({left:dir*300,behavior:'smooth'});
+}
+function setReviewFilter(n){
+  S.rFilter=n;
+  render();
+}
+function setReviewTab(t){
+  S.rTab=t;
+  render();
+}
+
+/* ─────────────────────────────────────────────────────────
+   STRINGS
+───────────────────────────────────────────────────────── */
+const T = {
+  es:{
+    nav:{home:'Inicio',cabins:'Cabañas',events:'Eventos',gallery:'Galería',things:'Qué hacer',blog:'Blog',contact:'Contacto',reserva:'Reservar',reviews:'Reseñas'},
+    cta:{wa:'Reservar por WhatsApp',online:'Reservar online'},
+    hero:{script:'cabañas en las sierras de Tanti',sub:'cabañas equipadas para 2 a 7 personas, a 2 minutos en auto del centro de Tanti y a 4 minutos en auto del río. Un lugar tranquilo, ideal para grupos, familias y encuentros.'},
+    about:{title:'Sobre las cabañas',body:'En La Cautiva encontrás ocho cabañas con aire acondicionado y todo lo necesario para una estadía cómoda, además de espacios compartidos pensados para grupos: quincho, parrilla, piscina y estacionamiento cubierto. A 2 minutos en auto del centro de Tanti y a 4 minutos del río. Un lugar silencioso, perfecto para familias, grupos de amigos, jóvenes, adolescentes y retiros espirituales.',cta:'Ver cabañas'},
+    aboutLinks:[
+      {t:'Nuestras cabañas',d:'Ocho cabañas equipadas para 2 a 7 personas.',p:'cabins'},
+      {t:'Área común',d:'Piscina, quincho, parrilla y estacionamiento cubierto.',p:'common'},
+      {t:'Cómo llegar',d:'A 2 minutos en auto del centro y 4 minutos en auto del río Tanti.',p:'contact'}
+    ],
+    cabinsHome:{title:'Nuestras cabañas',sub:'Ocho cabañas para 2 a 7 personas, más nuestra área común.',viewAll:'Ver área común',common:'Área común'},
+    howToBook:{title:'Cómo reservar',script:'Te esperamos',waTitle:'Reservar por WhatsApp',waDesc:'Escribinos y te ayudamos a elegir la cabaña ideal para tu grupo.',onTitle:'Reservar online',onDesc:'Consultá disponibilidad y reservá directamente online.',cta:'Reservar'},
+    groups:{title:'Ideal para cada grupo',items:[
+      {t:'Familias',d:'Espacio y comodidad para compartir en familia.'},
+      {t:'Grupos de amigos',d:'cabañas y espacios comunes pensados para grupos grandes.'},
+      {t:'Jóvenes y adolescentes',d:'Lugar seguro y tranquilo para grupos juveniles.'},
+      {t:'Retiros espirituales',d:'Silencio y naturaleza para encuentros y retiros.'}
+    ]},
+    galleryHome:{title:'Galería',sub:'Un vistazo a las cabañas y los espacios comunes.',viewAll:'Ver galería completa'},
+    homeEvents:{eyebrow:'Grupos y eventos',title:'¿Organizás un cumpleaños, casamiento o evento de empresa?',sub:'La Cautiva es el lugar ideal para tu evento: acceso a piscina y parrilla, sin necesidad de pernoctar.',cta:'Ver eventos'},
+    cabinsPage:{title:'cabañas',sub:'Elegí una cabaña o conocé nuestra área común.',commonName:'Área común',commonDesc:'Piscina, quincho, parrilla y estacionamiento cubierto para disfrutar en grupo.',equipped:'cabaña equipada con aire acondicionado y todo lo necesario para una estadía cómoda.',amenTitle:'Equipamiento',amenities:['Aire acondicionado','Cocina equipada','Baño privado','Ropa de cama y toallas','Wifi'],reserve:'Consultar esta cabaña',commonFeatures:['Piscina','Quincho','Parrilla y espacio para asados','Estacionamiento cubierto','Jardín y espacios verdes']},
+    eventsPage:{title:'Eventos',sub:'Festejá tu cumpleaños, casamiento o evento de empresa en un entorno natural, con acceso a piscina y parrilla.',cards:[
+      {t:'Cumpleaños',d:'Festejá tu cumpleaños al aire libre, con piscina y parrilla para todos los invitados.'},
+      {t:'Casamientos',d:'Un entorno natural único para tu casamiento, con espacio para piscina, quincho y parrilla.'},
+      {t:'Eventos de empresa',d:'Organizá tu evento de empresa o team building con acceso a piscina y parrilla.'}
+    ],featTitle:'Incluye',features:['Acceso a piscina','Parrilla y quincho','Estacionamiento cubierto','No es necesario pernoctar','Espacio al aire libre'],cta:'Consultar por tu evento'},
+    galleryPage:{title:'Galería',sub:'Fotos de las cabañas, la piscina, el entorno natural y encuentros en el complejo.',cats:['cabañas','Piscina y quincho','Entorno natural','Grupos y encuentros']},
+    things:{title:'Qué hacer',sub:'Ideas para aprovechar tu estadía en Tanti.',doTitle:'Qué hacer en Tanti',doIntro:'Algunas ideas para disfrutar durante tu estadía.',placeName:'Nombre del lugar',placeDesc:'Agregá aquí una breve descripción.'},
+    blog:{title:'Blog',sub:'Ideas, novedades y recomendaciones para tu estadía en Tanti.',comingSoon:'Próximamente',artTitle:'Título del artículo',artExcerpt:'Escribí aquí un resumen breve del artículo.'},
+    contact:{title:'Contacto',sub:'Escribinos por WhatsApp o encontranos en Instagram.',waCta:'Escribinos por WhatsApp',addrTitle:'Dónde estamos',addrBody:'Tanti, Córdoba, Argentina. A 2 minutos en auto del centro de Tanti y a 4 minutos en auto del río Tanti.',howTitle:'Cómo llegar',howBody:'Tanti se encuentra en el Valle de Punilla, a unos 50 minutos de la ciudad de Córdoba por la Ruta Provincial 28. Escribinos por WhatsApp y te enviamos la ubicación exacta.',mapTitle:'Ubicación',phoneLabel:'Teléfono / WhatsApp',igLabel:'Instagram',onlineLabel:'Reservar online'},
+    footer:{links:'Enlaces',follow:'Seguinos',rights:'Todos los derechos reservados.'}
+  },
+  en:{
+    nav:{home:'Home',cabins:'Cabins',events:'Events',gallery:'Gallery',things:'Things to do',blog:'Blog',contact:'Contact',reserva:'Reserve',reviews:'Reviews'},
+    cta:{wa:'Book via WhatsApp',online:'Book online'},
+    hero:{script:'Cabins in the hills of Tanti',sub:'Fully equipped cabins for 2 to 7 people, 2 minutes by car from downtown Tanti and 4 minutes by car from the river. A quiet place, perfect for groups, families and gatherings.'},
+    about:{title:'About the cabins',body:"La Cautiva has eight air-conditioned cabins with everything you need for a comfortable stay, plus shared spaces made for groups: a quincho, grill, pool and covered parking. 2 minutes by car from Tanti town center and 4 minutes from the river. A quiet place, perfect for families, groups of friends, teens, and spiritual retreats.",cta:'See cabins'},
+    aboutLinks:[
+      {t:'Our cabins',d:'Eight cabins equipped for 2 to 7 people.',p:'cabins'},
+      {t:'Common area',d:'Pool, quincho, grill and covered parking.',p:'common'},
+      {t:'How to get here',d:'2 minutes by car from downtown, 4 by car from the river.',p:'contact'}
+    ],
+    cabinsHome:{title:'Our cabins',sub:'Eight cabins for 2 to 7 people, plus our common area.',viewAll:'See common area',common:'Common area'},
+    howToBook:{title:'How to book',script:"We'll be waiting",waTitle:'Book via WhatsApp',waDesc:"Message us and we'll help you pick the right cabin for your group.",onTitle:'Book online',onDesc:'Check availability and book directly online.',cta:'Book'},
+    groups:{title:'Perfect for every group',items:[
+      {t:'Families',d:'Space and comfort to share as a family.'},
+      {t:'Groups of friends',d:'Cabins and shared spaces made for large groups.'},
+      {t:'Teens and youth groups',d:'A safe, quiet place for youth groups.'},
+      {t:'Spiritual retreats',d:'Silence and nature for gatherings and retreats.'}
+    ]},
+    galleryHome:{title:'Gallery',sub:'A look at the cabins and shared spaces.',viewAll:'View full gallery'},
+    homeEvents:{eyebrow:'Groups & events',title:'Planning a birthday, wedding or corporate event?',sub:'La Cautiva is the ideal place for your event: pool and grill access, no overnight stay required.',cta:'See events'},
+    cabinsPage:{title:'Cabins',sub:'Choose a cabin or check out our common area.',commonName:'Common area',commonDesc:'Pool, quincho, grill and covered parking to enjoy with your group.',equipped:'A fully equipped cabin with air conditioning and everything you need for a comfortable stay.',amenTitle:'Amenities',amenities:['Air conditioning','Fully equipped kitchen','Private bathroom','Linens and towels','Wifi'],reserve:'Ask about this cabin',commonFeatures:['Pool','Quincho','Grill and barbecue area','Covered parking','Garden and green areas']},
+    eventsPage:{title:'Events',sub:'Celebrate your birthday, wedding or corporate event in a natural setting, with pool and grill access.',cards:[
+      {t:'Birthdays',d:'Celebrate your birthday outdoors, with pool and grill access for all your guests.'},
+      {t:'Weddings',d:'A unique natural setting for your wedding, with space for the pool, quincho and grill.'},
+      {t:'Corporate events',d:'Organize your corporate event or team building day with pool and grill access.'}
+    ],featTitle:'Includes',features:['Pool access','Grill and quincho','Covered parking','No overnight stay required','Outdoor space'],cta:'Ask about your event'},
+    galleryPage:{title:'Gallery',sub:'Photos of the cabins, the pool, the natural surroundings and gatherings on site.',cats:['Cabins','Pool & quincho','Nature','Groups & gatherings']},
+    things:{title:'Things to do',sub:'Ideas to make the most of your stay in Tanti.',doTitle:'Things to do in Tanti',doIntro:'A few ideas to enjoy during your stay.',placeName:'Place name',placeDesc:'Add a short description here.'},
+    blog:{title:'Blog',sub:'Ideas, news and tips for your stay in Tanti.',comingSoon:'Coming soon',artTitle:'Article title',artExcerpt:'Write a short summary of the article here.'},
+    contact:{title:'Contact',sub:'Message us on WhatsApp or find us on Instagram.',waCta:'Message us on WhatsApp',addrTitle:'Where we are',addrBody:'Tanti, Córdoba, Argentina. 2 minutes by car from downtown Tanti and 4 minutes by car from the Tanti river.',howTitle:'How to get here',howBody:"Tanti is located in the Punilla Valley, about 50 minutes from the city of Córdoba via Provincial Route 28. Message us on WhatsApp and we'll send you the exact location.",mapTitle:'Location',phoneLabel:'Phone / WhatsApp',igLabel:'Instagram',onlineLabel:'Book online'},
+    footer:{links:'Links',follow:'Follow us',rights:'All rights reserved.'}
+  },
+  pt:{
+    nav:{home:'Início',cabins:'Cabanas',events:'Eventos',gallery:'Galeria',things:'O que fazer',blog:'Blog',contact:'Contato',reserva:'Reservar',reviews:'Avaliações'},
+    cta:{wa:'Reservar pelo WhatsApp',online:'Reservar online'},
+    hero:{script:'Cabanas nas serras de Tanti',sub:'Cabanas equipadas para 2 a 7 pessoas, a 2 minutos de carro do centro de Tanti e a 4 minutos de carro do rio. Um lugar tranquilo, ideal para grupos, famílias e encontros.'},
+    about:{title:'Sobre as cabanas',body:'Na La Cautiva você encontra oito cabanas com ar condicionado e tudo o que precisa para uma estadia confortável, além de espaços compartilhados pensados para grupos: quincho, churrasqueira, piscina e estacionamento coberto. A 2 minutos de carro do centro de Tanti e a 4 minutos do rio. Um lugar silencioso, perfeito para famílias, grupos de amigos, jovens, adolescentes e retiros espirituais.',cta:'Ver cabanas'},
+    aboutLinks:[
+      {t:'Nossas cabanas',d:'Oito cabanas equipadas para 2 a 7 pessoas.',p:'cabins'},
+      {t:'Área comum',d:'Piscina, quincho, churrasqueira e estacionamento coberto.',p:'common'},
+      {t:'Como chegar',d:'A 2 minutos de carro do centro e 4 minutos de carro do rio Tanti.',p:'contact'}
+    ],
+    cabinsHome:{title:'Nossas cabanas',sub:'Oito cabanas para 2 a 7 pessoas, além da nossa área comum.',viewAll:'Ver área comum',common:'Área comum'},
+    howToBook:{title:'Como reservar',script:'Te esperamos',waTitle:'Reservar pelo WhatsApp',waDesc:'Fale conosco e te ajudamos a escolher a cabana ideal para seu grupo.',onTitle:'Reservar online',onDesc:'Consulte disponibilidade e reserve diretamente online.',cta:'Reservar'},
+    groups:{title:'Ideal para cada grupo',items:[
+      {t:'Famílias',d:'Espaço e conforto para compartilhar em família.'},
+      {t:'Grupos de amigos',d:'Cabanas e espaços comuns pensados para grupos grandes.'},
+      {t:'Jovens e adolescentes',d:'Lugar seguro e tranquilo para grupos jovens.'},
+      {t:'Retiros espirituais',d:'Silêncio e natureza para encontros e retiros.'}
+    ]},
+    galleryHome:{title:'Galeria',sub:'Um vislumbre das cabanas e dos espaços comuns.',viewAll:'Ver galeria completa'},
+    homeEvents:{eyebrow:'Grupos e eventos',title:'Vai organizar um aniversário, casamento ou evento empresarial?',sub:'A La Cautiva é o lugar ideal para o seu evento: acesso à piscina e churrasqueira, sem necessidade de pernoite.',cta:'Ver eventos'},
+    cabinsPage:{title:'Cabanas',sub:'Escolha uma cabana ou conheça nossa área comum.',commonName:'Área comum',commonDesc:'Piscina, quincho, churrasqueira e estacionamento coberto para aproveitar em grupo.',equipped:'Cabana equipada com ar condicionado e tudo o que você precisa para uma estadia confortável.',amenTitle:'Equipamentos',amenities:['Ar condicionado','Cozinha equipada','Banheiro privativo','Roupa de cama e toalhas','Wifi'],reserve:'Consultar esta cabana',commonFeatures:['Piscina','Quincho','Churrasqueira e espaço para churrasco','Estacionamento coberto','Jardim e áreas verdes']},
+    eventsPage:{title:'Eventos',sub:'Comemore seu aniversário, casamento ou evento empresarial em um ambiente natural, com acesso à piscina e churrasqueira.',cards:[
+      {t:'Aniversários',d:'Comemore seu aniversário ao ar livre, com piscina e churrasqueira para todos os convidados.'},
+      {t:'Casamentos',d:'Um ambiente natural único para o seu casamento, com espaço para piscina, quincho e churrasqueira.'},
+      {t:'Eventos empresariais',d:'Organize seu evento empresarial ou team building com acesso à piscina e churrasqueira.'}
+    ],featTitle:'Inclui',features:['Acesso à piscina','Churrasqueira e quincho','Estacionamento coberto','Não é necessário pernoitar','Espaço ao ar livre'],cta:'Consultar sobre seu evento'},
+    galleryPage:{title:'Galeria',sub:'Fotos das cabanas, da piscina, do entorno natural e de encontros no complexo.',cats:['Cabanas','Piscina e quincho','Natureza','Grupos e encontros']},
+    things:{title:'O que fazer',sub:'Ideias para aproveitar sua estadia em Tanti.',doTitle:'O que fazer em Tanti',doIntro:'Algumas ideias para aproveitar durante sua estadia.',placeName:'Nome do local',placeDesc:'Adicione aqui uma breve descrição.'},
+    blog:{title:'Blog',sub:'Ideias, novidades e dicas para sua estadia em Tanti.',comingSoon:'Em breve',artTitle:'Título do artigo',artExcerpt:'Escreva aqui um breve resumo do artigo.'},
+    contact:{title:'Contato',sub:'Fale conosco pelo WhatsApp ou nos encontre no Instagram.',waCta:'Fale conosco pelo WhatsApp',addrTitle:'Onde estamos',addrBody:'Tanti, Córdoba, Argentina. A 2 minutos de carro do centro de Tanti e a 4 minutos de carro do rio Tanti.',howTitle:'Como chegar',howBody:'Tanti fica no Valle de Punilla, a cerca de 50 minutos da cidade de Córdoba pela Rota Provincial 28. Fale conosco pelo WhatsApp e enviamos a localização exata.',mapTitle:'Localização',phoneLabel:'Telefone / WhatsApp',igLabel:'Instagram',onlineLabel:'Reservar online'},
+    footer:{links:'Links',follow:'Siga-nos',rights:'Todos os direitos reservados.'}
+  }
+};
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE V2 TRANSLATIONS
+───────────────────────────────────────────────────────── */
+const TM = {
+  es:{
+    nav:{home:'Inicio',cabanas:'Cabañas',sobre:'Sobre nosotros',galeria:'Galería',servicios:'Servicios',ubicacion:'Ubicación',contacto:'Contacto'},
+    cabanas:{
+      title:'Áreas comunes',
+      list:[
+        {name:'Jardines',desc:'Espacios verdes compartidos para relajarse al aire libre.'},
+        {name:'Piscina',desc:'Piscina de uso exclusivo para huéspedes, rodeada de parquización.',photo:'imgs/common/piscina.jpg'},
+        {name:'Quincho y parrilla',desc:'Quincho y parrilla cubiertos para disfrutar en grupo.',photo:'imgs/common/quincho.jpg'},
+        {name:'Estacionamiento cubierto',desc:'Cochera techada y segura dentro del predio.'}
+      ],
+      galleryTitle:'Nuestras cabañas',
+      booking:{title:'Reservas y precios',desc:'Consultanos por WhatsApp para conocer disponibilidad y precios actualizados.',cta:'Consultar disponibilidad y precios'}
+    },
+    sobre:{
+      title:'Sobre nosotros',
+      paragraphs:['La Cautiva nació como un proyecto familiar para compartir el lugar que más amamos: las sierras de Tanti.','Construimos cada cabaña pensando en el descanso y en el contacto con el entorno natural serrano.'],
+      quote:'Un rincón para desconectarse y volver a lo simple.'
+    },
+    galeria:{title:'Galería',slides:[
+      {photo:'imgs/gallery/preview-1.jpg',caption:'Living y cocina integrada'},
+      {photo:'imgs/gallery/preview-2.jpg',caption:'Piscina y áreas comunes'},
+      {photo:'imgs/gallery/preview-3.jpg',caption:'Entorno natural y verde'},
+      {photo:'imgs/gallery/preview-4.jpg',caption:'Nuestras cabañas'}
+    ]},
+    servicios:{title:'Servicios y comodidades',items:[
+      {name:'Piscina',desc:'Uso exclusivo para huéspedes'},
+      {name:'Parrilla',desc:'Propia en cada cabaña'},
+      {name:'WiFi',desc:'En las áreas comunes'},
+      {name:'Ropa de cama',desc:'Blancos y toallas incluidos'},
+      {name:'Estacionamiento',desc:'Cochera privada sin cargo'},
+      {name:'Quincho',desc:'Con mesas y espacio cubierto'}
+    ]},
+    ubicacion:{title:'Ubicación',address:'Tanti, Córdoba, Argentina',desc:'Estamos en las sierras de Tanti, a 2 minutos en auto del centro y a 4 minutos del río Tanti.',cta:'Ver en Google Maps',groups:{text:'Precios especiales para grupos y eventos.',cta:'Consultar'}},
+    contacto:{title:'Contacto y reservas',intro:'Contanos las fechas y te respondemos con disponibilidad y precios.',name:'Nombre',email:'Email',phone:'Teléfono',checkin:'Check-in',checkout:'Check-out',message:'Mensaje',submit:'Enviar consulta',whatsappCta:'Escribinos por WhatsApp',success:'¡Gracias! Recibimos tu consulta, te respondemos pronto.',required:'Campo obligatorio',invalidEmail:'Email inválido'},
+    pricesCta:'Consultar precios',
+    footer:{rights:'Todos los derechos reservados'}
+  },
+  pt:{
+    nav:{home:'Início',cabanas:'Cabanas',sobre:'Sobre nós',galeria:'Galeria',servicios:'Serviços',ubicacion:'Localização',contacto:'Contato'},
+    cabanas:{
+      title:'Áreas comuns',
+      list:[
+        {name:'Jardins',desc:'Espaços verdes compartilhados para relaxar ao ar livre.'},
+        {name:'Piscina',desc:'Piscina de uso exclusivo para hóspedes, cercada de jardim.',photo:'imgs/common/piscina.jpg'},
+        {name:'Quincho e churrasqueira',desc:'Quincho e churrasqueira cobertos para aproveitar em grupo.',photo:'imgs/common/quincho.jpg'},
+        {name:'Estacionamento coberto',desc:'Vaga coberta e segura dentro do terreno.'}
+      ],
+      galleryTitle:'Nossas cabanas',
+      booking:{title:'Reservas e preços',desc:'Fale conosco pelo WhatsApp para saber disponibilidade e preços atualizados.',cta:'Consultar disponibilidade e preços'}
+    },
+    sobre:{
+      title:'Sobre nós',
+      paragraphs:['A La Cautiva nasceu como um projeto de família para compartilhar o lugar que mais amamos: as serras de Tanti.','Construímos cada cabana pensando no descanso e no contato com a natureza serrana.'],
+      quote:'Um cantinho para desconectar e voltar ao simples.'
+    },
+    galeria:{title:'Galeria',slides:[
+      {photo:'imgs/gallery/preview-1.jpg',caption:'Sala e cozinha integrada'},
+      {photo:'imgs/gallery/preview-2.jpg',caption:'Piscina e áreas comuns'},
+      {photo:'imgs/gallery/preview-3.jpg',caption:'Ambiente natural e verde'},
+      {photo:'imgs/gallery/preview-4.jpg',caption:'Nossas cabanas'}
+    ]},
+    servicios:{title:'Serviços e comodidades',items:[
+      {name:'Piscina',desc:'Uso exclusivo para hóspedes'},
+      {name:'Churrasqueira',desc:'Própria em cada cabana'},
+      {name:'WiFi',desc:'Nas áreas comuns'},
+      {name:'Roupa de cama',desc:'Roupa de cama e toalhas incluídas'},
+      {name:'Estacionamento',desc:'Vaga privativa sem custo'},
+      {name:'Quincho',desc:'Com mesas e espaço coberto'}
+    ]},
+    ubicacion:{title:'Localização',address:'Tanti, Córdoba, Argentina',desc:'Estamos nas serras de Tanti, a 2 minutos de carro do centro e a 4 minutos do rio Tanti.',cta:'Ver no Google Maps',groups:{text:'Preços especiais para grupos e eventos.',cta:'Consultar'}},
+    contacto:{title:'Contato e reservas',intro:'Informe as datas e responderemos com disponibilidade e preços.',name:'Nome',email:'Email',phone:'Telefone',checkin:'Check-in',checkout:'Check-out',message:'Mensagem',submit:'Enviar consulta',whatsappCta:'Fale conosco pelo WhatsApp',success:'Obrigado! Recebemos sua consulta, responderemos em breve.',required:'Campo obrigatório',invalidEmail:'Email inválido'},
+    pricesCta:'Consultar preços',
+    footer:{rights:'Todos os direitos reservados'}
+  },
+  en:{
+    nav:{home:'Home',cabanas:'Cabins',sobre:'About',galeria:'Gallery',servicios:'Amenities',ubicacion:'Location',contacto:'Contact'},
+    cabanas:{
+      title:'Common areas',
+      list:[
+        {name:'Gardens',desc:'Shared green spaces to relax outdoors.'},
+        {name:'Pool',desc:'Exclusive pool for guests, surrounded by greenery.',photo:'imgs/common/piscina.jpg'},
+        {name:'Quincho & grill',desc:'Covered quincho and grill for group enjoyment.',photo:'imgs/common/quincho.jpg'},
+        {name:'Covered parking',desc:'Safe covered parking within the property.'}
+      ],
+      galleryTitle:'Our cabins',
+      booking:{title:'Reservations & pricing',desc:'Message us on WhatsApp to check availability and current pricing.',cta:'Check availability & pricing'}
+    },
+    sobre:{
+      title:'About us',
+      paragraphs:['La Cautiva was born as a family project to share the place we love most: the hills of Tanti.','We built each cabin with local wood, designed for rest and connection with the natural surroundings.'],
+      quote:'A retreat to disconnect and return to simplicity.'
+    },
+    galeria:{title:'Gallery',slides:[
+      {photo:'imgs/gallery/preview-1.jpg',caption:'Living room and kitchen'},
+      {photo:'imgs/gallery/preview-2.jpg',caption:'Pool and common areas'},
+      {photo:'imgs/gallery/preview-3.jpg',caption:'Natural surroundings'},
+      {photo:'imgs/gallery/preview-4.jpg',caption:'Our cabins'}
+    ]},
+    servicios:{title:'Amenities',items:[
+      {name:'Pool',desc:'Exclusive for guests'},
+      {name:'Grill',desc:'Private in each cabin'},
+      {name:'WiFi',desc:'In common areas'},
+      {name:'Linens',desc:'Bed and bath included'},
+      {name:'Parking',desc:'Free private parking'},
+      {name:'Quincho',desc:'Covered dining area'}
+    ]},
+    ubicacion:{title:'Location',address:'Tanti, Córdoba, Argentina',desc:'Located in the hills of Tanti, 2 minutes by car from downtown and 4 minutes from the Tanti river.',cta:'View on Google Maps',groups:{text:'Special prices for groups and events.',cta:'Inquire'}},
+    contacto:{title:'Contact & booking',intro:"Share your dates and we'll reply with availability and pricing.",name:'Name',email:'Email',phone:'Phone',checkin:'Check-in',checkout:'Check-out',message:'Message',submit:'Send inquiry',whatsappCta:'Message us on WhatsApp',success:'Thank you! We received your inquiry and will reply soon.',required:'Required field',invalidEmail:'Invalid email'},
+    pricesCta:'Check pricing',
+    footer:{rights:'All rights reserved'}
+  }
+};
+
+/* ─────────────────────────────────────────────────────────
+   MULTILINGUAL — modal & reservation page
+───────────────────────────────────────────────────────── */
+const ML = {
+  es: {
+    rvEyebrow:'Disponibilidad', rvTitle:'Reservar',
+    rvSub:'Elegí las fechas y encontrá la cabaña ideal para tu grupo.',
+    rvLblIn:'Llegada', rvLblOut:'Salida', rvLblGuests:'Personas',
+    rvBtnSearch:'Ver disponibilidad', rvBadge:'Disponible',
+    rvReserve:'Reservar ahora', rvAsk:'Consultar precio',
+    rvCount:n=>`${n} cabañas disponibles`,
+    rvCountFull:(n,cin,cout,g)=>{
+      const nights=Math.round((new Date(cout)-new Date(cin))/86400000);
+      return `${n} cabañas · ${fmtShort(cin,'es')} al ${fmtShort(cout,'es')} · ${nights} noche${nights!==1?'s':''} · ${g} persona${g>1?'s':''}`;
+    },
+    moTitle:'Reservar', moLblIn:'Fecha de entrada', moLblOut:'Fecha de salida',
+    moLblGuests:'Personas', moLblCabin:'cabaña (opcional)',
+    moNoPref:'Sin preferencia', moSubmit:'Enviar reserva por WhatsApp ▸',
+    moNote:'Se abrirá WhatsApp con los datos de tu consulta.',
+    moErrDates:'Por favor ingresá la fecha de entrada y salida.',
+    moErrOrder:'La salida debe ser posterior a la entrada.',
+    nightLbl:n=>`${n} noche${n!==1?'s':''}`,
+    guestOpt:n=>`${n} persona${n>1?'s':''}`,
+    cabinOpt:(id,cap)=>`cabaña ${id} — hasta ${cap} personas`,
+    months:['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+    msgHead:'¡Hola! Quiero hacer una reserva en La Cautiva Cabañas Tanti.',
+    msgIn:'📅 Llegada', msgOut:'📅 Salida', msgG:'👥 Personas', msgC:'🏠 cabaña',
+    moCloseLabel:'Cerrar', floatLabel:'Reservar',
+    moTitle:'Reservar / Consultar',
+    moTabReserva:'Reservar', moTabConsultar:'Consultar precios', moTabGrupo:'Grupo grande',
+    moNoDates:'Todavía no sé las fechas exactas',
+    moConsultNote:'Las fechas son opcionales. Te enviamos los precios disponibles.',
+    moGroupNote:'Completá los datos que tengas — todo es opcional. Te hacemos una cotización.',
+    moLblInGrupo:'Fecha estimada de llegada (opcional)', moLblOutGrupo:'Fecha estimada de salida (opcional)',
+    moSubmitConsulta:'Consultar precios por WhatsApp ▸',
+    moSubmitGrupo:'Consultar para grupo por WhatsApp ▸',
+    moNoInfo:'No tengo ningún dato aún',
+    msgHeadConsulta:'¡Hola! Quiero consultar precios en La Cautiva Cabañas Tanti.',
+    msgHeadGrupo:'¡Hola! Quiero cotar / reservar para un grupo en La Cautiva Cabañas Tanti.',
+    msgHeadGrupoNoInfo:'¡Hola! Me interesa una reserva grupal en La Cautiva Cabañas Tanti. Por favor contáctame con más información.',
+    evtTitle:'Consultá disponibilidad para tu evento',
+    evtSub:'Contanos qué tipo de evento es y te respondemos a la brevedad.',
+    evtLblType:'Tipo de evento', evtLblDate:'Fecha estimada (opcional)', evtLblPeople:'Cantidad de personas',
+    evtTypes:['Cumpleaños','Casamiento','Evento de empresa','Retiro espiritual','Otro'],
+    evtBtnConsult:'Consultar disponibilidad', evtNoDates:'Todavía no sé la fecha',
+    msgEvtHead:'¡Hola! Quiero consultar disponibilidad para un evento en La Cautiva Cabañas Tanti.',
+    msgEvtType:'🎉 Tipo de evento', msgEvtDate:'📅 Fecha estimada', msgEvtPeople:'👥 Personas',
+  },
+  en: {
+    rvEyebrow:'Availability', rvTitle:'Reserve',
+    rvSub:'Choose your dates and find the perfect cabin for your group.',
+    rvLblIn:'Check-in', rvLblOut:'Check-out', rvLblGuests:'Guests',
+    rvBtnSearch:'Check availability', rvBadge:'Available',
+    rvReserve:'Reserve now', rvAsk:'Ask for price',
+    rvCount:n=>`${n} cabins available`,
+    rvCountFull:(n,cin,cout,g)=>{
+      const nights=Math.round((new Date(cout)-new Date(cin))/86400000);
+      return `${n} cabins · ${fmtShort(cin,'en')} to ${fmtShort(cout,'en')} · ${nights} night${nights!==1?'s':''} · ${g} guest${g>1?'s':''}`;
+    },
+    moTitle:'Reserve', moLblIn:'Check-in date', moLblOut:'Check-out date',
+    moLblGuests:'Guests', moLblCabin:'cabin (optional)',
+    moNoPref:'No preference', moSubmit:'Send reservation via WhatsApp ▸',
+    moNote:'WhatsApp will open with your request details.',
+    moErrDates:'Please enter check-in and check-out dates.',
+    moErrOrder:'Check-out must be after check-in.',
+    nightLbl:n=>`${n} night${n!==1?'s':''}`,
+    guestOpt:n=>`${n} guest${n>1?'s':''}`,
+    cabinOpt:(id,cap)=>`cabin ${id} — up to ${cap} people`,
+    months:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    msgHead:"Hi! I'd like to make a reservation at La Cautiva Cabañas Tanti.",
+    msgIn:'📅 Check-in', msgOut:'📅 Check-out', msgG:'👥 Guests', msgC:'🏠 cabin',
+    moCloseLabel:'Close', floatLabel:'Reserve',
+    moTitle:'Book / Inquire',
+    moTabReserva:'Reserve', moTabConsultar:'Ask for prices', moTabGrupo:'Large group',
+    moNoDates:"I don't know the exact dates yet",
+    moConsultNote:"Dates are optional. We'll send you available prices.",
+    moGroupNote:"Fill in whatever you know — everything is optional. We'll put together a quote.",
+    moLblInGrupo:'Estimated arrival date (optional)', moLblOutGrupo:'Estimated departure date (optional)',
+    moSubmitConsulta:'Ask about prices via WhatsApp ▸',
+    moSubmitGrupo:'Ask about group booking via WhatsApp ▸',
+    moNoInfo:"I don't have any details yet",
+    msgHeadConsulta:"Hi! I'd like to ask about prices at La Cautiva Cabañas Tanti.",
+    msgHeadGrupo:"Hi! I'd like to get a quote / book for a group at La Cautiva Cabañas Tanti.",
+    msgHeadGrupoNoInfo:"Hi! I'm interested in a group booking at La Cautiva Cabañas Tanti. Please get in touch with more information.",
+    evtTitle:'Check availability for your event',
+    evtSub:'Tell us what kind of event you have in mind and we\'ll get back to you shortly.',
+    evtLblType:'Event type', evtLblDate:'Estimated date (optional)', evtLblPeople:'Number of people',
+    evtTypes:['Birthday','Wedding','Corporate event','Spiritual retreat','Other'],
+    evtBtnConsult:'Check availability', evtNoDates:"I don't know the date yet",
+    msgEvtHead:"Hi! I'd like to check availability for an event at La Cautiva Cabañas Tanti.",
+    msgEvtType:'🎉 Event type', msgEvtDate:'📅 Estimated date', msgEvtPeople:'👥 People',
+  },
+  pt: {
+    rvEyebrow:'Disponibilidade', rvTitle:'Reservar',
+    rvSub:'Escolha as datas e encontre a cabana ideal para o seu grupo.',
+    rvLblIn:'Entrada', rvLblOut:'Saída', rvLblGuests:'Pessoas',
+    rvBtnSearch:'Ver disponibilidade', rvBadge:'Disponível',
+    rvReserve:'Reservar agora', rvAsk:'Consultar preço',
+    rvCount:n=>`${n} cabanas disponíveis`,
+    rvCountFull:(n,cin,cout,g)=>{
+      const nights=Math.round((new Date(cout)-new Date(cin))/86400000);
+      return `${n} cabanas · ${fmtShort(cin,'pt')} a ${fmtShort(cout,'pt')} · ${nights} noite${nights!==1?'s':''} · ${g} pessoa${g>1?'s':''}`;
+    },
+    moTitle:'Reservar', moLblIn:'Data de entrada', moLblOut:'Data de saída',
+    moLblGuests:'Pessoas', moLblCabin:'cabana (opcional)',
+    moNoPref:'Sem preferência', moSubmit:'Enviar reserva pelo WhatsApp ▸',
+    moNote:'O WhatsApp será aberto com os dados da sua consulta.',
+    moErrDates:'Por favor informe as datas de entrada e saída.',
+    moErrOrder:'A saída deve ser posterior à entrada.',
+    nightLbl:n=>`${n} noite${n!==1?'s':''}`,
+    guestOpt:n=>`${n} pessoa${n>1?'s':''}`,
+    cabinOpt:(id,cap)=>`cabana ${id} — até ${cap} pessoas`,
+    months:['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
+    msgHead:'Olá! Quero fazer uma reserva na La Cautiva Cabañas Tanti.',
+    msgIn:'📅 Entrada', msgOut:'📅 Saída', msgG:'👥 Pessoas', msgC:'🏠 cabana',
+    moCloseLabel:'Fechar', floatLabel:'Reservar',
+    moTitle:'Reservar / Consultar',
+    moTabReserva:'Reservar', moTabConsultar:'Consultar preços', moTabGrupo:'Grupo grande',
+    moNoDates:'Ainda não sei as datas exatas',
+    moConsultNote:'As datas são opcionais. Enviamos os preços disponíveis.',
+    moGroupNote:'Preencha o que souber — tudo é opcional. Fazemos um orçamento para vocês.',
+    moLblInGrupo:'Data estimada de chegada (opcional)', moLblOutGrupo:'Data estimada de saída (opcional)',
+    moSubmitConsulta:'Consultar preços pelo WhatsApp ▸',
+    moSubmitGrupo:'Consultar reserva de grupo pelo WhatsApp ▸',
+    moNoInfo:'Não tenho nenhuma informação ainda',
+    msgHeadConsulta:'Olá! Quero consultar preços na La Cautiva Cabañas Tanti.',
+    msgHeadGrupo:'Olá! Quero cotar / reservar para um grupo na La Cautiva Cabañas Tanti.',
+    msgHeadGrupoNoInfo:'Olá! Tenho interesse em uma reserva para grupo na La Cautiva Cabañas Tanti. Por favor, entre em contato com mais informações.',
+    evtTitle:'Consulte disponibilidade para seu evento',
+    evtSub:'Conte-nos que tipo de evento é e respondemos em breve.',
+    evtLblType:'Tipo de evento', evtLblDate:'Data estimada (opcional)', evtLblPeople:'Quantidade de pessoas',
+    evtTypes:['Aniversário','Casamento','Evento empresarial','Retiro espiritual','Outro'],
+    evtBtnConsult:'Consultar disponibilidade', evtNoDates:'Ainda não sei a data',
+    msgEvtHead:'Olá! Quero consultar disponibilidade para um evento na La Cautiva Cabañas Tanti.',
+    msgEvtType:'🎉 Tipo de evento', msgEvtDate:'📅 Data estimada', msgEvtPeople:'👥 Pessoas',
+  }
+};
+
+function fmtDate(dateStr, lang){
+  const ml = ML[lang];
+  const [y,m,d] = dateStr.split('-');
+  if(lang==='en') return `${ml.months[parseInt(m,10)-1]} ${parseInt(d,10)}, ${y}`;
+  return `${parseInt(d,10)} de ${ml.months[parseInt(m,10)-1]} de ${y}`;
+}
+function fmtShort(dateStr, lang){
+  const [,m,d] = dateStr.split('-');
+  if(lang==='en'){const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return mo[parseInt(m,10)-1]+' '+parseInt(d,10);}
+  return `${parseInt(d,10)}/${parseInt(m,10)}`;
+}
+function buildWaMsg(cabinId, cin, cout, guests, lang, headOverride){
+  const ml = ML[lang];
+  const nights = (cin && cout) ? Math.round((new Date(cout)-new Date(cin))/86400000) : 0;
+  let msg = headOverride || ml.msgHead;
+  if(cin) msg += '\n'+ml.msgIn+': '+fmtDate(cin,lang);
+  if(cout){ msg += '\n'+ml.msgOut+': '+fmtDate(cout,lang); if(nights>0) msg += ' ('+ml.nightLbl(nights)+')'; }
+  if(guests) msg += '\n'+ml.msgG+': '+guests;
+  if(cabinId){ const n=lang==='en'?'cabin':lang==='pt'?'cabana':'cabaña'; msg += '\n'+ml.msgC+': '+n+' '+cabinId; }
+  return msg;
+}
+
+/* ─────────────────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────────────────── */
+function go(page){
+  if(page==='common'){ S.page='cabins'; S.cabin='common'; }
+  else { S.page=page; if(page==='cabins' && S.cabin==='common') S.cabin=1; }
+  S.menu=false;
+  window.scrollTo(0,0);
+  render();
+}
+function selCabin(id){
+  S.cabin=id;
+  render();
+}
+function setLang(l){ S.lang=l; render(); }
+function toggleMenu(){
+  S.menu=!S.menu;
+  const btn=document.getElementById('hamburger');
+  if(btn) btn.setAttribute('aria-expanded',String(S.menu));
+  const menu=document.getElementById('mob-menu');
+  if(menu) menu.classList.toggle('open',S.menu);
+}
+function openCabin(id){ S.page='cabins'; S.cabin=id; S.menu=false; window.scrollTo(0,0); render(); }
+function openCommon(){ S.page='cabins'; S.cabin='common'; S.menu=false; window.scrollTo(0,0); render(); }
+
+/* ─────────────────────────────────────────────────────────
+   HELPERS
+───────────────────────────────────────────────────────── */
+const PH_CATS = ['','ph-pool','ph-nature','ph-event'];
+
+function ph(cls='', h=200, label=''){
+  return `<div class="ph ${cls}" style="height:${h}px;display:flex;align-items:center;justify-content:center">
+    <span style="color:rgba(244,240,187,.25);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">${label}</span>
+  </div>`;
+}
+
+function img(src, cls='', h=200, label='', lazy=true){
+  return `<div class="img-slot" data-src="${src}" style="height:${h}px;overflow:hidden;position:relative" onclick="if(EDIT_MODE){event.stopPropagation();uploadImg(this.dataset.src,this)}">
+    <div class="ph ${cls}" style="position:absolute;inset:0;height:auto;display:flex;align-items:center;justify-content:center">
+      <span style="color:rgba(244,240,187,.25);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">${label}</span>
+    </div>
+    <img src="${src}" alt="${label}" loading="${lazy?'lazy':'eager'}"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1"
+      onload="this.previousElementSibling.style.display='none'"
+      onerror="this.style.display='none'">
+    <div class="img-edit-ov">📷</div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE V2 FUNCTIONS
+───────────────────────────────────────────────────────── */
+function mobGetScroll(){ return document.getElementById('m2-scroll'); }
+
+function mobToggleMenu(){
+  var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
+  S.mobMenu=!S.mobMenu;
+  render();
+  sc=mobGetScroll(); if(sc) sc.scrollTop=top;
+}
+
+function mobScrollTo(id){
+  S.mobMenu=false;
+  var sc=mobGetScroll();
+  var target=id?document.getElementById('m2-sec-'+id):null;
+  var targetTop=target?target.offsetTop:0;
+  render();
+  sc=mobGetScroll();
+  if(sc){ sc.scrollTop=id?targetTop:0; }
+}
+
+function mobPrev(){
+  var M=TM[S.lang]||TM.es, n=M.galeria.slides.length;
+  var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
+  S.mobSlide=(S.mobSlide-1+n)%n;
+  render();
+  sc=mobGetScroll(); if(sc) sc.scrollTop=top;
+}
+
+function mobNext(){
+  var M=TM[S.lang]||TM.es, n=M.galeria.slides.length;
+  var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
+  S.mobSlide=(S.mobSlide+1)%n;
+  render();
+  sc=mobGetScroll(); if(sc) sc.scrollTop=top;
+}
+
+function mobGoSlide(i){
+  var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
+  S.mobSlide=i;
+  render();
+  sc=mobGetScroll(); if(sc) sc.scrollTop=top;
+}
+
+function mobUpdateForm(key,val){ S.mobForm[key]=val; }
+
+function mobSubmit(e){
+  e.preventDefault();
+  var M=(TM[S.lang]||TM.es).contacto, f=S.mobForm, errors={};
+  if(!f.name.trim()) errors.name=M.required;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) errors.email=M.invalidEmail;
+  if(!f.checkin||!f.checkout) errors.checkin=M.required;
+  var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
+  if(Object.keys(errors).length){ S.mobFormErrors=errors; S.mobFormSubmitted=false; render(); sc=mobGetScroll(); if(sc) sc.scrollTop=top; return; }
+  S.mobFormErrors={}; S.mobFormSubmitted=true;
+  render();
+  sc=mobGetScroll(); if(sc) sc.scrollTop=top;
+}
+
+function renderMobile(){
+  var L=T[S.lang], M=TM[S.lang]||TM.es;
+  var waG=wa(msgGeneral(S.lang));
+  var f=S.mobForm, fe=S.mobFormErrors;
+  var slides=M.galeria.slides, si=S.mobSlide%slides.length;
+  var mapsUrl='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('La Cautiva Cabañas, Tanti, Córdoba, Argentina');
+  var ctParts=[msgGeneral(S.lang)];
+  if(f.checkin) ctParts.push('Check-in: '+f.checkin);
+  if(f.checkout) ctParts.push('Check-out: '+f.checkout);
+  if(f.name) ctParts.push('- '+f.name);
+  var waC=wa(ctParts.join('. '));
+
+  var SVG_ICONS=[
+    '<path d="M4 18c2-2 4-2 6 0s4 2 6 0M4 14c2-2 4-2 6 0s4 2 6 0M9 10a3 3 0 100-6 3 3 0 000 6z"/>',
+    '<path d="M12 3c-2 4-4 7-4 10a4 4 0 008 0c0-3-2-6-4-10z"/>',
+    '<path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>',
+    '<path d="M2 20v-8h20v8H2zM2 12l2-5h16l2 5"/>',
+    '<path d="M5 17H3v-5l2.5-6h13l2.5 6v5h-2M5 17a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z"/>',
+    '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>'
+  ];
+
+  var cabanaCards=M.cabanas.list.map(function(c){
+    var cardImg=c.photo?'<div style="height:110px;overflow:hidden">'+img(c.photo,'ph-pool',110,'')+'</div>':'';
+    return '<div class="m2-card">'+cardImg+'<div style="padding:12px"><div class="m2-card-title">'+c.name+'</div><div class="m2-card-body">'+c.desc+'</div></div></div>';
+  }).join('');
+
+  var cabinGrid=CABINS.slice(0,4).map(function(c){
+    return '<div style="overflow:hidden;height:100px">'+img('imgs/cabins/'+c.id+'/1.jpg','',100,'')+'</div>';
+  }).join('');
+
+  var services=M.servicios.items.map(function(item,i){
+    var icon=SVG_ICONS[i]||'<circle cx="12" cy="12" r="9"/>';
+    return '<div class="m2-srv"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#da2c38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+icon+'</svg><div class="m2-card-title" style="font-size:12px;margin-top:6px">'+item.name+'</div><div class="m2-card-body" style="font-size:11px">'+item.desc+'</div></div>';
+  }).join('');
+
+  var slideDots=slides.map(function(_,i){
+    return '<button onclick="mobGoSlide('+i+')" style="width:8px;height:8px;border-radius:50%;border:1.5px solid #da2c38;background:'+(i===si?'#da2c38':'transparent')+';padding:0;cursor:pointer;flex-shrink:0"></button>';
+  }).join('');
+
+  var aboutParas=M.sobre.paragraphs.map(function(p){
+    return '<p style="font-size:14px;line-height:1.65;color:#43291f;margin-bottom:12px;text-align:justify">'+p+'</p>';
+  }).join('');
+
+  var waPath='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z';
+
+  return `
+    <div class="m2-hdr">
+      <div class="m2-brand">La Cautiva</div>
+      <div class="m2-hdr-right">
+        <div class="m2-lang">
+          <button class="m2-lang-btn${S.lang==='es'?' active':''}" onclick="setLang('es')">ES</button>
+          <button class="m2-lang-btn${S.lang==='pt'?' active':''}" onclick="setLang('pt')">PT</button>
+        </div>
+        <button class="m2-hbg" onclick="mobToggleMenu()" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="m2-menu${S.mobMenu?' open':''}" aria-label="Menú">
+      <button class="m2-menu-item" onclick="mobScrollTo(null)">La Cautiva</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('cabanas')">${M.nav.cabanas}</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('galeria')">${M.nav.galeria}</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('sobre')">${M.nav.sobre}</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('servicios')">${M.nav.servicios}</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('ubicacion')">${M.nav.ubicacion}</button>
+      <button class="m2-menu-item" onclick="mobScrollTo('contacto')" style="border-bottom:none">${M.nav.contacto}</button>
+      <div style="padding:12px 16px">
+        <a href="${waG}" target="_blank" rel="noopener" class="m2-bar-btn">${M.contacto.whatsappCta}</a>
+      </div>
+    </nav>
+
+    <div class="m2-scroll" id="m2-scroll">
+
+      <div id="m2-sec-hero" style="position:relative;height:380px;background:#1b100c">
+        <div class="img-slot" data-src="imgs/hero.jpg" style="height:380px;overflow:hidden;position:relative">
+          <div class="ph ph-hero" style="position:absolute;inset:0;height:auto"></div>
+          <img src="imgs/hero.jpg" alt="" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:sepia(.18) saturate(.9)" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+        </div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,16,12,0) 45%,rgba(27,16,12,.8) 100%);pointer-events:none;z-index:2"></div>
+        <div style="position:absolute;left:16px;right:16px;bottom:16px;color:#f4f0bb;z-index:3">
+          <h1 style="font-family:'Playfair Display',serif;font-size:28px;color:#f4f0bb;margin-bottom:6px;line-height:1.1">La Cautiva Cabañas</h1>
+          <p style="font-size:13.5px;line-height:1.45;margin:0;opacity:.92">${L.hero.script}</p>
+        </div>
+      </div>
+
+      <div style="padding:12px 16px 0">
+        <button onclick="mobScrollTo('cabanas')" class="m2-submit">${L.about.cta} ▸</button>
+      </div>
+
+      <div id="m2-sec-cabanas" class="m2-sec" style="padding-bottom:0">
+        <h2 class="m2-sec-title">${M.cabanas.title}</h2>
+        <hr class="m2-hr">
+        ${cabanaCards}
+      </div>
+
+      <div class="m2-sec" style="padding-bottom:0">
+        <h2 class="m2-sec-title" style="font-size:19px">${M.cabanas.galleryTitle}</h2>
+        <hr class="m2-hr">
+        <div class="m2-grid2" style="gap:4px">${cabinGrid}</div>
+      </div>
+
+      <div style="padding:16px 16px 20px">
+        <div class="m2-card" style="text-align:center;padding:18px;margin-bottom:0">
+          <div class="m2-card-title" style="font-size:15px;margin-bottom:8px">${M.cabanas.booking.title}</div>
+          <p class="m2-card-body" style="margin-bottom:14px">${M.cabanas.booking.desc}</p>
+          <a href="${waG}" target="_blank" rel="noopener" class="m2-bar-btn">${M.cabanas.booking.cta}</a>
+        </div>
+      </div>
+
+      <div id="m2-sec-sobre" class="m2-sec">
+        <h2 class="m2-sec-title">${M.sobre.title}</h2>
+        <div style="height:180px;overflow:hidden;margin-bottom:16px">${img('imgs/about/exterior.jpg','',180,'')}</div>
+        ${aboutParas}
+        <hr class="m2-hr" style="margin-top:16px">
+        <p class="m2-quote">"${M.sobre.quote}"</p>
+      </div>
+
+      <div id="m2-sec-galeria" class="m2-sec">
+        <h2 class="m2-sec-title">${M.galeria.title}</h2>
+        <div style="position:relative;margin-bottom:8px">
+          <div style="height:260px;overflow:hidden">${img(slides[si].photo,'ph-nature',260,'')}</div>
+          <button onclick="mobPrev()" aria-label="Anterior" class="m2-slider-btn" style="left:8px">‹</button>
+          <button onclick="mobNext()" aria-label="Siguiente" class="m2-slider-btn" style="right:8px">›</button>
+        </div>
+        <p style="text-align:center;font-size:12px;color:#7b4b39;margin:0 0 10px">${slides[si].caption}</p>
+        <div style="display:flex;justify-content:center;gap:8px">${slideDots}</div>
+      </div>
+
+      <div id="m2-sec-servicios" class="m2-sec">
+        <h2 class="m2-sec-title">${M.servicios.title}</h2>
+        <div class="m2-grid2">${services}</div>
+      </div>
+
+      <div id="m2-sec-ubicacion" class="m2-sec">
+        <h2 class="m2-sec-title">${M.ubicacion.title}</h2>
+        <div style="height:170px;overflow:hidden;margin-bottom:14px">${img('imgs/about/exterior.jpg','ph-nature',170,'')}</div>
+        <p style="font-size:14px;line-height:1.6;color:#43291f;margin-bottom:8px">${M.ubicacion.desc}</p>
+        <p class="m2-meta">${M.ubicacion.address}</p>
+        <a href="${mapsUrl}" target="_blank" rel="noopener" class="m2-submit" style="margin-top:16px">${M.ubicacion.cta}</a>
+        <div class="m2-card" style="text-align:center;padding:16px;margin-top:20px;margin-bottom:0">
+          <p class="m2-card-body" style="margin-bottom:12px">${M.ubicacion.groups.text}</p>
+          <a href="${waG}" target="_blank" rel="noopener" class="m2-bar-btn">${M.ubicacion.groups.cta}</a>
+        </div>
+      </div>
+
+      <div id="m2-sec-contacto" class="m2-sec">
+        <h2 class="m2-sec-title">${M.contacto.title}</h2>
+        <p class="m2-card-body" style="margin-bottom:16px">${M.contacto.intro}</p>
+        <form onsubmit="mobSubmit(event)" novalidate style="display:flex;flex-direction:column">
+          <div class="m2-field">
+            <label class="m2-label">${M.contacto.name}</label>
+            <input class="m2-input${fe.name?' err':''}" value="${(f.name||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('name',this.value)">
+            ${fe.name?'<div class="m2-err">'+fe.name+'</div>':''}
+          </div>
+          <div class="m2-field">
+            <label class="m2-label">${M.contacto.email}</label>
+            <input type="email" class="m2-input${fe.email?' err':''}" value="${(f.email||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('email',this.value)">
+            ${fe.email?'<div class="m2-err">'+fe.email+'</div>':''}
+          </div>
+          <div class="m2-field">
+            <label class="m2-label">${M.contacto.phone}</label>
+            <input type="tel" class="m2-input" value="${(f.phone||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('phone',this.value)">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="m2-field">
+              <label class="m2-label">${M.contacto.checkin}</label>
+              <input type="date" class="m2-input${fe.checkin?' err':''}" value="${f.checkin||''}" oninput="mobUpdateForm('checkin',this.value)">
+            </div>
+            <div class="m2-field">
+              <label class="m2-label">${M.contacto.checkout}</label>
+              <input type="date" class="m2-input" value="${f.checkout||''}" oninput="mobUpdateForm('checkout',this.value)">
+            </div>
+          </div>
+          ${fe.checkin?'<div class="m2-err" style="margin-top:-8px;margin-bottom:10px">'+fe.checkin+'</div>':''}
+          <div class="m2-field">
+            <label class="m2-label">${M.contacto.message}</label>
+            <textarea class="m2-input" rows="3" oninput="mobUpdateForm('message',this.value)">${f.message||''}</textarea>
+          </div>
+          <button type="submit" class="m2-submit">${M.contacto.submit}</button>
+          ${S.mobFormSubmitted?'<div class="m2-success">'+M.contacto.success+'</div>':''}
+        </form>
+        <a href="${waC}" target="_blank" rel="noopener" class="m2-submit" style="margin-top:12px;background:#226f54">${M.contacto.whatsappCta}</a>
+      </div>
+
+      <div style="padding:24px 16px;border-top:1px solid rgba(67,41,31,.14)">
+        <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:15px;color:#43291f">La Cautiva Cabañas</div>
+        <div style="font-size:12px;color:#7b4b39;margin-top:4px">Tanti, Córdoba, Argentina</div>
+        <div style="font-size:10.5px;color:#7b4b39;opacity:.6;margin-top:10px">© 2026 La Cautiva Cabañas · ${M.footer.rights}</div>
+      </div>
+    </div>
+
+    <div class="m2-bar">
+      <a href="${waG}" target="_blank" rel="noopener" class="m2-bar-btn">${M.pricesCta}</a>
+    </div>
+
+    <div class="m2-wa-wrap">
+      <div class="m2-wa-ring"></div>
+      <a href="${waG}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="m2-wa-link">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#da2c38"><path d="${waPath}"/></svg>
+      </a>
+    </div>
+  `;
+}
+
+/* ─────────────────────────────────────────────────────────
+   RENDER SHELL
+───────────────────────────────────────────────────────── */
+function render(){
+  const L=T[S.lang];
+  const waG=wa(msgGeneral(S.lang));
+  const waE=wa(msgEvent(S.lang));
+
+  /* ── Header nav ── */
+  const pages=['home','cabins','events','gallery','things','blog','contact','reviews','reserva'];
+  pages.forEach(p=>{
+    const el=document.getElementById('n-'+p);
+    if(el){ el.textContent=L.nav[p]; el.classList.toggle('active',S.page===p); }
+    const me=document.getElementById('m-'+p);
+    if(me){ me.textContent=L.nav[p]; me.classList.toggle('active',S.page===p); }
+  });
+  /* ── Reservar nav button ── */
+  const nrv=document.getElementById('n-reserva');
+  if(nrv){
+    nrv.textContent=L.nav.reserva+' ▸';
+    nrv.style.opacity=S.page==='reserva'?'.7':'1';
+  }
+
+  /* ── Lang buttons ── */
+  ['es','en','pt'].forEach(l=>{
+    const el=document.getElementById('l-'+l);
+    if(el) el.classList.toggle('active',S.lang===l);
+  });
+
+  /* ── Header WhatsApp ── */
+  const waH=document.getElementById('wa-hdr');
+  if(waH){ waH.href=waG; waH.textContent=(window.innerWidth<600?'Reservar':L.cta.wa)+' ▸'; }
+  const waFl=document.getElementById('wa-float');
+  if(waFl) waFl.href=waG;
+
+  /* ── Footer ── */
+  const ftL=document.getElementById('ft-links-lbl');
+  if(ftL) ftL.textContent=L.footer.links;
+  const ftF=document.getElementById('ft-follow-lbl');
+  if(ftF) ftF.textContent=L.footer.follow;
+  const ftP=document.getElementById('ft-phone-lbl');
+  if(ftP) ftP.textContent=L.contact.phoneLabel;
+  const ftPh=document.getElementById('ft-phone');
+  if(ftPh) ftPh.href=waG;
+  const ftLk=document.getElementById('ft-links');
+  if(ftLk) ftLk.innerHTML=pages.map(p=>`<span onclick="go('${p}')">${L.nav[p]}</span>`).join('');
+  const ftC=document.getElementById('ft-copy');
+  if(ftC) ftC.textContent=`© 2026 La Cautiva Cabañas Tanti — ${L.footer.rights}`;
+
+  /* ── Mobile menu state ── */
+  const mob=document.getElementById('mob-menu');
+  if(mob) mob.classList.toggle('open',S.menu);
+
+  /* ── Main content ── */
+  document.getElementById('app').innerHTML = renderPage(L,waG,waE);
+  if(S.page==='contact'){
+    customElements.whenDefined('gmpx-store-locator').then(()=>{
+      const loc=document.querySelector('gmpx-store-locator');
+      if(loc) loc.configureFromQuickBuilder(LOCATOR_CONFIG);
+    });
+  }
+  refreshModal();
+
+  /* ── Mobile V2 ── */
+  var mv2=document.getElementById('mob-v2');
+  if(mv2) mv2.innerHTML=renderMobile();
+}
+
+/* ─────────────────────────────────────────────────────────
+   PAGE ROUTER
+───────────────────────────────────────────────────────── */
+function renderPage(L,waG,waE){
+  switch(S.page){
+    case 'home':    return renderHome(L,waG,waE);
+    case 'cabins':  return renderCabins(L,waG);
+    case 'events':  return renderEvents(L,waE);
+    case 'gallery': return renderGallery(L);
+    case 'things':  return renderThings(L);
+    case 'blog':    return renderBlog(L);
+    case 'contact': return renderContact(L,waG);
+    case 'reserva': return renderReserva(L);
+    case 'reviews': return renderReviews(L);
+    default:        return renderHome(L,waG,waE);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   HOME
+───────────────────────────────────────────────────────── */
+function renderHome(L,waG,waE){
+  const pw=personsWord(S.lang), cw=cabinsWord(S.lang);
+
+  const cabinCards=CABINS.map(c=>`
+    <div class="cabin-card" onclick="openCabin(${c.id})">
+      ${img(`imgs/cabins/${c.id}/1.jpg`,'',150,'')}
+      <div class="cabin-card-body">
+        <div class="cabin-card-name">${cabinLabel(c.id,S.lang)}</div>
+        <div class="cabin-card-cap">${capLabel(c.cap,S.lang)}</div>
+      </div>
+    </div>`).join('');
+
+  const aboutLinks=L.aboutLinks.map(al=>`
+    <div onclick="${al.p==='common'?'openCommon()':'go(\''+al.p+'\')'}" style="cursor:pointer">
+      <div class="about-link-title">${al.t}</div>
+      <div class="about-link-desc">${al.d}</div>
+      <div class="about-link-cta">${L.about.cta} ▸</div>
+    </div>`).join('');
+
+  const groupItems=L.groups.items.map(g=>`
+    <div class="group-item">
+      <div class="group-title">${g.t}</div>
+      <div class="group-desc">${g.d}</div>
+    </div>`).join('');
+
+  return `
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Replace the gradient with your hero photo:
+         <img src="assets/hero-sunset.jpg" alt="La Cautiva Cabañas" ...>
+         For now using gradient placeholder. -->
+    <div class="hero-bg ph-hero" role="img" aria-label="Vista de las cabañas en las sierras de Tanti"
+         data-src="imgs/hero.jpg" onclick="if(EDIT_MODE){event.stopPropagation();uploadImg(this.dataset.src,this)}">
+      <img src="imgs/hero.jpg" alt="" loading="eager"
+           onload="this.parentNode.classList.remove('ph-hero')"
+           onerror="this.remove()">
+      <div class="img-edit-ov" style="z-index:10">📷</div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-left" aria-hidden="true">Tanti · Córdoba</div>
+    <div class="hero-right" aria-hidden="true">8 ${cw}<br>2–7 ${pw}</div>
+    <div class="hero-content">
+      <h1>La Cautiva</h1>
+      <div class="hero-script" aria-label="${L.hero.script}">${L.hero.script}</div>
+      <p class="hero-sub">${L.hero.sub}</p>
+      <div class="hero-btns">
+        <a href="#" onclick="event.preventDefault();openModal()" class="wa" rel="noopener noreferrer">${L.cta.wa} ▸</a>
+        <a href="#" onclick="event.preventDefault();openModal(null,'consultar')" class="fill" rel="noopener noreferrer">${L.cta.online} ▸</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS BANNER -->
+  <section class="events-banner events-banner-top">
+    <div style="max-width:820px;margin:0 auto">
+      <div class="eyebrow">${L.homeEvents.eyebrow}</div>
+      <h2>${L.homeEvents.title}</h2>
+      <p>${L.homeEvents.sub}</p>
+      <span class="btn-outline-light" onclick="go('events')" role="button" tabindex="0">${L.homeEvents.cta} ▸</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+
+  <!-- REVIEWS CAROUSEL -->
+  ${(()=>{
+    const ml=ML[S.lang];
+    const topReviews=REVIEWS.filter(r=>r.stars>=4).slice(0,6);
+    const avgRaw=REVIEWS.reduce((s,r)=>s+r.stars,0)/REVIEWS.length;
+    const avg=avgRaw.toFixed(1);
+    const rvLabels={es:{title:'Lo que dicen nuestros huéspedes',viewAll:'Ver todas las reseñas ▸',google:'Reseñas de Google'},en:{title:'What our guests say',viewAll:'See all reviews ▸',google:'Google Reviews'},pt:{title:'O que nossos hóspedes dizem',viewAll:'Ver todas as avaliações ▸',google:'Avaliações no Google'}};
+    const rl=rvLabels[S.lang];
+    const cards=topReviews.map(r=>`
+      <div class="review-card review-card-home" onclick="window.open(GOOGLE_REVIEWS_URL,'_blank')" style="cursor:pointer" onmouseover="this.style.boxShadow='0 4px 16px rgba(67,41,31,.12)'" onmouseout="this.style.boxShadow=''">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div class="rv-avatar" style="background:${avatarColor(r.initials)}">${r.initials}</div>
+          <div>
+            <div style="font-weight:600;font-size:13px;color:#43291f;line-height:1.2">${r.name}</div>
+            <div style="font-size:11px;color:#7b4b39">${relDate(r.date,S.lang)}</div>
+          </div>
+          <span class="gmap-g" style="margin-left:auto">G</span>
+        </div>
+        <div class="rv-star" style="margin-bottom:8px">${renderStars(r.stars)}</div>
+        <p style="font-size:13.5px;line-height:1.65;color:#43291f;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden">${r.text}</p>
+      </div>`).join('');
+    return `
+    <section style="padding:clamp(40px,5vw,64px) clamp(20px,5vw,80px);background:#fdfcf2">
+      <div class="wrap">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
+          <div>
+            <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#226f54;margin-bottom:6px">${rl.google}</div>
+            <h2 class="section-title" style="margin:0">${rl.title}</h2>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#43291f">${avg}</span>
+            <div>
+              <div class="rv-star" style="font-size:16px">${'★'.repeat(5)}</div>
+              <div style="font-size:12px;color:#7b4b39">${REVIEWS.length} reseñas</div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-carousel-wrap">
+          <div class="reviews-carousel" id="rv-car">${cards}</div>
+          <button class="rv-car-btn rv-car-prev" onclick="carouselScroll(-1)" aria-label="Anterior">‹</button>
+          <button class="rv-car-btn rv-car-next" onclick="carouselScroll(1)" aria-label="Siguiente">›</button>
+        </div>
+        <div style="text-align:center;margin-top:20px">
+          <span onclick="go('reviews')" style="font-size:13px;font-weight:600;color:#226f54;cursor:pointer;letter-spacing:.04em">${rl.viewAll}</span>
+        </div>
+      </div>
+    </section>`;
+  })()}
+
+  <!-- ABOUT -->
+  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
+    <div class="wrap">
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:40px">
+        <h2 class="section-title">${L.about.title}</h2>
+        <span style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,30px);color:#226f54">La Cautiva</span>
+      </div>
+      <p class="about-mobile-text">${L.about.body}</p>
+      <div class="about-grid">
+        ${img('imgs/about/interior.jpg','',340,'Interior')}
+        ${img('imgs/about/exterior.jpg','',340,'Exterior')}
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px">
+          <p style="font-size:15.5px;line-height:1.75;color:#43291f;margin-bottom:20px">${L.about.body}</p>
+          <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
+        </div>
+      </div>
+      <div class="about-links">${aboutLinks}</div>
+    </div>
+  </section>
+
+  <!-- CABINS PREVIEW -->
+  <section style="padding:clamp(40px,6vw,80px) clamp(20px,5vw,80px);background:#226f54">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:40px">
+        <h2 class="section-title" style="color:#f4f0bb">${L.cabinsHome.title}</h2>
+        <p class="page-sub" style="margin-top:12px;color:#c7eee0">${L.cabinsHome.sub}</p>
+      </div>
+      <div class="cabin-grid">
+        ${cabinCards}
+        <div class="cabin-common" onclick="openCommon()">
+          <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:#f4f0bb">${L.cabinsHome.common}</div>
+          <div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#c7eee0;margin-top:8px">${L.cabinsHome.viewAll} ▸</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BOOK -->
+  <section style="background:#1b100c;padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <h2 style="font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);margin:0 0 8px;color:#f4f0bb">${L.howToBook.title}</h2>
+      <div style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,28px);color:#226f54;margin-bottom:44px">${L.howToBook.script}</div>
+      <div class="book-grid">
+        <div class="book-card" onclick="openModal()" style="cursor:pointer">
+          <div class="book-card-title">${L.howToBook.waTitle}</div>
+          <div class="book-card-desc">${L.howToBook.waDesc}</div>
+          <div class="book-card-cta">${L.howToBook.cta} ▸</div>
+        </div>
+        <div class="book-card" onclick="openModal(null,'consultar')" style="cursor:pointer">
+          <div class="book-card-title">${L.howToBook.onTitle}</div>
+          <div class="book-card-desc">${L.howToBook.onDesc}</div>
+          <div class="book-card-cta">${L.howToBook.cta} ▸</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUPS -->
+  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px">${L.groups.title}</h2>
+      <div class="groups-grid">${groupItems}</div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section style="padding:0 clamp(20px,5vw,80px) clamp(56px,8vw,100px)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:30px">
+        <h2 class="section-title">${L.galleryHome.title}</h2>
+        <p class="page-sub" style="margin-top:12px">${L.galleryHome.sub}</p>
+      </div>
+      <div class="gal-home-grid">
+        ${img('imgs/gallery/preview-1.jpg','',170,'')}${img('imgs/gallery/preview-2.jpg','ph-pool',170,'')}${img('imgs/gallery/preview-3.jpg','ph-nature',170,'')}${img('imgs/gallery/preview-4.jpg','',170,'')}
+      </div>
+      <div style="text-align:center">
+        <span class="view-all" onclick="go('gallery')" role="button" tabindex="0">${L.galleryHome.viewAll} ▸</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="events-banner events-banner-mob">
+    <div style="max-width:820px;margin:0 auto">
+      <div class="eyebrow">${L.homeEvents.eyebrow}</div>
+      <h2>${L.homeEvents.title}</h2>
+      <p>${L.homeEvents.sub}</p>
+      <span class="btn-outline-light" onclick="go('events')" role="button" tabindex="0">${L.homeEvents.cta} ▸</span>
+    </div>
+  </section>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CABINS
+───────────────────────────────────────────────────────── */
+function renderCabins(L,waG){
+  const tabs=[
+    ...CABINS.map(c=>({id:c.id,label:cabinLabel(c.id,S.lang)})),
+    {id:'common',label:L.cabinsPage.commonName}
+  ].map(t=>`
+    <div class="cabin-tab${S.cabin===t.id?' active':''}" onclick="selCabin(${JSON.stringify(t.id)})">${t.label}</div>`
+  ).join('');
+
+  let detail='';
+  if(S.cabin==='common'){
+    detail=`
+    <section style="padding:44px clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
+      <div class="detail-grid">
+        ${img('imgs/common/main.jpg','ph-pool',380,'Área común — Piscina')}
+        <div class="detail-inner">
+          ${img('imgs/common/piscina.jpg','ph-pool',189,'Piscina')}${img('imgs/common/quincho.jpg','',189,'Quincho')}
+          ${img('imgs/common/parrilla.jpg','',189,'Parrilla')}${img('imgs/common/estacionamiento.jpg','',189,'Estacionamiento')}
+        </div>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:30px;margin:0 0 14px;color:#43291f">${L.cabinsPage.commonName}</h2>
+      <p style="color:#43291f;font-size:15.5px;line-height:1.7;max-width:640px;margin:0 0 30px">${L.cabinsPage.commonDesc}</p>
+      <div class="feature-list">
+        ${L.cabinsPage.commonFeatures.map(f=>`<div class="feature-item">${f}</div>`).join('')}
+      </div>
+      <button onclick="openModal()" class="btn-reserve">${L.cabinsPage.reserve} ▸</button>
+    </section>`;
+  } else {
+    const c=CABINS.find(x=>x.id===S.cabin)||CABINS[0];
+    const waC=wa(msgCabin(c.id,S.lang));
+    detail=`
+    <section style="padding:44px clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
+      <div class="detail-grid">
+        ${img(`imgs/cabins/${c.id}/1.jpg`,'',380,cabinLabel(c.id,S.lang))}
+        <div class="detail-inner">
+          ${img(`imgs/cabins/${c.id}/2.jpg`,'',189,'')}${img(`imgs/cabins/${c.id}/3.jpg`,'',189,'')}
+          ${img(`imgs/cabins/${c.id}/4.jpg`,'',189,'')}${img(`imgs/cabins/${c.id}/5.jpg`,'',189,'')}
+        </div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+        <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:30px;margin:0;color:#43291f">${cabinLabel(c.id,S.lang)}</h2>
+        <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#226f54">${capLabel(c.cap,S.lang)}</div>
+      </div>
+      <p style="color:#43291f;font-size:15.5px;line-height:1.7;max-width:640px;margin:0 0 26px">${L.cabinsPage.equipped}</p>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#43291f;margin-bottom:6px">${L.cabinsPage.amenTitle}</div>
+      <div class="feature-list" style="margin-bottom:34px">
+        ${L.cabinsPage.amenities.map(a=>`<div class="feature-item">${a}</div>`).join('')}
+      </div>
+      <button onclick="openModal(${c.id})" class="btn-reserve">${L.cabinsPage.reserve} ▸</button>
+    </section>`;
+  }
+
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.cabinsPage.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.cabinsPage.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px)">
+    <div class="cabin-tabs" role="tablist">${tabs}</div>
+  </div>
+  ${detail}`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   EVENTS
+───────────────────────────────────────────────────────── */
+function renderEvents(L,waE){
+  const ml=ML[S.lang];
+  const cards=L.eventsPage.cards.map((c,i)=>`
+    <div class="event-card">
+      ${img(`imgs/events/${i+1}.jpg`,'ph-event',220,c.t)}
+      <div class="event-card-body">
+        <div class="event-card-title">${c.t}</div>
+        <div class="event-card-desc">${c.d}</div>
+      </div>
+    </div>`).join('');
+
+  const features=L.eventsPage.features.map(f=>`<div class="events-feature">${f}</div>`).join('');
+
+  const peopleOpts=[10,15,20,25,30,40,50,60,80,100].map(n=>`<option value="${n}">${n}+ ${personsWord(S.lang)}</option>`).join('');
+  const typeOpts=ml.evtTypes.map(t=>`<option>${t}</option>`).join('');
+
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.eventsPage.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.eventsPage.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
+    <div class="events-grid">${cards}</div>
+    <div style="background:#1b100c;padding:clamp(40px,6vw,64px) clamp(20px,5vw,60px);text-align:center">
+      <h2 style="font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(22px,2.8vw,30px);margin:0 0 30px;color:#f4f0bb">${L.eventsPage.featTitle}</h2>
+      <div class="events-features-grid">${features}</div>
+    </div>
+    <div class="evt-form-box">
+      <h2 class="evt-form-title">${ml.evtTitle}</h2>
+      <p style="color:#43291f;font-size:14px;margin:0 0 28px;line-height:1.6">${ml.evtSub}</p>
+      <div class="evt-form-row" style="margin-bottom:18px">
+        <div class="rv-group" style="margin-bottom:0">
+          <label class="rv-label">${ml.evtLblType}</label>
+          <select id="evt-type" class="rv-input rv-select">${typeOpts}</select>
+        </div>
+        <div class="rv-group" style="margin-bottom:0">
+          <label class="rv-label">${ml.evtLblPeople}</label>
+          <select id="evt-people" class="rv-input rv-select">${peopleOpts}</select>
+        </div>
+      </div>
+      <div class="rv-group">
+        <label class="rv-label">${ml.evtLblDate}</label>
+        <input type="date" id="evt-date" class="rv-input" min="${new Date().toISOString().split('T')[0]}">
+      </div>
+      <div style="margin-top:28px;display:flex;align-items:center;flex-wrap:wrap;gap:16px">
+        <button class="evt-btn-consult" onclick="consultarEvento(true)">${ml.evtBtnConsult} ▸</button>
+        <span class="evt-no-dates" onclick="consultarEvento(false)">${ml.evtNoDates}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   GALLERY
+───────────────────────────────────────────────────────── */
+function renderGallery(L){
+  const galKeys=['cabins','pool','nature','groups'];
+  const phClasses=['','ph-pool','ph-nature',''];
+  const sections=L.galleryPage.cats.map((cat,i)=>`
+    <div style="margin-bottom:50px">
+      <div class="cat-header">
+        <h3 class="cat-title">${cat}</h3>
+        <div class="cat-line"></div>
+      </div>
+      <div class="gal-grid">
+        ${Array.from({length:4}).map((_,j)=>img(`imgs/gallery/${galKeys[i]}-${j+1}.jpg`,phClasses[i],200,'')).join('')}
+      </div>
+    </div>`).join('');
+
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.galleryPage.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.galleryPage.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1200px;margin:0 auto">${sections}</div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   THINGS TO DO
+───────────────────────────────────────────────────────── */
+function renderThings(L){
+  const cards=Array.from({length:4}).map((_,i)=>`
+    <div class="thing-card">
+      ${img(`imgs/things/${i+1}.jpg`,'ph-nature',150,'')}
+      <div class="thing-body">
+        <div class="thing-name">${L.things.placeName}</div>
+        <div class="thing-desc">${L.things.placeDesc}</div>
+      </div>
+    </div>`).join('');
+
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.things.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.things.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
+    <div style="margin-bottom:60px">
+      <div class="cat-header" style="margin-bottom:8px">
+        <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:26px;margin:0;color:#43291f">${L.things.doTitle}</h2>
+        <div class="cat-line"></div>
+      </div>
+      <p style="color:#7b4b39;font-size:15px;margin:0 0 26px">${L.things.doIntro}</p>
+      <div class="things-grid">${cards}</div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BLOG
+───────────────────────────────────────────────────────── */
+function renderBlog(L){
+  const cards=Array.from({length:3}).map((_,i)=>`
+    <div class="blog-card">
+      ${img(`imgs/blog/${i+1}.jpg`,'',170,'')}
+      <div class="blog-body">
+        <div class="blog-title">${L.blog.artTitle}</div>
+        <div class="blog-excerpt">${L.blog.artExcerpt}</div>
+      </div>
+    </div>`).join('');
+
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.blog.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.blog.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:44px">
+      <span class="coming-soon">${L.blog.comingSoon}</span>
+    </div>
+    <div class="blog-grid">${cards}</div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   CONTACT
+───────────────────────────────────────────────────────── */
+function renderContact(L,waG){
+  return `
+  <div class="page-banner">
+    <div class="eyebrow">Tanti · Córdoba</div>
+    <h1>${L.contact.title}</h1>
+    <div class="divider"></div>
+    <p class="page-sub">${L.contact.sub}</p>
+  </div>
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1000px;margin:0 auto">
+    <div class="contact-opts">
+      <a href="${waG}" target="_blank" rel="noopener noreferrer" class="contact-opt contact-opt-dark">
+        <div class="contact-opt-label">${L.contact.waCta}</div>
+        <div style="font-size:13px;opacity:.75">+54 9 3541 57-8564</div>
+      </a>
+      <div class="contact-opt contact-opt-light" onclick="openModal()" style="cursor:pointer">
+        <div class="contact-opt-label">${L.contact.onlineLabel}</div>
+      </div>
+      <a href="${IG}" target="_blank" rel="noopener noreferrer" class="contact-opt contact-opt-light">
+        <div class="contact-opt-label">${L.contact.igLabel}</div>
+        <div style="font-size:13px;opacity:.65">@lacautivaok</div>
+      </a>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-subtitle">${L.contact.addrTitle}</h2>
+        <p style="color:#43291f;font-size:15px;line-height:1.65;margin:0 0 30px">${L.contact.addrBody}</p>
+        <h2 class="contact-subtitle">${L.contact.howTitle}</h2>
+        <p style="color:#43291f;font-size:15px;line-height:1.65;margin:0">${L.contact.howBody}</p>
+      </div>
+      <div>
+        <h2 class="contact-subtitle">${L.contact.mapTitle}</h2>
+        <div style="width:100%;height:400px;position:relative">
+          <gmpx-api-loader key="YOUR_API_KEY_HERE" solution-channel="GMP_QB_locatorplus_v11_c"></gmpx-api-loader>
+          <gmpx-store-locator map-id="DEMO_MAP_ID" style="width:100%;height:100%"></gmpx-store-locator>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   REVIEWS PAGE
+───────────────────────────────────────────────────────── */
+function renderReviews(L){
+  const lang=S.lang;
+  const rvLabels={
+    es:{title:'Reseñas',sub:'Lo que dicen nuestros huéspedes del último año.',filterAll:'Todas',filter4:'4★ o más',filter5:'Solo 5★',tabComments:'Comentarios',tabPhotos:'Fotos',google:'Reseñas de Google',noPhotos:'Aún no hay fotos en estas reseñas.'},
+    en:{title:'Reviews',sub:'What our guests say — last year.',filterAll:'All',filter4:'4★ & up',filter5:'5★ only',tabComments:'Comments',tabPhotos:'Photos',google:'Google Reviews',noPhotos:'No photos in these reviews yet.'},
+    pt:{title:'Avaliações',sub:'O que nossos hóspedes dizem — do último ano.',filterAll:'Todas',filter4:'4★ ou mais',filter5:'Só 5★',tabComments:'Comentários',tabPhotos:'Fotos',google:'Avaliações no Google',noPhotos:'Ainda não há fotos nessas avaliações.'}
+  };
+  const rl=rvLabels[lang];
+  const filtered=S.rFilter===0?REVIEWS:REVIEWS.filter(r=>r.stars>=S.rFilter);
+  const total=REVIEWS.length;
+  const avg=(REVIEWS.reduce((s,r)=>s+r.stars,0)/total).toFixed(1);
+  const counts=[5,4,3,2,1].map(n=>({n,c:REVIEWS.filter(r=>r.stars===n).length}));
+  const photoReviews=REVIEWS.filter(r=>r.hasPhoto);
+
+  const ratingBars=counts.map(({n,c})=>`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+      <span style="font-size:12px;color:#43291f;width:20px;text-align:right">${n}★</span>
+      <div class="rating-bar-track"><div class="rating-bar-fill" style="width:${total>0?Math.round(c/total*100):0}%"></div></div>
+      <span style="font-size:12px;color:#7b4b39;width:18px">${c}</span>
+    </div>`).join('');
+
+  const filterPills=[
+    {val:0,lbl:rl.filterAll},
+    {val:4,lbl:rl.filter4},
+    {val:5,lbl:rl.filter5}
+  ].map(f=>`<span class="review-pill${S.rFilter===f.val?' active':''}" onclick="setReviewFilter(${f.val})">${f.lbl}</span>`).join('');
+
+  const reviewCards=filtered.map(r=>`
+    <div class="review-card" onclick="window.open(GOOGLE_REVIEWS_URL,'_blank')" style="cursor:pointer" onmouseover="this.style.boxShadow='0 4px 16px rgba(67,41,31,.12)'" onmouseout="this.style.boxShadow=''">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div class="rv-avatar" style="background:${avatarColor(r.initials)}">${r.initials}</div>
+        <div>
+          <div style="font-weight:600;font-size:13px;color:#43291f;line-height:1.2">${r.name}</div>
+          <div style="font-size:11px;color:#7b4b39">${relDate(r.date,lang)}</div>
+        </div>
+        <span class="gmap-g" style="margin-left:auto">G</span>
+      </div>
+      <div class="rv-star" style="margin-bottom:8px">${renderStars(r.stars)}</div>
+      <p style="font-size:13.5px;line-height:1.65;color:#43291f;margin:0">${r.text}</p>
+    </div>`).join('');
+
+  const photoGrid=photoReviews.map(r=>`
+    <div style="border-radius:6px;overflow:hidden;cursor:pointer" onclick="window.open('${GOOGLE_REVIEWS_URL}','_blank')">
+      ${img(`imgs/reviews/${r.id}.jpg`,`ph-${r.photoHint||'nature'}`,150,'')}
+    </div>`).join('');
+
+  return `
+  <div style="padding:clamp(40px,6vw,80px) clamp(20px,5vw,80px)">
+    <div class="wrap">
+      <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#226f54;margin-bottom:8px">${rl.google}</div>
+      <h1 class="page-title">${rl.title}</h1>
+      <p class="page-sub" style="margin-bottom:36px">${rl.sub}</p>
+
+      <!-- Rating summary -->
+      <div class="rating-summary" style="margin-bottom:36px;display:flex;flex-wrap:wrap;gap:32px;align-items:center">
+        <div style="text-align:center;min-width:100px">
+          <div class="rating-big-num">${avg}</div>
+          <div class="rv-star" style="font-size:18px;margin:4px 0">${'★'.repeat(5)}</div>
+          <div style="font-size:12px;color:#7b4b39">${total} reseñas</div>
+        </div>
+        <div style="flex:1;min-width:200px">${ratingBars}</div>
+      </div>
+
+      <!-- Filter pills -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px">${filterPills}</div>
+
+      <!-- Tabs -->
+      <div class="review-tabs" style="margin-bottom:24px">
+        <span class="review-tab${S.rTab==='comments'?' active':''}" onclick="setReviewTab('comments')">${rl.tabComments} (${filtered.length})</span>
+        <span class="review-tab${S.rTab==='photos'?' active':''}" onclick="setReviewTab('photos')">${rl.tabPhotos} (${photoReviews.length})</span>
+      </div>
+
+      ${S.rTab==='comments'?`
+      <div class="reviews-grid">${reviewCards}</div>
+      `:`
+      ${photoReviews.length>0?`<div class="review-photo-grid">${photoGrid}</div>`:`<p style="color:#7b4b39;font-size:14px">${rl.noPhotos}</p>`}
+      `}
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESERVATION PAGE (booking.com style)
+───────────────────────────────────────────────────────── */
+function renderReserva(L){
+  const ml=ML[S.lang];
+  const rv=S.rv;
+  const today=new Date().toISOString().split('T')[0];
+  const hasSearch=rv.cin&&rv.cout&&rv.cout>rv.cin;
+  const nights=hasSearch?Math.round((new Date(rv.cout)-new Date(rv.cin))/86400000):0;
+  const countLabel=hasSearch?ml.rvCountFull(CABINS.length,rv.cin,rv.cout,rv.guests):ml.rvCount(CABINS.length);
+
+  const cards=CABINS.map(c=>{
+    const photos=[1,2,3,4,5].map(i=>{
+      const pc=PH_CATS[(c.id-1+i)%4];
+      return `<div style="overflow:hidden;min-height:0"><img src="imgs/cabins/${c.id}/${i}.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.parentNode.className='ph ${pc}';this.remove()"></div>`;
+    }).join('');
+    return `
+    <div class="resv-card">
+      <div class="resv-photos">${photos}</div>
+      <div class="resv-card-info">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+          <h2 class="resv-card-name">${cabinLabel(c.id,S.lang)}</h2>
+          <span class="resv-badge-avail">✓ ${ml.rvBadge}</span>
+        </div>
+        <div class="resv-card-cap">${capLabel(c.cap,S.lang)}</div>
+        <p class="resv-card-desc">${L.cabinsPage.equipped}</p>
+        <div class="resv-amens">${L.cabinsPage.amenities.map(a=>`<span class="resv-amen-tag">${a}</span>`).join('')}</div>
+        <div class="resv-card-cta">
+          ${hasSearch?`<span class="resv-nights-badge">${ml.nightLbl(nights)}</span>`:''}
+          <button class="btn-book-primary" onclick="openModal(${c.id})">${ml.rvReserve}</button>
+          <button class="btn-book-wa" onclick="openModal(${c.id},'consultar')">${ml.rvAsk}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const guestOpts=Array.from({length:14},(_,i)=>`<option value="${i+1}" ${String(rv.guests)===String(i+1)?'selected':''}>${ml.guestOpt(i+1)}</option>`).join('');
+
+  return `
+  <section style="background:#43291f;padding:clamp(36px,5vw,64px) clamp(20px,5vw,80px)">
+    <div style="max-width:980px;margin:0 auto;text-align:center">
+      <div class="eyebrow" style="color:#226f54">${ml.rvEyebrow}</div>
+      <h1 style="font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,4vw,48px);color:#f4f0bb;margin:0 0 10px">${ml.rvTitle}</h1>
+      <p style="color:#c7eee0;font-size:15px;margin:0 0 32px;line-height:1.6">${ml.rvSub}</p>
+      <div class="resv-search-box">
+        <div class="resv-field">
+          <div class="resv-field-label">${ml.rvLblIn}</div>
+          <input type="date" id="rsv-cin" class="resv-field-input" value="${rv.cin}" min="${today}" onchange="onRvCinChange()">
+        </div>
+        <div class="resv-field" style="border-left:1px solid rgba(67,41,31,.1)">
+          <div class="resv-field-label">${ml.rvLblOut}</div>
+          <input type="date" id="rsv-cout" class="resv-field-input" value="${rv.cout}">
+        </div>
+        <div class="resv-field" style="border-left:1px solid rgba(67,41,31,.1)">
+          <div class="resv-field-label">${ml.rvLblGuests}</div>
+          <select id="rsv-guests" class="resv-field-input" style="cursor:pointer">${guestOpts}</select>
+        </div>
+        <button class="resv-search-btn" onclick="searchRv()">${ml.rvBtnSearch}</button>
+      </div>
+      <div style="text-align:center;margin-top:18px">
+        <span onclick="openModal(null,'consultar')" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,240,187,.55);cursor:pointer;border-bottom:1px solid rgba(244,240,187,.3);padding-bottom:2px;transition:color .15s" onmouseover="this.style.color='rgba(244,240,187,.9)'" onmouseout="this.style.color='rgba(244,240,187,.55)'">${ml.moNoDates} ▸</span>
+      </div>
+    </div>
+  </section>
+  <div class="resv-results">
+    <div class="resv-count-bar">${countLabel}</div>
+    ${cards}
+  </div>`;
+}
+
+function onRvCinChange(){
+  const cin=document.getElementById('rsv-cin');
+  const cout=document.getElementById('rsv-cout');
+  if(!cin||!cout) return;
+  if(cin.value){
+    const minOut=new Date(cin.value);
+    minOut.setDate(minOut.getDate()+1);
+    cout.min=minOut.toISOString().split('T')[0];
+    if(cout.value&&cout.value<=cin.value) cout.value='';
+  }
+}
+
+function searchRv(){
+  const cin=document.getElementById('rsv-cin');
+  const cout=document.getElementById('rsv-cout');
+  const guests=document.getElementById('rsv-guests');
+  S.rv.cin=cin?cin.value:'';
+  S.rv.cout=cout?cout.value:'';
+  S.rv.guests=guests?parseInt(guests.value,10)||1:1;
+  render();
+}
+
+/* ─────────────────────────────────────────────────────────
+   MODAL — quick reservation form
+───────────────────────────────────────────────────────── */
+function openModal(cabinId, mode){
+  if(mode) S.rvMode=mode;
+  const today=new Date().toISOString().split('T')[0];
+  refreshModal();
+  const rvIn=document.getElementById('rv-in');
+  const rvOut=document.getElementById('rv-out');
+  const rvG=document.getElementById('rv-guests');
+  if(rvIn&&!rvIn.value) rvIn.min=today;
+  if(S.rv.cin&&rvIn) rvIn.value=S.rv.cin;
+  if(S.rv.cout&&rvOut) rvOut.value=S.rv.cout;
+  if(S.rv.guests&&rvG) rvG.value=String(S.rv.guests);
+  onDateChange();
+  if(cabinId){
+    const sel=document.getElementById('rv-cabin');
+    if(sel) sel.value=String(cabinId);
+  }
+  const modal=document.getElementById('rv-modal');
+  if(modal){modal.classList.add('open');document.body.style.overflow='hidden';}
+}
+
+function setRvMode(mode){
+  S.rvMode=mode;
+  refreshRvMode();
+}
+
+function refreshRvMode(){
+  const ml=ML[S.lang];
+  const isGrupo=S.rvMode==='grupo';
+  ['reservar','consultar','grupo'].forEach(m=>{
+    const tab=document.getElementById('rv-tab-'+m);
+    if(tab) tab.classList.toggle('active',S.rvMode===m);
+  });
+  const note=document.getElementById('rv-mode-note');
+  if(note){
+    if(S.rvMode==='consultar'){note.textContent=ml.moConsultNote;note.style.display='block';}
+    else if(isGrupo){note.textContent=ml.moGroupNote;note.style.display='block';}
+    else{note.style.display='none';}
+  }
+  /* Date labels — relabel (not hide) in grupo mode */
+  const datesRow=document.getElementById('rv-dates-row');
+  const nightsEl=document.getElementById('rv-nights');
+  const cabinGrp=document.getElementById('rv-cabin-group');
+  if(datesRow) datesRow.style.display='';
+  if(nightsEl) nightsEl.style.display=isGrupo?'none':'';
+  if(cabinGrp) cabinGrp.style.display=isGrupo?'none':'';
+  const lblIn=document.getElementById('rv-lbl-in');
+  const lblOut=document.getElementById('rv-lbl-out');
+  if(lblIn) lblIn.textContent=isGrupo?ml.moLblInGrupo:ml.moLblIn;
+  if(lblOut) lblOut.textContent=isGrupo?ml.moLblOutGrupo:ml.moLblOut;
+  /* Submit button */
+  const btn=document.getElementById('rv-submit-btn');
+  if(btn) btn.textContent=S.rvMode==='consultar'?ml.moSubmitConsulta:isGrupo?ml.moSubmitGrupo:ml.moSubmit;
+  /* No-dates / no-info link */
+  const nd=document.getElementById('rv-no-dates-link');
+  if(nd) nd.textContent=(isGrupo?ml.moNoInfo:ml.moNoDates)+' ▸';
+  /* Guests selector — extend to 50 for grupo */
+  const gSel=document.getElementById('rv-guests');
+  if(gSel){
+    const max=isGrupo?50:14;
+    const cur=gSel.value;
+    gSel.innerHTML=Array.from({length:max},(_,i)=>`<option value="${i+1}">${ml.guestOpt(i+1)}</option>`).join('');
+    const curN=parseInt(cur,10);
+    if(curN>=1&&curN<=max) gSel.value=cur;
+  }
+}
+
+function sendWithoutDates(){
+  const ml=ML[S.lang];
+  const isGrupo=S.rvMode==='grupo';
+  if(isGrupo){
+    /* "No sé cuántas personas" — send group inquiry with no count */
+    window.open(wa(ml.msgHeadGrupoNoInfo),'_blank');
+    return;
+  }
+  const guests=(document.getElementById('rv-guests')||{}).value||'2';
+  const cabinId=(document.getElementById('rv-cabin')||{}).value||'';
+  const head=S.rvMode==='consultar'?ml.msgHeadConsulta:ml.msgHead;
+  let msg=head;
+  if(guests) msg+='\n'+ml.msgG+': '+guests;
+  if(cabinId){const n=S.lang==='en'?'cabin':S.lang==='pt'?'cabana':'cabaña';msg+='\n'+ml.msgC+': '+n+' '+cabinId;}
+  window.open(wa(msg),'_blank');
+}
+
+function consultarEvento(withDate){
+  const ml=ML[S.lang];
+  const type=(document.getElementById('evt-type')||{}).value||'';
+  const people=(document.getElementById('evt-people')||{}).value||'';
+  const date=withDate!==false?(document.getElementById('evt-date')||{}).value||'':'';
+  let msg=ml.msgEvtHead;
+  if(type) msg+='\n'+ml.msgEvtType+': '+type;
+  if(date) msg+='\n'+ml.msgEvtDate+': '+fmtDate(date,S.lang);
+  if(people) msg+='\n'+ml.msgEvtPeople+': '+people;
+  window.open(wa(msg),'_blank');
+}
+
+function closeModal(){
+  const modal=document.getElementById('rv-modal');
+  if(modal){modal.classList.remove('open');document.body.style.overflow='';}
+  clearRvErr();
+}
+
+function clearRvErr(){
+  const e=document.getElementById('rv-error');
+  if(e){e.style.display='none';e.textContent='';}
+  ['rv-in','rv-out'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('err');});
+}
+
+function showRvErr(msg){
+  const e=document.getElementById('rv-error');
+  if(e){e.textContent=msg;e.style.display='block';}
+}
+
+function refreshModal(){
+  const ml=ML[S.lang];
+  const fb=document.getElementById('btn-rv-float');
+  if(fb) fb.textContent=ml.floatLabel+' ▸';
+  const t=document.getElementById('rv-title-text');
+  if(!t) return;
+  t.textContent=ml.moTitle;
+  const labels={'rv-lbl-in':ml.moLblIn,'rv-lbl-out':ml.moLblOut,'rv-lbl-guests':ml.moLblGuests,'rv-lbl-cabin':ml.moLblCabin,'rv-note-text':ml.moNote};
+  Object.entries(labels).forEach(([id,txt])=>{const el=document.getElementById(id);if(el)el.textContent=txt;});
+  const cl=document.getElementById('rv-close-btn');
+  if(cl) cl.setAttribute('aria-label',ml.moCloseLabel);
+  /* Tab labels */
+  const tabMap={'rv-tab-reservar':ml.moTabReserva,'rv-tab-consultar':ml.moTabConsultar,'rv-tab-grupo':ml.moTabGrupo};
+  Object.entries(tabMap).forEach(([id,txt])=>{const el=document.getElementById(id);if(el)el.textContent=txt;});
+  /* No-dates link */
+  const nd=document.getElementById('rv-no-dates-link');
+  if(nd) nd.textContent=ml.moNoDates+' ▸';
+  /* Cabin select */
+  const cSel=document.getElementById('rv-cabin');
+  if(cSel){const cur=cSel.value;cSel.innerHTML=`<option value="">${ml.moNoPref}</option>`+CABINS.map(c=>`<option value="${c.id}">${ml.cabinOpt(c.id,c.cap)}</option>`).join('');if(cur)cSel.value=cur;}
+  refreshRvMode();
+}
+
+function onDateChange(){
+  const rvIn=document.getElementById('rv-in');
+  const rvOut=document.getElementById('rv-out');
+  if(!rvIn||!rvOut) return;
+  if(rvIn.value){
+    const minOut=new Date(rvIn.value);
+    minOut.setDate(minOut.getDate()+1);
+    rvOut.min=minOut.toISOString().split('T')[0];
+    if(rvOut.value&&rvOut.value<=rvIn.value) rvOut.value='';
+  }
+  const nightsEl=document.getElementById('rv-nights');
+  if(nightsEl&&rvIn.value&&rvOut.value){
+    const n=Math.round((new Date(rvOut.value)-new Date(rvIn.value))/86400000);
+    nightsEl.textContent=n>0?ML[S.lang].nightLbl(n):'';
+  } else if(nightsEl){nightsEl.textContent='';}
+  clearRvErr();
+}
+
+function sendReserva(){
+  const ml=ML[S.lang];
+  const isGrupo=S.rvMode==='grupo';
+  const cin=isGrupo?'':(document.getElementById('rv-in')||{}).value||'';
+  const cout=isGrupo?'':(document.getElementById('rv-out')||{}).value||'';
+  const guests=(document.getElementById('rv-guests')||{}).value||'2';
+  const cabinId=isGrupo?'':(document.getElementById('rv-cabin')||{}).value||'';
+  clearRvErr();
+  if(S.rvMode==='reservar'){
+    if(!cin||!cout){showRvErr(ml.moErrDates);['rv-in','rv-out'].forEach(id=>{const el=document.getElementById(id);if(el&&!el.value)el.classList.add('err');});return;}
+    if(cout<=cin){showRvErr(ml.moErrOrder);const el=document.getElementById('rv-out');if(el)el.classList.add('err');return;}
+  }
+  const head=S.rvMode==='consultar'?ml.msgHeadConsulta:isGrupo?ml.msgHeadGrupo:null;
+  window.open(wa(buildWaMsg(cabinId||null,cin,cout,guests,S.lang,head)),'_blank');
+}
+
+/* ─────────────────────────────────────────────────────────
+   INIT
+───────────────────────────────────────────────────────── */
+render();
+
+/* ── Liquid Morph Menu ──────────────────────────────────── */
+(function(){
+  const NAV = [
+    { es:'Cabañas', en:'Cabins',  pt:'Cabanas',  page:'cabins'  },
+    { es:'Galería', en:'Gallery', pt:'Galeria',  page:'gallery' },
+    { es:'Eventos', en:'Events',  pt:'Eventos',  page:'events'  },
+    { es:'Contacto',en:'Contact', pt:'Contato',  page:'contact' },
+  ];
+
+  const lmm   = document.getElementById('lmm');
+  const bar   = document.getElementById('lmm-bar');
+  const items = document.getElementById('lmm-items');
+  const word  = document.getElementById('lmm-word');
+  let open = false;
+
+  function buildItems(){
+    items.innerHTML = '';
+    const lang = S.lang || 'es';
+    NAV.forEach(function(nav){
+      const label = nav[lang] || nav.es;
+      const btn = document.createElement('button');
+      btn.className = 'lmm-btn';
+      btn.setAttribute('aria-label', label);
+
+      // Build char-by-char animation spans
+      label.split('').forEach(function(ch, i){
+        const outer = document.createElement('span');
+        outer.className = 'lmm-char';
+        const inner = document.createElement('span');
+        inner.className = 'lmm-ci';
+        const t1 = document.createElement('span'); t1.className = 'lmm-ct'; t1.textContent = ch;
+        const t2 = document.createElement('span'); t2.className = 'lmm-ct'; t2.setAttribute('aria-hidden','true'); t2.textContent = ch;
+        inner.appendChild(t1); inner.appendChild(t2);
+        outer.appendChild(inner);
+        btn.appendChild(outer);
+        // staggered delay stored in dataset
+        inner.dataset.delay = i;
+      });
+
+      // Hover: lock during animation
+      var animating = false, pendingLeave = false;
+      const lockMs = 30 * label.length + 300;
+      btn.addEventListener('mouseenter', function(){
+        pendingLeave = false;
+        if(animating) return;
+        btn.querySelectorAll('.lmm-ci').forEach(function(ci){
+          const d = ci.dataset.delay;
+          ci.style.transitionDuration = '800ms';
+          ci.style.transitionDelay = (30 * d) + 'ms';
+          ci.classList.add('ani');
+        });
+        animating = true;
+        setTimeout(function(){
+          animating = false;
+          if(pendingLeave){ pendingLeave = false; resetChars(btn); }
+        }, lockMs);
+      });
+      btn.addEventListener('mouseleave', function(){
+        if(animating){ pendingLeave = true; } else { resetChars(btn); }
+      });
+
+      btn.addEventListener('click', function(){
+        go(nav.page);
+        closeMenu();
+      });
+      items.appendChild(btn);
+    });
+  }
+
+  function resetChars(btn){
+    btn.querySelectorAll('.lmm-ci').forEach(function(ci){
+      ci.style.transitionDuration = '0ms';
+      ci.style.transitionDelay = '0ms';
+      ci.classList.remove('ani');
+    });
+  }
+
+  function openMenu(){
+    open = true;
+    lmm.classList.add('open');
+    lmm.style.transition = 'width .8s cubic-bezier(.22,1,.36,1), height .8s cubic-bezier(.22,1,.36,1), border-radius .8s cubic-bezier(.22,1,.36,1)';
+    buildItems();
+  }
+
+  function closeMenu(){
+    open = false;
+    lmm.classList.remove('open');
+    lmm.style.transition = 'width .8s cubic-bezier(.22,1,.36,1), height .15s cubic-bezier(.22,1,.36,1), border-radius .8s cubic-bezier(.22,1,.36,1)';
+    items.querySelectorAll('.lmm-btn').forEach(function(b){ b.style.opacity = '0'; });
+  }
+
+  // Hover scale on closed state
+  lmm.addEventListener('mouseenter', function(){ if(!open) lmm.style.transform='scale(1.05)'; });
+  lmm.addEventListener('mouseleave', function(){ lmm.style.transform='scale(1)'; });
+
+  bar.addEventListener('click', function(e){
+    e.stopPropagation();
+    open ? closeMenu() : openMenu();
+  });
+
+  lmm.addEventListener('click', function(){
+    if(!open) openMenu();
+  });
+
+  // Close on outside click
+  const wrap = document.getElementById('lmm-wrap');
+  document.addEventListener('mousedown', function(e){
+    if(open && !wrap.contains(e.target)) closeMenu();
+  });
+
+  // Rebuild labels on language change
+  const _setLang = window.setLang;
+  window.setLang = function(l){
+    _setLang(l);
+    if(open) buildItems();
+  };
+})();
+</script>
+</body>
+</html>
