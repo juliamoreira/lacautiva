@@ -318,10 +318,10 @@
     .reviews-carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 4px}
     .reviews-carousel::-webkit-scrollbar{display:none}
     .review-card-home{flex:0 0 280px;scroll-snap-align:start}
-    .rv-car-btn{position:absolute;top:50%;transform:translateY(-50%);background:#43291f;color:#f4f0bb;border:none;width:36px;height:36px;cursor:pointer;font-size:18px;z-index:2;display:flex;align-items:center;justify-content:center;transition:opacity .15s;line-height:1}
+    .rv-car-btn{position:absolute;top:50%;transform:translateY(-50%);background:#43291f;color:#f4f0bb;border:none;width:36px;height:36px;cursor:pointer;font-size:18px;z-index:2;display:flex;align-items:center;justify-content:center;transition:opacity .15s;line-height:1;border-radius:50%}
     .rv-car-btn:hover{opacity:.8}
-    .rv-car-prev{left:0}
-    .rv-car-next{right:0}
+    .rv-car-prev{left:-20px}
+    .rv-car-next{right:-20px}
     .rating-summary{display:flex;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap;margin-bottom:32px;padding:28px 32px;background:#fff;border:1px solid rgba(67,41,31,.1)}
     .rating-big-num{font-family:'Playfair Display',serif;font-weight:700;font-size:56px;color:#43291f;line-height:1;display:block}
     .rating-bars{flex:1;min-width:160px}
@@ -732,7 +732,12 @@ const REVIEWS = [
   {id:12,name:'Diego Hernández',initials:'DH',stars:4,date:'2026-01-10',text:'Muy buena experiencia. Las cabañas están bien equipadas y el lugar es tranquilo. La piscina es el punto fuerte. Cerca del centro y del río, perfecta ubicación.',hasPhoto:false,photoHint:''},
   {id:13,name:'Camila Vera',initials:'CV',stars:5,date:'2025-12-20',text:'Organizamos una despedida de soltera y fue perfecto. El lugar es muy lindo, las cabañas cómodas y la atención excelente. La piscina y el quincho hicieron la diferencia.',hasPhoto:true,photoHint:'event'},
   {id:14,name:'Pablo Suárez',initials:'PS',stars:5,date:'2025-11-30',text:'Lugar increíble. Lo recomendamos a todo el mundo. Las sierras de fondo, la pileta, el quincho y las cabañas bien equipadas hacen de este lugar el destino ideal para grupos.',hasPhoto:false,photoHint:''},
-  {id:15,name:'Natalia Castro',initials:'NC',stars:4,date:'2025-10-15',text:'Muy buena estadía. Las cabañas son cómodas y limpias, el paisaje hermoso y los dueños muy amigables. Volvería sin dudar. Ideal para familias con chicos.',hasPhoto:true,photoHint:'nature'}
+  {id:15,name:'Natalia Castro',initials:'NC',stars:4,date:'2025-10-15',text:'Muy buena estadía. Las cabañas son cómodas y limpias, el paisaje hermoso y los dueños muy amigables. Volvería sin dudar. Ideal para familias con chicos.',hasPhoto:true,photoHint:'nature'},
+  {id:16,name:'Tomás Ibáñez',initials:'TI',stars:5,date:'2025-09-28',text:'Fuimos para un retiro de yoga y el lugar fue perfecto. Silencio absoluto, naturaleza, cabañas cómodas y los anfitriones atentos a todo. El patio cerrado es ideal para practicar al aire libre.',hasPhoto:false,photoHint:''},
+  {id:17,name:'Soledad Méndez',initials:'SM',stars:5,date:'2025-09-10',text:'Nos fuimos de escapada de fin de semana con mi pareja y fue hermoso. Cabaña muy equipada, cama cómoda, piscina impecable. La fogueira por la noche fue lo más romántico.',hasPhoto:true,photoHint:'nature'},
+  {id:18,name:'Javier Acosta',initials:'JA',stars:5,date:'2025-08-22',text:'Muy buen lugar. Llevamos la perra y los dueños nos recibieron sin problema. Pet friendly de verdad. Las instalaciones perfectas y el quincho ideal para el asado del domingo.',hasPhoto:false,photoHint:''},
+  {id:19,name:'Marina Blanco',initials:'MB',stars:4,date:'2025-08-05',text:'Lugar muy recomendable. Cabañas amplias, limpias y bien equipadas. La piscina es enorme para ser un complejo chico. El entorno de las sierras hace todo más especial.',hasPhoto:false,photoHint:''},
+  {id:20,name:'Ezequiel Torres',initials:'ET',stars:5,date:'2025-07-18',text:'Tercera vez que vamos y siempre superan las expectativas. Lugar tranquilo, limpio, con los mejores anfitriones de Tanti. No hay nada que no nos haya gustado.',hasPhoto:true,photoHint:'pool'}
 ];
 
 function renderStars(n){
@@ -1646,7 +1651,7 @@ function renderHome(L,waG,waE){
   <!-- REVIEWS CAROUSEL -->
   ${(()=>{
     const ml=ML[S.lang];
-    const topReviews=REVIEWS.filter(r=>r.stars>=4).slice(0,6);
+    const topReviews=REVIEWS.filter(r=>r.stars>=4).slice(0,10);
     const avgRaw=REVIEWS.reduce((s,r)=>s+r.stars,0)/REVIEWS.length;
     const avg=avgRaw.toFixed(1);
     const rvLabels={es:{title:'Lo que dicen nuestros huéspedes',viewAll:'Ver todas las reseñas ▸',google:'Reseñas de Google'},en:{title:'What our guests say',viewAll:'See all reviews ▸',google:'Google Reviews'},pt:{title:'O que nossos hóspedes dizem',viewAll:'Ver todas as avaliações ▸',google:'Avaliações no Google'}};
