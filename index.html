@@ -11,7 +11,6 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Dancing+Script:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.15/index.min.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -604,7 +603,7 @@
 /* ─────────────────────────────────────────────────────────
    STATE
 ───────────────────────────────────────────────────────── */
-const S = { page: 'home', lang: 'es', cabin: 1, menu: false, rv: {cin:'',cout:'',guests:1}, rvMode: 'reservar', rFilter: 0, rTab: 'comments',
+const S = { page: 'home', lang: 'es', cabin: 1, menu: false, rv: {cin:'',cout:'',guests:1}, rvMode: 'reservar', rFilter: 0, rTab: 'comments', locTab: 0,
   mobMenu: false, mobSlide: 0,
   mobForm: {name:'',email:'',phone:'',checkin:'',checkout:'',message:''},
   mobFormErrors: {}, mobFormSubmitted: false };
@@ -774,6 +773,10 @@ function carouselScroll(dir){
 }
 function setReviewFilter(n){
   S.rFilter=n;
+  render();
+}
+function setLocTab(i){
+  S.locTab=i;
   render();
 }
 function setReviewTab(t){
@@ -1531,12 +1534,6 @@ function render(){
 
   /* ── Main content ── */
   document.getElementById('app').innerHTML = renderPage(L,waG,waE);
-  if(S.page==='contact'){
-    customElements.whenDefined('gmpx-store-locator').then(()=>{
-      const loc=document.querySelector('gmpx-store-locator');
-      if(loc) loc.configureFromQuickBuilder(LOCATOR_CONFIG);
-    });
-  }
   refreshModal();
 
   /* ── Mobile V2 ── */
@@ -1560,6 +1557,46 @@ function renderPage(L,waG,waE){
     case 'reviews': return renderReviews(L);
     default:        return renderHome(L,waG,waE);
   }
+}
+
+/* ─────────────────────────────────────────────────────────
+   LOCATION STRIP (shared — bottom of every page)
+───────────────────────────────────────────────────────── */
+const OSM_EMBED='https://www.openstreetmap.org/export/embed.html?bbox=-64.623%2C-31.382%2C-64.572%2C-31.333&layer=mapnik&marker=-31.3578%2C-64.5977';
+const GMAPS_LINK='https://www.google.com/maps?q=-31.3577662,-64.5977465';
+const GMAPS_DIR='https://www.google.com/maps/dir/?api=1&destination=-31.3577662,-64.5977465';
+
+function renderLocationStrip(L){
+  const tb=(active)=>`padding:12px 28px;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border-bottom:2.5px solid ${active?'#da2c38':'transparent'};color:${active?'#da2c38':'#7b4b39'};transition:color .2s`;
+  const mapIframe=`<iframe src="${OSM_EMBED}" width="100%" height="300" style="border:0;border-radius:8px;display:block" loading="lazy"></iframe>`;
+  const content=S.locTab===0?`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.addrTitle}</h3>
+        <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 6px">Neuquén 99, Tanti, Córdoba, Argentina</p>
+        <p style="font-size:14px;line-height:1.7;color:#7b4b39;margin:0 0 24px">${L.contact.addrBody}</p>
+        <a href="${GMAPS_LINK}" target="_blank" rel="noopener" style="display:inline-block;padding:11px 22px;background:#da2c38;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.mapTitle} ↗</a>
+      </div>
+      <div>${mapIframe}</div>
+    </div>`:`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.howTitle}</h3>
+        <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 24px">${L.contact.howBody}</p>
+        <a href="${GMAPS_DIR}" target="_blank" rel="noopener" style="display:inline-block;padding:11px 22px;background:#226f54;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.howTitle} ↗</a>
+      </div>
+      <div>${mapIframe}</div>
+    </div>`;
+  return `
+  <section style="background:#f4f0bb;padding:clamp(40px,5vw,64px) clamp(20px,5vw,80px)">
+    <div class="wrap">
+      <div style="border-bottom:2px solid rgba(67,41,31,.15);margin-bottom:32px;display:flex">
+        <button onclick="setLocTab(0)" style="${tb(S.locTab===0)}">${L.contact.mapTitle}</button>
+        <button onclick="setLocTab(1)" style="${tb(S.locTab===1)}">${L.contact.howTitle}</button>
+      </div>
+      ${content}
+    </div>
+  </section>`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1697,26 +1734,11 @@ function renderHome(L,waG,waE){
     </section>`;
   })()}
 
-  <!-- ABOUT -->
+  <!-- GROUPS -->
   <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
     <div class="wrap">
-      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:40px">
-        <h2 class="section-title">${L.about.title}</h2>
-        <span style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,30px);color:#226f54">La Cautiva</span>
-      </div>
-      <p class="about-mobile-text">${L.about.body}</p>
-      <div class="about-grid">
-        ${img('imgs/about/interior.jpg','',340,'Interior')}
-        ${img('imgs/about/exterior.jpg','',340,'Exterior')}
-        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px">
-          <p style="font-size:15.5px;line-height:1.75;color:#43291f;margin-bottom:20px">${L.about.body}</p>
-          <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
-        </div>
-      </div>
-      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:28px">${srvTitle}</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${srvGrid}</div>
-      </div>
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px">${L.groups.title}</h2>
+      <div class="groups-grid">${groupItems}</div>
     </div>
   </section>
 
@@ -1757,11 +1779,26 @@ function renderHome(L,waG,waE){
     </div>
   </section>
 
-  <!-- GROUPS -->
+  <!-- ABOUT -->
   <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
     <div class="wrap">
-      <h2 class="section-title" style="text-align:center;margin-bottom:40px">${L.groups.title}</h2>
-      <div class="groups-grid">${groupItems}</div>
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:40px">
+        <h2 class="section-title">${L.about.title}</h2>
+        <span style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,30px);color:#226f54">La Cautiva</span>
+      </div>
+      <p class="about-mobile-text">${L.about.body}</p>
+      <div class="about-grid">
+        ${img('imgs/about/interior.jpg','',340,'Interior')}
+        ${img('imgs/about/exterior.jpg','',340,'Exterior')}
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px">
+          <p style="font-size:15.5px;line-height:1.75;color:#43291f;margin-bottom:20px">${L.about.body}</p>
+          <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:28px">${srvTitle}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${srvGrid}</div>
+      </div>
     </div>
   </section>
 
@@ -1788,7 +1825,8 @@ function renderHome(L,waG,waE){
       <p>${L.homeEvents.sub}</p>
       <span class="btn-outline-light" onclick="go('events')" role="button" tabindex="0">${L.homeEvents.cta} ▸</span>
     </div>
-  </section>`;
+  </section>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1855,7 +1893,8 @@ function renderCabins(L,waG){
   <div style="padding:0 clamp(20px,5vw,80px)">
     <div class="cabin-tabs" role="tablist">${tabs}</div>
   </div>
-  ${detail}`;
+  ${detail}
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1912,7 +1951,8 @@ function renderEvents(L,waE){
         <span class="evt-no-dates" onclick="consultarEvento(false)">${ml.evtNoDates}</span>
       </div>
     </div>
-  </div>`;
+  </div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1939,7 +1979,8 @@ function renderGallery(L){
     <div class="divider"></div>
     <p class="page-sub">${L.galleryPage.sub}</p>
   </div>
-  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1200px;margin:0 auto">${sections}</div>`;
+  <div style="padding:0 clamp(20px,5vw,80px) 100px;max-width:1200px;margin:0 auto">${sections}</div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1971,7 +2012,8 @@ function renderThings(L){
       <p style="color:#7b4b39;font-size:15px;margin:0 0 26px">${L.things.doIntro}</p>
       <div class="things-grid">${cards}</div>
     </div>
-  </div>`;
+  </div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1999,7 +2041,8 @@ function renderBlog(L){
       <span class="coming-soon">${L.blog.comingSoon}</span>
     </div>
     <div class="blog-grid">${cards}</div>
-  </div>`;
+  </div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -2036,13 +2079,12 @@ function renderContact(L,waG){
       </div>
       <div>
         <h2 class="contact-subtitle">${L.contact.mapTitle}</h2>
-        <div style="width:100%;height:400px;position:relative">
-          <gmpx-api-loader key="YOUR_API_KEY_HERE" solution-channel="GMP_QB_locatorplus_v11_c"></gmpx-api-loader>
-          <gmpx-store-locator map-id="DEMO_MAP_ID" style="width:100%;height:100%"></gmpx-store-locator>
-        </div>
+        <iframe src="${OSM_EMBED}" width="100%" height="400" style="border:0;border-radius:8px;display:block" loading="lazy"></iframe>
+        <div style="margin-top:8px;text-align:right"><a href="${GMAPS_LINK}" target="_blank" rel="noopener" style="font-size:12px;color:#226f54;font-weight:600">Ver en Google Maps ↗</a></div>
       </div>
     </div>
-  </div>`;
+  </div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -2126,7 +2168,8 @@ function renderReviews(L){
       ${photoReviews.length>0?`<div class="review-photo-grid">${photoGrid}</div>`:`<p style="color:#7b4b39;font-size:14px">${rl.noPhotos}</p>`}
       `}
     </div>
-  </div>`;
+  </div>
+  ${renderLocationStrip(L)}`;
 }
 
 /* ─────────────────────────────────────────────────────────
