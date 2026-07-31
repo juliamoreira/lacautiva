@@ -1285,17 +1285,7 @@ function renderMobile(){
   if(f.name) ctParts.push('- '+f.name);
   var waC=wa(ctParts.join('. '));
 
-  var SVG_ICONS=[
-    '<path d="M4 18c2-2 4-2 6 0s4 2 6 0M4 14c2-2 4-2 6 0s4 2 6 0M9 10a3 3 0 100-6 3 3 0 000 6z"/>',
-    '<path d="M12 3c-2 4-4 7-4 10a4 4 0 008 0c0-3-2-6-4-10z"/><line x1="8" y1="21" x2="16" y2="21"/>',
-    '<path d="M9 14c0-3 3-6 3-11 0 5 3 8 3 11a3 3 0 01-6 0z"/><line x1="6" y1="21" x2="18" y2="21"/>',
-    '<path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>',
-    '<path d="M12 2v20M17.66 8l-11.32 8M19.07 5L4.93 19M22 12H2M19.07 19L4.93 5M17.66 16l-11.32-8"/>',
-    '<path d="M5 17H3v-5l2.5-6h13l2.5 6v5h-2M5 17a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z"/>',
-    '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>',
-    '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>',
-    '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>'
-  ];
+  // SVG_ICONS defined globally above renderHome()
 
   var cabanaCards=M.cabanas.list.map(function(c){
     var cardImg=c.photo?'<div style="height:110px;overflow:hidden">'+img(c.photo,'ph-pool',110,'')+'</div>':'';
@@ -1568,6 +1558,21 @@ function renderPage(L,waG,waE){
 }
 
 /* ─────────────────────────────────────────────────────────
+   SHARED ICONS (home + mobile)
+───────────────────────────────────────────────────────── */
+const SVG_ICONS=[
+  '<path d="M4 18c2-2 4-2 6 0s4 2 6 0M4 14c2-2 4-2 6 0s4 2 6 0M9 10a3 3 0 100-6 3 3 0 000 6z"/>',
+  '<path d="M12 3c-2 4-4 7-4 10a4 4 0 008 0c0-3-2-6-4-10z"/><line x1="8" y1="21" x2="16" y2="21"/>',
+  '<path d="M9 14c0-3 3-6 3-11 0 5 3 8 3 11a3 3 0 01-6 0z"/><line x1="6" y1="21" x2="18" y2="21"/>',
+  '<path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>',
+  '<path d="M12 2v20M17.66 8l-11.32 8M19.07 5L4.93 19M22 12H2M19.07 19L4.93 5M17.66 16l-11.32-8"/>',
+  '<path d="M5 17H3v-5l2.5-6h13l2.5 6v5h-2M5 17a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z"/>',
+  '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>',
+  '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>',
+  '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>'
+];
+
+/* ─────────────────────────────────────────────────────────
    HOME
 ───────────────────────────────────────────────────────── */
 function renderHome(L,waG,waE){
@@ -1582,12 +1587,16 @@ function renderHome(L,waG,waE){
       </div>
     </div>`).join('');
 
-  const aboutLinks=L.aboutLinks.map(al=>`
-    <div onclick="${al.p==='common'?'openCommon()':'go(\''+al.p+'\')'}" style="cursor:pointer">
-      <div class="about-link-title">${al.t}</div>
-      <div class="about-link-desc">${al.d}</div>
-      <div class="about-link-cta">${L.about.cta} ▸</div>
-    </div>`).join('');
+  const TML=TM[S.lang];
+  const srvTitle={es:'Servicios y comodidades',pt:'Serviços e comodidades',en:'Amenities'}[S.lang];
+  const srvGrid=TML.servicios.items.map((item,i)=>{
+    const icon=SVG_ICONS[i]||'<circle cx="12" cy="12" r="9"/>';
+    return `<div class="m2-srv" style="padding:20px 14px;border-radius:12px">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#da2c38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icon}</svg>
+      <div class="about-link-title" style="margin-top:10px">${item.name}</div>
+      <div style="font-size:13px;color:#7b4b39;line-height:1.5;margin:0">${item.desc}</div>
+    </div>`;
+  }).join('');
 
   const groupItems=L.groups.items.map(g=>`
     <div class="group-item">
@@ -1699,7 +1708,10 @@ function renderHome(L,waG,waE){
           <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
         </div>
       </div>
-      <div class="about-links">${aboutLinks}</div>
+      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:28px">${srvTitle}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${srvGrid}</div>
+      </div>
     </div>
   </section>
 
