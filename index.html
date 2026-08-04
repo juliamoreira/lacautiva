@@ -1567,34 +1567,32 @@ const GMAPS_LINK='https://www.google.com/maps?q=-31.3577662,-64.5977465';
 const GMAPS_DIR='https://www.google.com/maps/dir/?api=1&destination=-31.3577662,-64.5977465';
 
 function renderLocationStrip(L){
-  const tb=(active)=>`padding:12px 28px;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border-bottom:2.5px solid ${active?'#da2c38':'transparent'};color:${active?'#da2c38':'#7b4b39'};transition:color .2s`;
-  const mapIframe=`<iframe src="${OSM_EMBED}" width="100%" height="300" style="border:0;border-radius:8px;display:block" loading="lazy"></iframe>`;
-  const content=S.locTab===0?`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
-      <div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.addrTitle}</h3>
-        <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 6px">Neuquén 99, Tanti, Córdoba, Argentina</p>
-        <p style="font-size:14px;line-height:1.7;color:#7b4b39;margin:0 0 24px">${L.contact.addrBody}</p>
-        <a href="${GMAPS_LINK}" target="_blank" rel="noopener" style="display:inline-block;padding:11px 22px;background:#da2c38;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.mapTitle} ↗</a>
-      </div>
-      <div>${mapIframe}</div>
-    </div>`:`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
-      <div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.howTitle}</h3>
-        <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 24px">${L.contact.howBody}</p>
-        <a href="${GMAPS_DIR}" target="_blank" rel="noopener" style="display:inline-block;padding:11px 22px;background:#226f54;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.howTitle} ↗</a>
-      </div>
-      <div>${mapIframe}</div>
-    </div>`;
+  const tabBase='padding:12px 28px;border:none;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:none;border-bottom:2.5px solid';
   return `
   <section style="background:#f4f0bb;padding:clamp(40px,5vw,64px) clamp(20px,5vw,80px)">
     <div class="wrap">
       <div style="border-bottom:2px solid rgba(67,41,31,.15);margin-bottom:32px;display:flex">
-        <button onclick="setLocTab(0)" style="${tb(S.locTab===0)}">${L.contact.mapTitle}</button>
-        <button onclick="setLocTab(1)" style="${tb(S.locTab===1)}">${L.contact.howTitle}</button>
+        <a href="${GMAPS_LINK}" target="_blank" rel="noopener"
+           style="${tabBase} #da2c38;color:#da2c38;text-decoration:none;display:inline-block">
+          ${L.contact.mapTitle} ↗
+        </a>
+        <div style="${tabBase} transparent;color:#7b4b39;display:inline-block">${L.contact.howTitle}</div>
       </div>
-      ${content}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.howTitle}</h3>
+          <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 24px">${L.contact.howBody}</p>
+          <a href="${GMAPS_DIR}" target="_blank" rel="noopener"
+             style="display:inline-block;padding:11px 22px;background:#226f54;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.howTitle} ↗</a>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:21px;color:#43291f;margin:0 0 14px">${L.contact.addrTitle}</h3>
+          <p style="font-size:14px;line-height:1.7;color:#43291f;margin:0 0 6px">Neuquén 99, Tanti, Córdoba, Argentina</p>
+          <p style="font-size:14px;line-height:1.7;color:#7b4b39;margin:0 0 24px">${L.contact.addrBody}</p>
+          <a href="${GMAPS_LINK}" target="_blank" rel="noopener"
+             style="display:inline-block;padding:11px 22px;background:#da2c38;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:3px">${L.contact.mapTitle} ↗</a>
+        </div>
+      </div>
     </div>
   </section>`;
 }
@@ -1640,18 +1638,9 @@ function renderHome(L,waG,waE){
     </div>`;
   }).join('');
 
-  const groupItems=L.groups.items.map(g=>`
-    <div class="group-item">
-      <div class="group-title">${g.t}</div>
-      <div class="group-desc">${g.d}</div>
-    </div>`).join('');
-
   return `
   <!-- HERO -->
   <section class="hero">
-    <!-- Replace the gradient with your hero photo:
-         <img src="assets/hero-sunset.jpg" alt="La Cautiva Cabañas" ...>
-         For now using gradient placeholder. -->
     <div class="hero-bg ph-hero" role="img" aria-label="Vista de las cabañas en las sierras de Tanti"
          data-src="imgs/hero.jpg" onclick="if(EDIT_MODE){event.stopPropagation();uploadImg(this.dataset.src,this)}">
       <img src="imgs/hero.jpg" alt="" loading="eager"
@@ -1673,17 +1662,39 @@ function renderHome(L,waG,waE){
     </div>
   </section>
 
-  <!-- EVENTS BANNER -->
-  <section class="events-banner events-banner-top">
-    <div style="max-width:820px;margin:0 auto">
-      <div class="eyebrow">${L.homeEvents.eyebrow}</div>
-      <h2>${L.homeEvents.title}</h2>
-      <p>${L.homeEvents.sub}</p>
-      <span class="btn-outline-light" onclick="go('events')" role="button" tabindex="0">${L.homeEvents.cta} ▸</span>
+  <!-- ABOUT + NUESTRAS CABAÑAS -->
+  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
+    <div class="wrap">
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:40px">
+        <h2 class="section-title">${L.about.title}</h2>
+        <span style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,30px);color:#226f54">La Cautiva</span>
+      </div>
+      <p class="about-mobile-text">${L.about.body}</p>
+      <div class="about-grid">
+        ${img('imgs/about/interior.jpg','',340,'Interior')}
+        ${img('imgs/about/exterior.jpg','',340,'Exterior')}
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px">
+          <p style="font-size:15.5px;line-height:1.75;color:#43291f;margin-bottom:20px">${L.about.body}</p>
+          <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:24px">${L.cabinsHome.title}</div>
+        <p style="font-size:14px;color:#7b4b39;margin:0 0 28px">${L.cabinsHome.sub}</p>
+        <div class="cabin-grid">
+          ${cabinCards}
+          <div class="cabin-common" onclick="openCommon()">
+            <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:#f4f0bb">${L.cabinsHome.common}</div>
+            <div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#c7eee0;margin-top:8px">${L.cabinsHome.viewAll} ▸</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:28px">${srvTitle}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${srvGrid}</div>
+      </div>
     </div>
   </section>
-
-  <!-- MARQUEE -->
 
   <!-- REVIEWS CAROUSEL -->
   ${(()=>{
@@ -1734,31 +1745,6 @@ function renderHome(L,waG,waE){
     </section>`;
   })()}
 
-  <!-- GROUPS -->
-  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
-    <div class="wrap">
-      <h2 class="section-title" style="text-align:center;margin-bottom:40px">${L.groups.title}</h2>
-      <div class="groups-grid">${groupItems}</div>
-    </div>
-  </section>
-
-  <!-- CABINS PREVIEW -->
-  <section style="padding:clamp(40px,6vw,80px) clamp(20px,5vw,80px);background:#226f54">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:40px">
-        <h2 class="section-title" style="color:#f4f0bb">${L.cabinsHome.title}</h2>
-        <p class="page-sub" style="margin-top:12px;color:#c7eee0">${L.cabinsHome.sub}</p>
-      </div>
-      <div class="cabin-grid">
-        ${cabinCards}
-        <div class="cabin-common" onclick="openCommon()">
-          <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:#f4f0bb">${L.cabinsHome.common}</div>
-          <div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#c7eee0;margin-top:8px">${L.cabinsHome.viewAll} ▸</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- HOW TO BOOK -->
   <section style="background:#1b100c;padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
     <div style="max-width:900px;margin:0 auto;text-align:center">
@@ -1779,31 +1765,8 @@ function renderHome(L,waG,waE){
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
-    <div class="wrap">
-      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:40px">
-        <h2 class="section-title">${L.about.title}</h2>
-        <span style="font-family:'Dancing Script',cursive;font-size:clamp(20px,2.4vw,30px);color:#226f54">La Cautiva</span>
-      </div>
-      <p class="about-mobile-text">${L.about.body}</p>
-      <div class="about-grid">
-        ${img('imgs/about/interior.jpg','',340,'Interior')}
-        ${img('imgs/about/exterior.jpg','',340,'Exterior')}
-        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px">
-          <p style="font-size:15.5px;line-height:1.75;color:#43291f;margin-bottom:20px">${L.about.body}</p>
-          <span class="about-cta" onclick="go('cabins')" role="button" tabindex="0">${L.about.cta} ▸</span>
-        </div>
-      </div>
-      <div style="border-top:1px solid rgba(67,41,31,.15);margin-top:56px;padding-top:44px">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#226f54;margin-bottom:28px">${srvTitle}</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">${srvGrid}</div>
-      </div>
-    </div>
-  </section>
-
   <!-- GALLERY PREVIEW -->
-  <section style="padding:0 clamp(20px,5vw,80px) clamp(56px,8vw,100px)">
+  <section style="padding:clamp(56px,8vw,100px) clamp(20px,5vw,80px)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:30px">
         <h2 class="section-title">${L.galleryHome.title}</h2>
@@ -1818,7 +1781,8 @@ function renderHome(L,waG,waE){
     </div>
   </section>
 
-  <section class="events-banner events-banner-mob">
+  <!-- EVENTS BANNER -->
+  <section class="events-banner events-banner-top">
     <div style="max-width:820px;margin:0 auto">
       <div class="eyebrow">${L.homeEvents.eyebrow}</div>
       <h2>${L.homeEvents.title}</h2>
@@ -1826,6 +1790,7 @@ function renderHome(L,waG,waE){
       <span class="btn-outline-light" onclick="go('events')" role="button" tabindex="0">${L.homeEvents.cta} ▸</span>
     </div>
   </section>
+
   ${renderLocationStrip(L)}`;
 }
 
