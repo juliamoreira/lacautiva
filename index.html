@@ -648,6 +648,11 @@ function adminLogout(){
   location.href = location.pathname;
 }
 
+function resetGhToken(){
+  localStorage.removeItem('lc_gh_pat');
+  showEditToast('Token removido — clique numa foto para inserir o novo');
+}
+
 function getGhToken(){
   let t = localStorage.getItem('lc_gh_pat');
   if(!t){
@@ -2637,6 +2642,7 @@ render();
   <span style="font-weight:700;letter-spacing:.04em">Admin · La Cautiva</span>
   <span style="flex:1;font-size:11px;opacity:.6">Clique em qualquer foto para substituir</span>
   <button id="btn-edit" onclick="toggleEditMode()" style="background:#dda15e;color:#283618;border:none;padding:8px 18px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:2px">✏ Editar fotos</button>
+  <button onclick="resetGhToken()" style="background:none;color:rgba(254,250,224,.6);border:1px solid rgba(254,250,224,.25);padding:8px 14px;font-family:'Work Sans',sans-serif;font-size:11px;cursor:pointer;border-radius:2px">Trocar token</button>
   <button onclick="adminLogout()" style="background:none;color:rgba(254,250,224,.6);border:1px solid rgba(254,250,224,.25);padding:8px 14px;font-family:'Work Sans',sans-serif;font-size:11px;cursor:pointer;border-radius:2px">Sair</button>
 </div>
 
