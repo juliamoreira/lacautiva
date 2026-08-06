@@ -287,6 +287,20 @@
     body.edit-mode .hero-bg{outline:3px dashed rgba(96,108,56,.7);outline-offset:-4px}
     body.edit-mode .hero-bg .img-edit-ov{opacity:.22;pointer-events:auto;cursor:pointer}
     body.edit-mode .hero-bg .img-edit-ov:hover{opacity:.85}
+    /* ── Lightbox ─────────────────────────────────────────── */
+    .lc-lb{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+    .lc-lb.open{display:flex}
+    .lc-lb-img{max-width:92vw;max-height:92vh;object-fit:contain;display:block;box-shadow:0 8px 60px rgba(0,0,0,.5)}
+    .lc-lb-close{position:absolute;top:18px;right:22px;background:none;border:none;color:#fefae0;font-size:36px;line-height:1;cursor:pointer;padding:4px 8px;opacity:.65;transition:opacity .15s}
+    .lc-lb-close:hover{opacity:1}
+    .lc-lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(254,250,224,.12);border:none;color:#fefae0;font-size:32px;padding:12px 18px;cursor:pointer;transition:background .15s;line-height:1}
+    .lc-lb-nav:hover{background:rgba(254,250,224,.22)}
+    .lc-lb-nav.prev{left:12px}
+    .lc-lb-nav.next{right:12px}
+    /* ── Cabin photo inner (flex, hides missing slots) ──────── */
+    .cabin-photo-inner{display:flex;flex-wrap:wrap;gap:1px;background:rgba(40,54,24,.15);align-content:flex-start}
+    .cabin-photo-inner .img-slot{flex:0 0 calc(50% - 0.5px);height:189px!important}
+    .img-slot[data-loaded]:not(.edit-mode *){cursor:zoom-in}
     .rv-tabs{display:flex;border-bottom:1px solid rgba(40,54,24,.12);margin:-24px -28px 20px;padding:0 28px}
     .rv-tab{flex:1;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;padding:14px 4px;font-family:'Work Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;color:#9d6321;transition:color .15s,border-color .15s;white-space:nowrap}
     .rv-tab.active{color:#283618;border-bottom-color:#283618}
@@ -748,6 +762,28 @@ function showEditToast(msg){
   t.textContent=msg; t.style.opacity='1';
   clearTimeout(_etT); _etT=setTimeout(()=>{t.style.opacity='0';},4000);
 }
+
+/* ── Lightbox ─────────────────────────────────────────── */
+let _lbSrcs=[], _lbIdx=0;
+function openLb(src){
+  const lb=document.getElementById('lc-lb');
+  const lbImg=document.getElementById('lc-lb-img');
+  if(!lb||!lbImg) return;
+  _lbSrcs=Array.from(document.querySelectorAll('.img-slot[data-loaded]')).map(s=>s.dataset.src);
+  _lbIdx=_lbSrcs.indexOf(src);
+  if(_lbIdx<0){_lbSrcs=[src];_lbIdx=0;}
+  lbImg.src=_lbSrcs[_lbIdx];
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){
+  const lb=document.getElementById('lc-lb');
+  if(lb) lb.classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbPrev(e){e.stopPropagation();if(_lbSrcs.length<2)return;_lbIdx=(_lbIdx-1+_lbSrcs.length)%_lbSrcs.length;document.getElementById('lc-lb-img').src=_lbSrcs[_lbIdx];}
+function lbNext(e){e.stopPropagation();if(_lbSrcs.length<2)return;_lbIdx=(_lbIdx+1)%_lbSrcs.length;document.getElementById('lc-lb-img').src=_lbSrcs[_lbIdx];}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbPrev(e);if(e.key==='ArrowRight')lbNext(e);});
 /* ── fim admin ──────────────────────────────────────────── */
 
 /* ─────────────────────────────────────────────────────────
@@ -1292,15 +1328,18 @@ function ph(cls='', h=200, label=''){
   </div>`;
 }
 
-function img(src, cls='', h=200, label='', lazy=true){
-  return `<div class="img-slot" data-src="${src}" style="height:${h}px;overflow:hidden;position:relative" onclick="if(EDIT_MODE){event.stopPropagation();uploadImg(this.dataset.src,this)}">
+function img(src, cls='', h=200, label='', lazy=true, hideOnError=false){
+  const errHandler = hideOnError
+    ? `this.style.display='none';this.parentNode.style.display='none'`
+    : `this.style.display='none'`;
+  return `<div class="img-slot" data-src="${src}" style="height:${h}px;overflow:hidden;position:relative" onclick="if(EDIT_MODE){event.stopPropagation();uploadImg(this.dataset.src,this)}else if(this.dataset.loaded){openLb(this.dataset.src)}">
     <div class="ph ${cls}" style="position:absolute;inset:0;height:auto;display:flex;align-items:center;justify-content:center">
       <span style="color:rgba(254,250,224,.25);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">${label}</span>
     </div>
     <img src="${src}" alt="${label}" loading="${lazy?'lazy':'eager'}"
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1"
-      onload="this.previousElementSibling.style.display='none'"
-      onerror="this.style.display='none'">
+      onload="this.previousElementSibling.style.display='none';this.parentNode.dataset.loaded='1'"
+      onerror="${errHandler}">
     <div class="img-edit-ov">📷</div>
   </div>`;
 }
@@ -1932,9 +1971,9 @@ function renderCabins(L,waG){
     <section style="background:#faedcd;padding:44px clamp(20px,5vw,80px) 100px;max-width:1100px;margin:0 auto">
       <div class="detail-grid">
         ${img(`imgs/cabins/${c.id}/1.jpg`,'',380,cabinLabel(c.id,S.lang))}
-        <div class="detail-inner">
-          ${img(`imgs/cabins/${c.id}/2.jpg`,'',189,'')}${img(`imgs/cabins/${c.id}/3.jpg`,'',189,'')}
-          ${img(`imgs/cabins/${c.id}/4.jpg`,'',189,'')}${img(`imgs/cabins/${c.id}/5.jpg`,'',189,'')}
+        <div class="cabin-photo-inner">
+          ${img(`imgs/cabins/${c.id}/2.jpg`,'',189,'',true,true)}${img(`imgs/cabins/${c.id}/3.jpg`,'',189,'',true,true)}
+          ${img(`imgs/cabins/${c.id}/4.jpg`,'',189,'',true,true)}${img(`imgs/cabins/${c.id}/5.jpg`,'',189,'',true,true)}
         </div>
       </div>
       <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px">
@@ -2636,6 +2675,14 @@ render();
   };
 })();
 </script>
+
+<!-- ═══ LIGHTBOX ════════════════════════════════════════ -->
+<div id="lc-lb" class="lc-lb" onclick="closeLb()">
+  <img id="lc-lb-img" class="lc-lb-img" alt="">
+  <button class="lc-lb-close" onclick="event.stopPropagation();closeLb()">×</button>
+  <button class="lc-lb-nav prev" onclick="lbPrev(event)">‹</button>
+  <button class="lc-lb-nav next" onclick="lbNext(event)">›</button>
+</div>
 
 <!-- ═══ ADMIN BAR (visível só com ?edit=cautiva) ════════ -->
 <div id="edit-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#283618;color:#fefae0;padding:10px 20px;align-items:center;gap:12px;font-size:13px;font-family:'Work Sans',sans-serif;box-shadow:0 -2px 12px rgba(0,0,0,.3)">
