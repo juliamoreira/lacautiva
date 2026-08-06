@@ -621,7 +621,7 @@
 ───────────────────────────────────────────────────────── */
 const S = { page: 'home', lang: 'es', cabin: 1, menu: false, rv: {cin:'',cout:'',guests:1}, rvMode: 'reservar', rFilter: 0, rTab: 'comments', locTab: 0,
   mobMenu: false, mobSlide: 0,
-  mobForm: {name:'',email:'',phone:'',checkin:'',checkout:'',message:''},
+  mobForm: {checkin:'',checkout:'',pessoas:'',message:''},
   mobFormErrors: {}, mobFormSubmitted: false };
 
 const LOCATOR_CONFIG = {
@@ -1394,8 +1394,6 @@ function mobUpdateForm(key,val){ S.mobForm[key]=val; }
 function mobSubmit(e){
   e.preventDefault();
   var M=(TM[S.lang]||TM.es).contacto, f=S.mobForm, errors={};
-  if(!f.name.trim()) errors.name=M.required;
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) errors.email=M.invalidEmail;
   if(!f.checkin||!f.checkout) errors.checkin=M.required;
   var sc=mobGetScroll(), top=sc?sc.scrollTop:0;
   if(Object.keys(errors).length){ S.mobFormErrors=errors; S.mobFormSubmitted=false; render(); sc=mobGetScroll(); if(sc) sc.scrollTop=top; return; }
@@ -1410,10 +1408,12 @@ function renderMobile(){
   var f=S.mobForm, fe=S.mobFormErrors;
   var slides=M.galeria.slides, si=S.mobSlide%slides.length;
   var mapsUrl='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('La Cautiva Cabañas, Tanti, Córdoba, Argentina');
+  var today=new Date().toISOString().slice(0,10);
   var ctParts=[msgGeneral(S.lang)];
   if(f.checkin) ctParts.push('Check-in: '+f.checkin);
   if(f.checkout) ctParts.push('Check-out: '+f.checkout);
-  if(f.name) ctParts.push('- '+f.name);
+  if(f.pessoas) ctParts.push({es:'Personas',pt:'Pessoas',en:'Guests'}[S.lang]+': '+f.pessoas);
+  if(f.message) ctParts.push(f.message);
   var waC=wa(ctParts.join('. '));
 
   // SVG_ICONS defined globally above renderHome()
@@ -1547,31 +1547,24 @@ function renderMobile(){
         <h2 class="m2-sec-title">${M.contacto.title}</h2>
         <p class="m2-card-body" style="margin-bottom:16px">${M.contacto.intro}</p>
         <form onsubmit="mobSubmit(event)" novalidate style="display:flex;flex-direction:column">
-          <div class="m2-field">
-            <label class="m2-label">${M.contacto.name}</label>
-            <input class="m2-input${fe.name?' err':''}" value="${(f.name||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('name',this.value)">
-            ${fe.name?'<div class="m2-err">'+fe.name+'</div>':''}
-          </div>
-          <div class="m2-field">
-            <label class="m2-label">${M.contacto.email}</label>
-            <input type="email" class="m2-input${fe.email?' err':''}" value="${(f.email||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('email',this.value)">
-            ${fe.email?'<div class="m2-err">'+fe.email+'</div>':''}
-          </div>
-          <div class="m2-field">
-            <label class="m2-label">${M.contacto.phone}</label>
-            <input type="tel" class="m2-input" value="${(f.phone||'').replace(/"/g,'&quot;')}" oninput="mobUpdateForm('phone',this.value)">
-          </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="m2-field">
               <label class="m2-label">${M.contacto.checkin}</label>
-              <input type="date" class="m2-input${fe.checkin?' err':''}" value="${f.checkin||''}" oninput="mobUpdateForm('checkin',this.value)">
+              <input type="date" class="m2-input${fe.checkin?' err':''}" value="${f.checkin||''}" min="${today}" oninput="mobUpdateForm('checkin',this.value)">
             </div>
             <div class="m2-field">
               <label class="m2-label">${M.contacto.checkout}</label>
-              <input type="date" class="m2-input" value="${f.checkout||''}" oninput="mobUpdateForm('checkout',this.value)">
+              <input type="date" class="m2-input" value="${f.checkout||''}" min="${today}" oninput="mobUpdateForm('checkout',this.value)">
             </div>
           </div>
           ${fe.checkin?'<div class="m2-err" style="margin-top:-8px;margin-bottom:10px">'+fe.checkin+'</div>':''}
+          <div class="m2-field">
+            <label class="m2-label">${{es:'Personas',pt:'Pessoas',en:'Guests'}[S.lang]}</label>
+            <select class="m2-input" style="background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23241d15'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;-webkit-appearance:none;appearance:none" onchange="mobUpdateForm('pessoas',this.value)">
+              <option value="">${{es:'¿Cuántas personas?',pt:'Quantas pessoas?',en:'How many guests?'}[S.lang]}</option>
+              ${[1,2,3,4,5,6,7,8,9,10,11,12,13,14].map(n=>`<option value="${n}"${f.pessoas==n?' selected':''}>${n}</option>`).join('')}
+            </select>
+          </div>
           <div class="m2-field">
             <label class="m2-label">${M.contacto.message}</label>
             <textarea class="m2-input" rows="3" oninput="mobUpdateForm('message',this.value)">${f.message||''}</textarea>
@@ -1962,7 +1955,6 @@ function renderCabins(L,waG){
       <div class="feature-list">
         ${L.cabinsPage.commonFeatures.map(f=>`<div class="feature-item">${f}</div>`).join('')}
       </div>
-      <button onclick="openModal()" class="btn-reserve">${L.cabinsPage.reserve} ▸</button>
     </section>`;
   } else {
     const c=CABINS.find(x=>x.id===S.cabin)||CABINS[0];
